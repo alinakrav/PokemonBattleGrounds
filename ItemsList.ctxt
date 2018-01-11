@@ -1,0 +1,21 @@
+#BlueJ class context
+comment0.target=ItemsList
+comment1.params=itemList\ category\ x\ y
+comment1.target=ItemsList(java.util.ArrayList,\ int,\ int,\ int)
+comment2.params=
+comment2.target=void\ act()
+comment3.params=
+comment3.target=void\ prepare()
+comment4.params=choice
+comment4.target=void\ select(Item)
+comment5.params=
+comment5.target=void\ removeEverything()
+comment6.params=index
+comment6.target=int\ getItemLocation(int)
+comment7.params=
+comment7.target=int\ getMaxIndex()
+comment8.params=
+comment8.target=int\ getX()
+comment9.params=
+comment9.target=int\ getY()
+numComments=10
