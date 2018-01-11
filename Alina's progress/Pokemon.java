@@ -287,7 +287,8 @@ public class Pokemon extends Actor
     }
     
     public void useItem(String itemName, boolean enemy) {
-        
+        System.out.println(itemName + " used.");
+        // this is where the item is used to boost whatever stats
     }
 }
 

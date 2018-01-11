@@ -73,7 +73,11 @@ public class ItemsList extends Actor
         //System.out.println(choice);
         //world.removeObject(choice);
         chosen = choice.name;
-        world.getObjects(Bag.class).get(0).itemChosen(chosen);
+        // i think the item should be chosen from this class, because it's less work and a shorter way
+        Turns.player.useItem(chosen, false);
+        world.getObjects(Bag.class).get(0).removeEverything(); // exit the Bag object back to main screen
+        // decided that I'm not using items from the Bag class
+        // world.getObjects(Bag.class).get(0).itemChosen(chosen);
     }
 
     // removes everything created from this object
