@@ -19,28 +19,29 @@ public class ItemSelection extends Actor
     public void act() 
     {
         prepare();
-        
+
         if(keys.keyNotNull()) {
             if(keys.keyIs("down") && itemIndex < itemsList.getMaxIndex()) 
                 setLocation(getX(), itemsList.getItemLocation(++itemIndex)); 
             else if(keys.keyIs("up") && itemIndex > 0)
                 setLocation(getX(), itemsList.getItemLocation(--itemIndex)); 
-            else if(keys.keyIs("enter"))
+            currentItem().changeDescription(); // update description when selection moves up/down
+            if(keys.keyIs("enter"))
                 itemsList.select(currentItem());
-            currentItem().changeDescription();
         }
     }
 
     private Item currentItem() {
         return world.getObjectsAt(getX(), getY(), Item.class).get(0);
     }
-    
+
     public void prepare() {
         if(init) {
             world = (MyWorld)getWorld();
             keys = world.getKeys();
             init = false;
             /////////
+            currentItem().changeDescription(); // when selection is first made, set description to first item
         }
     }
 }

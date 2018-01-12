@@ -78,11 +78,11 @@ public class Bag extends Actor
 
     public void removeEverything() {
         ArrayList<Class> bagClasses = new ArrayList<>();
+        bagClasses.add(ItemSelection.class); // itemselection checks for objects of other classes in its act(), so should be removed first
         bagClasses.add(BagCategories.class);
         bagClasses.add(ItemsList.class);
-        bagClasses.add(ItemSelection.class);
         bagClasses.add(Item.class);
-
+        bagClasses.add(ItemDescription.class);
         for(Class c: bagClasses)
             world.removeObjects(world.getObjects(c));
         world.removeObject(this);

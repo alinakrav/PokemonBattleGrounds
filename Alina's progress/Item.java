@@ -46,7 +46,7 @@ public class Item extends Actor
 
     public void assignImage() {
         setImage("item" + name + ".png");
-        if(amount != -1) 
+        if(amount != -1) // if item isn't 'cancel'
             getImage().drawImage(new GreenfootImage("amount" + amount + ".png"), 0, 0); // note: the x and y are relative to the image, not window coordinates
     }
 
@@ -60,7 +60,8 @@ public class Item extends Actor
             getWorld().addObject(itemDescription, 400, 500);
             changeDescription(); // call back to this method, since next time there will be a description present
         }
-        else // if description exists and item is not 'cancel', then description's image changes 
+        else {// if description exists and item is not 'cancel', then description's image changes 
             world.getObjects(ItemDescription.class).get(0).setImage("ItemDescription_" + name + ".png");
+        }
     }
 }
