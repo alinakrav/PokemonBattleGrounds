@@ -7,13 +7,14 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @version (a version number or a date)
  */
 public class MyWorld extends World
-{
+{   
     KeyReader keys;
     public MyWorld()
     {    
+
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(800, 600, 1);
-
+       
         keys = new KeyReader();
         PokemonButton pokemonButton = new PokemonButton();
         RunButton runButton = new RunButton();

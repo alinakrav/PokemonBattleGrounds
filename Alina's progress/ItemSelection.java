@@ -19,7 +19,7 @@ public class ItemSelection extends Actor
     public void act() 
     {
         prepare();
-
+        
         if(keys.keyNotNull()) {
             if(keys.keyIs("down") && itemIndex < itemsList.getMaxIndex()) 
                 setLocation(getX(), itemsList.getItemLocation(++itemIndex)); 

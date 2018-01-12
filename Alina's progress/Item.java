@@ -11,6 +11,9 @@ import java.awt.Color;
  */
 public class Item extends Actor
 {
+    boolean init;
+    ///
+    
     int x;
     int y;
     public String name;
@@ -27,7 +30,10 @@ public class Item extends Actor
 
     public void act() 
     {
-        // Add your action code here.
+        if(init) {
+            if(getWorld().getObjects(ItemDescription.class).size() == 0) { // if no item description object made yet
+                ItemDescription itemDescription = new ItemDescription();
+                itemDescription.setImagegetWorld().addObject(
     }    
 
     public void assignImage() {
@@ -35,4 +41,6 @@ public class Item extends Actor
         if(amount != -1) 
             getImage().drawImage(new GreenfootImage("amount" + amount + ".png"), 0, 0); // note: the x and y are relative to the image, not window coordinates
     }
+    
+    public void 
 }
