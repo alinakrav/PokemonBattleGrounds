@@ -11,13 +11,16 @@ import java.awt.Color;
  */
 public class Item extends Actor
 {
-    boolean init;
+    boolean init = true;
+    MyWorld world;
     ///
-    
+
     int x;
     int y;
     public String name;
     int amount;
+
+    ItemDescription itemDescription;
 
     public Item(String name, int amount, int x, int y) {
         this.x = x;
@@ -30,17 +33,34 @@ public class Item extends Actor
 
     public void act() 
     {
-        if(init) {
-            if(getWorld().getObjects(ItemDescription.class).size() == 0) { // if no item description object made yet
-                ItemDescription itemDescription = new ItemDescription();
-                itemDescription.setImagegetWorld().addObject(
+        prepare();
     }    
+
+    public void prepare() {
+        if(init) {
+            world = (MyWorld)getWorld();
+            init = false;
+            ////////
+        }
+    }
 
     public void assignImage() {
         setImage("item" + name + ".png");
         if(amount != -1) 
             getImage().drawImage(new GreenfootImage("amount" + amount + ".png"), 0, 0); // note: the x and y are relative to the image, not window coordinates
     }
-    
-    public void 
+
+    // set description box's image to current item's description
+    public void changeDescription() {
+        // ACTUALLY, DELETE THIS IF STATEMENT ONCE YOU MAKE AN ItemDescription_Close_bag.png IMAGE
+        if(amount == -1) // if item is 'cancel' 
+            world.removeObjects(world.getObjects(ItemDescription.class)); // remove description
+        else if(getWorld().getObjects(ItemDescription.class).size() == 0) { // if no description made yet
+            itemDescription = new ItemDescription(); // make one new dscription object
+            getWorld().addObject(itemDescription, 400, 500);
+            changeDescription(); // call back to this method, since next time there will be a description present
+        }
+        else // if description exists and item is not 'cancel', then description's image changes 
+            world.getObjects(ItemDescription.class).get(0).setImage("ItemDescription_" + name + ".png");
+    }
 }

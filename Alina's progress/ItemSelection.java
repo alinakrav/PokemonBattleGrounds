@@ -26,10 +26,15 @@ public class ItemSelection extends Actor
             else if(keys.keyIs("up") && itemIndex > 0)
                 setLocation(getX(), itemsList.getItemLocation(--itemIndex)); 
             else if(keys.keyIs("enter"))
-                itemsList.select((getWorld().getObjectsAt(getX(), getY(), Item.class)).get(0));
+                itemsList.select(currentItem());
+            currentItem().changeDescription();
         }
     }
 
+    private Item currentItem() {
+        return world.getObjectsAt(getX(), getY(), Item.class).get(0);
+    }
+    
     public void prepare() {
         if(init) {
             world = (MyWorld)getWorld();
