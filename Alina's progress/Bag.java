@@ -24,7 +24,7 @@ public class Bag extends Actor
         HashMap<String, Integer> map = new HashMap<>();
         map.put("a", 1);
         map.put("b", 2);
-        map.put("c", 3);
+        //map.put("c", 3);
         itemList.add(map);
 
         map = new HashMap<>(); // old map will still change in arraylist if changed after it was added, so make new map
