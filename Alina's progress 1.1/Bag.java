@@ -18,36 +18,26 @@ public class Bag extends Actor
     ArrayList<HashMap<String, Integer>> itemList = new ArrayList<>();
 
     // 2d array of coordinates of all the item locations (taken from ItemsList constructor declaration)
-
     String itemChosen;
-    public Bag(boolean bag) {//ArrayList<HashMap<String, Integer>> itemList) {
-        if(bag) {
-            ///
-            HashMap<String, Integer> map = new HashMap<>();
-            map.put("a", 1);
-            map.put("b", 2);
-            map.put("c", 3);
-            itemList.add(map);
+    public Bag() {//ArrayList<HashMap<String, Integer>> itemList) {
+        HashMap<String, Integer> map = new HashMap<>();
+        map.put("a", 1);
+        map.put("b", 2);
+        map.put("c", 3);
+        itemList.add(map);
 
-            map = new HashMap<>(); // old map will still change in arraylist if changed after it was added, so make new map
-            map.put("a", 3);
-            map.put("b", 2);
-            map.put("c", 1);
-            itemList.add(map);
+        map = new HashMap<>(); // old map will still change in arraylist if changed after it was added, so make new map
+        map.put("a", 3);
+        map.put("b", 2);
+        map.put("c", 1);
+        itemList.add(map);
 
-            map = new HashMap<>();
-            map.put("a", 2);
-            map.put("b", 1);
-            map.put("c", 3);
-            itemList.add(map);
-            ///
-        }
-        else {
-            ///
-            HashMap<String, Integer> map = new HashMap<>();
-
-            ///
-        }
+        map = new HashMap<>();
+        map.put("a", 2);
+        map.put("b", 1);
+        map.put("c", 3);
+        itemList.add(map);
+        ///
         this.getImage().scale(800, 600);
     }
 
@@ -70,7 +60,7 @@ public class Bag extends Actor
 
     private int[][] listLocations() {
         //boolean if statement here for whether it's bag or party
-        /*
+
         // location of the future ItemsList object (derived from first item location again in BagCategories class)
         int itemX = 400;
         int itemY = 200;
@@ -81,37 +71,29 @@ public class Bag extends Actor
         int itemY3 = itemY2 + 40;
         int itemY4 = itemY3 + 40;
         int[][] itemLocations = {{itemX, itemY1}, 
-        {itemX, itemY2}, 
-        {itemX, itemY3}, 
-        {itemX, itemY4}};
-         */
-
-        // location of the future ItemsList object (derived from first item location again in BagCategories class)
-        int itemX = 400;
-        int itemY = 200;
-
-        // list all the possible (maximum) y values in order
-        int itemY1 = itemY - 60;
-        int itemY2 = itemY1 + 40;
-        int itemY3 = itemY1;
-        int itemY4 = itemY2;
-
-        int itemX1 = itemX - 200;
-        int itemX2 = itemX1;
-        int itemX3 = itemX2 + 200;
-        int itemX4 = itemX3;
-
-        int[][] itemLocations = {{itemX1, itemY1}, 
-                {itemX2, itemY2}, 
-                {itemX3, itemY3}, 
-                {itemX4, itemY4}};
+                {itemX, itemY2}, 
+                {itemX, itemY3}, 
+                {itemX, itemY4}};
 
         return itemLocations;
     }
 
-    public void itemChosen(String item) {
-        itemChosen = item;
-        removeEverything();
+    // updates the amount of an item in the bag, deletes the item if amount is less than 1
+    public void remapItem(String name, int amount) {
+        for(HashMap<String, Integer> map : itemList) {
+            for(String key : map.keySet()) {
+                if(key.equals(name)) { // find correct item key
+                    map.put(key, amount);
+                    if(amount < 1) {
+                        map.remove(key); // remove the mapping of such item if no more left
+                        System.out.println(name + " is all gone");
+                    }
+                    amount = -1; // indicator for outer loop to break after this
+                    break;
+                }
+            }
+            if(amount == -1) break;
+        }
     }
 
     // this method is used to check (from the player class) whether an item is chosen (not null), at which point the item name will be deciphered in its own class (maybe same Item class) for properties and used on Pokemon
@@ -126,13 +108,14 @@ public class Bag extends Actor
 
     public void removeEverything() {
         ArrayList<Class> bagClasses = new ArrayList<>();
-        bagClasses.add(ItemSelection.class); // itemselection checks for objects of other classes in its act(), so should be removed first
+        bagClasses.add(ItemSelection.class); // itemselection checks for objects of other classes in its act(), so should bed first
         bagClasses.add(BagCategories.class);
         bagClasses.add(ItemsList.class);
         bagClasses.add(Item.class);
         bagClasses.add(ItemDescription.class);
         for(Class c: bagClasses)
             world.removeObjects(world.getObjects(c));
+        Turns.itemList = itemList;
         world.removeObject(this);
     }
 }

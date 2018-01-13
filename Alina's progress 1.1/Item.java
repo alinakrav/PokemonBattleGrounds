@@ -18,7 +18,7 @@ public class Item extends Actor
     int x;
     int y;
     public String name;
-    int amount;
+    public int amount;
 
     ItemDescription itemDescription;
 

@@ -28,14 +28,10 @@ public class Button extends Actor
     public void act() {
         prepare();
 
-        
         MouseInfo info = Greenfoot.getMouseInfo(); // see what is being done with mouse
         if(Greenfoot.mouseClicked(this)) { // if this object is clicked
             whenClicked(); // execute appropriate method
-        }
-        
-       
-       
+        }       
     }
 
     // this method is called when the button is clicked. It is defined in the subclasses 

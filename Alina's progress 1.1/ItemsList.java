@@ -69,6 +69,7 @@ public class ItemsList extends Actor
         //System.out.println(choice);
         //world.removeObject(choice);
         chosen = choice.name;
+        world.getObjects(Bag.class).get(0).remapItem(choice.name, choice.amount - 1); // decrease amount of item chosen
         // i think the item should be chosen from this class, because it's less work and a shorter way
         Turns.player.useItem(chosen, false);
         world.getObjects(Bag.class).get(0).removeEverything(); // exit the Bag object back to main screen
