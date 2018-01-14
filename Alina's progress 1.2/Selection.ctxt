@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=Selection
+comment1.params=objectList\ twoColumns\ dummyParameter
+comment1.target=Selection(java.util.ArrayList,\ boolean,\ int)
+comment2.params=objectList\ twoColumns
+comment2.target=Selection(java.util.ArrayList,\ boolean)
+comment3.params=
+comment3.target=void\ act()
+comment4.params=
+comment4.target=greenfoot.Actor\ currentItem()
+comment5.params=
+comment5.target=void\ prepare()
+numComments=6

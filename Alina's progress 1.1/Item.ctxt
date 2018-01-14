@@ -11,4 +11,6 @@ comment4.params=
 comment4.target=void\ assignImage()
 comment5.params=
 comment5.target=void\ changeDescription()
-numComments=6
+comment6.params=
+comment6.target=void\ select()
+numComments=7

@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=Button
+comment0.text=\n\ This\ class\ is\ used\ to\ make\ buttons\ that\ can\ be\ pressed,\ and\ \n\ that\ execute\ some\ command\ when\ pressed.\ Such\ a\ command\ is\ \n\ defined\ in\ child\ classes\ of\ the\ Button\ class.\n\ \n\ @author\ Alex,\ Kathy,\ Alina\ \n\ @version\ November\ 9th,\ 2017\n
+comment1.params=
+comment1.target=void\ act()
+comment2.params=
+comment2.target=void\ hoverOver()
+comment3.params=
+comment3.target=void\ whenClicked()
+comment4.params=
+comment4.target=void\ prepare()
+numComments=5

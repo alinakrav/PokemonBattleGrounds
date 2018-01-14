@@ -26,9 +26,9 @@ public class ItemSelection extends Actor
                 setLocation(itemsList.getItemLocation(++itemIndex)[0], itemsList.getItemLocation(itemIndex)[1]); 
             else if(keys.keyIs("up") && itemIndex > 0)
                 setLocation(itemsList.getItemLocation(--itemIndex)[0], itemsList.getItemLocation(itemIndex)[1]); 
-            currentItem().changeDescription(); // update description when selection moves up/down
+            currentItem().hoverOver(); // update description when selection moves up/down
             if(keys.keyIs("enter"))
-                itemsList.select(currentItem());
+                currentItem().select();
         }
         
     }

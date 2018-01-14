@@ -36,6 +36,8 @@ public class Button extends Actor
         }       
     }
 
+    public void hoverOver() {}
+    
     // this method is called when the button is clicked. It is defined in the subclasses 
     // for functionality that is specific to that button type.
     public void whenClicked() {}
