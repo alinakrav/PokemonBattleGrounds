@@ -29,7 +29,7 @@ public class Party extends Actor
         prepare(listLocations());
     }   
 
-    // initialises world, then prepares by creating the vategory choice bar of the bag
+    // initialises world, then prepares by creating the category choice bar of the bag
     public void prepare(int[][] itemLocations) {
         if(init) {
             world = (MyWorld)getWorld();
@@ -49,10 +49,15 @@ public class Party extends Actor
         int itemY2 = itemY1 + 40;
         int itemY3 = itemY2 + 40;
         int itemY4 = itemY3 + 40;
-        int[][] itemLocations = {{itemX, itemY1}, 
-                {itemX, itemY2}, 
-                {itemX, itemY3}, 
-                {itemX, itemY4}};
+        
+        int itemX1 = itemX - 200;
+        int itemX2 = itemX1;
+        int itemX3 = itemX + 200;
+        int itemX4 = itemX3;
+        int[][] itemLocations = {{itemX1, itemY1}, 
+                {itemX2, itemY2}, 
+                {itemX3, itemY3}, 
+                {itemX4, itemY4}};
 
         return itemLocations;
     }

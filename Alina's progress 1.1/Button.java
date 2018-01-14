@@ -15,6 +15,8 @@ public class Button extends Actor
     MyWorld world; // this will keep track of the world (must be declared as instance variable)
     ///////////
     
+    public String name;
+    
     //quadrant button locations for battle screen
     int q1X = 660;
     int q1Y = 440;

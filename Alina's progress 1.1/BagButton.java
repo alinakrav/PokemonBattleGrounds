@@ -18,6 +18,7 @@ public class BagButton extends Button
         super(); // get functionality of superclass
         //setImage(new GreenfootImage("AttackButton.png")); // set image to the button appropriate to the mode
         //getImage().scale(400, 250);
+                    name = "bag";
     }  
     
     public void act() {

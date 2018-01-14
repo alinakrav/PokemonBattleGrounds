@@ -18,9 +18,10 @@ public class RunButton extends Button
         super(); // get functionality of superclass
         //setImage(new GreenfootImage("AttackButton.png")); // set image to the button appropriate to the mode
         //getImage().scale(400, 250);
+                name = "run";
     }   
-    
-        public void act() {
+
+    public void act() {
         super.act();
     }
 

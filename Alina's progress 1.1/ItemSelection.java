@@ -20,6 +20,7 @@ public class ItemSelection extends Actor
     {
         prepare();
 
+        
         if(keys.keyNotNull()) {
             if(keys.keyIs("down") && itemIndex < itemsList.getMaxIndex()) 
                 setLocation(itemsList.getItemLocation(++itemIndex)[0], itemsList.getItemLocation(itemIndex)[1]); 
@@ -29,6 +30,7 @@ public class ItemSelection extends Actor
             if(keys.keyIs("enter"))
                 itemsList.select(currentItem());
         }
+        
     }
 
     private Item currentItem() {
