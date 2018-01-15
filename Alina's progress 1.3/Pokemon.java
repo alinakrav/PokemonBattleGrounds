@@ -138,7 +138,7 @@ public class Pokemon extends Actor
         }
         //Preset 5: Balanced
         else if(statPreset == 5){
-            health = 15 + level + 2 * level;
+            health = 4;//15 + level + 2 * level;
             attack = 10 + 2 * level;
             defense = 10 + 2 * level;
             speed = 10 + 2 * level;
