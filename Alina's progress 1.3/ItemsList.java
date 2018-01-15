@@ -53,7 +53,6 @@ public class ItemsList extends Actor
 
         this.locations = locations;
         this.tags = tags;
-
     }
 
     public void act() 
@@ -69,13 +68,13 @@ public class ItemsList extends Actor
             ///////
 
             if(!things.isEmpty()) {
-                for(int i = 0; i < things.size(); i++)// create objects for all the options 
+                for(int i = 0; i < things.size(); i++)// create objects for all the items 
                     world.addObject(things.get(i), locations[i][0], locations[i][1]);
                 // track the frame's item based on its location in relation to any item in array of these objects
                 selection = new Selection(things, false, things.get(0));
             }
             else {
-                for(int i = 0; i < tags.size(); i++) // create objects for all the options 
+                for(int i = 0; i < tags.size(); i++) // create objects for all the tags 
                     world.addObject(tags.get(i), locations[i][0], locations[i][1]);
                 selection = new Selection(tags, true, tags.get(0));
             }

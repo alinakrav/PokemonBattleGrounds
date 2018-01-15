@@ -68,6 +68,7 @@ public class Selection extends Actor
                 firstColumn[i] = objectList.get(i);
             for(int i = 0; i < secondColumn.length; i++)
                 secondColumn[i] = objectList.get(firstColumn.length + i);
+            //System.out.println("size of secondcolumn is " + secondColumn.length);
             PartyTag[][] temp = {firstColumn, secondColumn};
             grid = temp;
             temp = null;
@@ -89,9 +90,9 @@ public class Selection extends Actor
                 setLocation(grid[gridIndex[0]][++gridIndex[1]].getX(), grid[gridIndex[0]][gridIndex[1]].getY()); 
             else if(keys.keyIs("up") && gridIndex[1] > 0)
                 setLocation(grid[gridIndex[0]][--gridIndex[1]].getX(), grid[gridIndex[0]][gridIndex[1]].getY());
-            else if(keys.keyIs("right") && gridIndex[0] < grid.length - 1)
+            else if(keys.keyIs("right") && gridIndex[0] < grid.length - 1 && gridIndex[1] < grid[gridIndex[0] + 1].length)
                 setLocation(grid[++gridIndex[0]][gridIndex[1]].getX(), grid[gridIndex[0]][gridIndex[1]].getY());
-            else if(keys.keyIs("left") && gridIndex[0] > 0) 
+            else if(keys.keyIs("left") && gridIndex[0] > 0 && gridIndex[1] < grid[gridIndex[0] - 1].length) 
                 setLocation(grid[--gridIndex[0]][gridIndex[1]].getX(), grid[gridIndex[0]][gridIndex[1]].getY());
 
             hoverOverCurrent(); // let the hovered over object do whatever it does before being selected
@@ -112,6 +113,8 @@ public class Selection extends Actor
             ((Button)currentItem()).select();
         else if(currentItem() instanceof Item)
             ((Item)currentItem()).select();
+        else if(currentItem() instanceof PartyTag)
+            ((PartyTag)currentItem()).select();
     }
 
     private Actor currentItem() {

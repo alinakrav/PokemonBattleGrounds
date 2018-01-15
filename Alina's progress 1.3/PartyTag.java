@@ -14,6 +14,11 @@ public class PartyTag extends Actor
     int x, y;
     public String name;
 
+    PartyTag(Pokemon pokemon) {
+        getImage().scale(200, 60);
+        getImage().drawString(pokemon.getName(), 0, 10); // draws name of pokemon on tag
+    }
+
     public void act() 
     {
         prepare();

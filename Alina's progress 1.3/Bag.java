@@ -14,33 +14,13 @@ public class Bag extends Actor
     ///////////
     BagCategories categories;
 
-    // hashmaps of _item name_ and _item quantity_ are in a list (to hold multiple name-quantity pairs), and there are multiple such lists for each category of items
+    // the list of all items in bag (get this from world)
     ArrayList<HashMap<String, Integer>> itemList = new ArrayList<>();
 
     // 2d array of coordinates of all the item locations (taken from ItemsList constructor declaration)
     String itemChosen;
     public Bag() {//ArrayList<HashMap<String, Integer>> itemList) {
-
-        // later convert this to arraylist of objects instead, so it can do the same as Party
-        HashMap<String, Integer> map = new HashMap<>();
-        map.put("a", 1);
-        map.put("b", 2);
-        map.put("c", 3);
-        itemList.add(map);
-
-        map = new HashMap<>(); // old map will still change in arraylist if changed after it was added, so make new map
-        map.put("a", 3);
-        map.put("b", 2);
-        map.put("c", 1);
-        itemList.add(map);
-
-        map = new HashMap<>();
-        map.put("a", 2);
-        map.put("b", 1);
-        map.put("c", 3);
-        itemList.add(map);
         ///
-
         this.getImage().scale(800, 600);
     }
 
@@ -56,6 +36,7 @@ public class Bag extends Actor
             init = false;
             ///////
 
+            itemList = world.getItemList();
             categories = new BagCategories(itemList, itemLocations, 100, 300); // this is where location of category object is chosen
             world.addObject(categories, categories.getX(), categories.getY());
         }
@@ -89,7 +70,6 @@ public class Bag extends Actor
                     map.put(key, amount);
                     if(amount < 1) {
                         map.remove(key); // remove the mapping of such item if no more left
-                        System.out.println(name + " is all gone");
                     }
                     amount = -1; // indicator for outer loop to break after this
                     break;

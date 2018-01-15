@@ -19,10 +19,6 @@ public class Party extends Actor
     String itemChosen;
 
     public Party() {
-        tags.add(new PartyTag());
-        tags.add(new PartyTag());        
-        tags.add(new PartyTag());        
-        tags.add(new PartyTag());
         ///
         this.getImage().scale(800, 600);
     }
@@ -39,6 +35,10 @@ public class Party extends Actor
             init = false;
             ///////
 
+            // if using the world to get something, do it in act method (not in constructor, when there is no world yet)
+            for(Pokemon pokemon : world.getParty()) 
+                tags.add(new PartyTag(pokemon)); 
+
             int itemsListX = itemLocations[0][0];
             int itemsListY = itemLocations[0][1] + 150; // revert back to reference location (first transformed to be y1 from y
             partyList = new ItemsList(tags, itemLocations, itemsListX, itemsListY); // first category of items array
@@ -48,23 +48,24 @@ public class Party extends Actor
 
     private int[][] listLocations() {
         // location of the future ItemsList object (derived from first item location again in BagCategories class)
-        int itemX = 400;
-        int itemY = 400;
+        int itemX = 500;
+        int itemY = 300;
 
         // list all the possible (maximum) y values in order (sideways Z pattern)
-        int itemY1 = itemY - 150;
-        int itemY2 = itemY1 + 150;
-        int itemY3 = itemY1;
-        int itemY4 = itemY2;
+        int item1Y, item2Y, item3Y, item4Y, item5Y;
+        item1Y = item4Y = itemY - 150;
+        item2Y = item5Y = item1Y + 150;
+        item3Y = item2Y + 150;
 
-        int itemX1 = itemX - 200;
-        int itemX2 = itemX1;
-        int itemX3 = itemX + 200;
-        int itemX4 = itemX3;
-        int[][] itemLocations = {{itemX1, itemY1}, 
-                {itemX2, itemY2}, 
-                {itemX3, itemY3}, 
-                {itemX4, itemY4}};
+        int item1X, item2X, item3X, item4X, item5X;
+        item1X = item2X = item3X = itemX - 250;
+        item4X = item5X = item1X + 250;
+
+        int[][] itemLocations = {{item1X, item1Y}, 
+                {item2X, item2Y}, 
+                {item3X, item3Y}, 
+                {item4X, item4Y},
+                {item5X, item5Y}};
 
         return itemLocations;
     }

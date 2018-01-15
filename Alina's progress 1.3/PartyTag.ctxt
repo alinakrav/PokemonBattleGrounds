@@ -1,12 +1,14 @@
 #BlueJ class context
 comment0.target=PartyTag
 comment0.text=\n\ Write\ a\ description\ of\ class\ PartyTag\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
-comment1.params=
-comment1.target=void\ act()
+comment1.params=pokemon
+comment1.target=PartyTag(Pokemon)
 comment2.params=
-comment2.target=void\ whenHovered()
+comment2.target=void\ act()
 comment3.params=
-comment3.target=void\ select()
+comment3.target=void\ whenHovered()
 comment4.params=
-comment4.target=void\ prepare()
-numComments=5
+comment4.target=void\ select()
+comment5.params=
+comment5.target=void\ prepare()
+numComments=6
