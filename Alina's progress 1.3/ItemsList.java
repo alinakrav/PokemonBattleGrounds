@@ -77,7 +77,7 @@ public class ItemsList extends Actor
             else {
                 for(int i = 0; i < pokemonList.size(); i++) // create objects for all the options 
                     world.addObject(pokemonList.get(i), locations[i][0], locations[i][1]);
-                selection = new Selection(pokemonList, false, pokemonList.get(0));
+                selection = new Selection(pokemonList, true, pokemonList.get(0));
             }
             // doesn't exist a contructor for pokemonitems yet
             world.addObject(selection, locations[0][0], locations[0][1]); // create selection around the first item in list (x and y coordinates of first array in 2d array are elements 0 and 1

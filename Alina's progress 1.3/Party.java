@@ -51,11 +51,11 @@ public class Party extends Actor
         int itemX = 400;
         int itemY = 200;
 
-        // list all the possible (maximum) y values in order
+        // list all the possible (maximum) y values in order (sideways Z pattern)
         int itemY1 = itemY - 60;
         int itemY2 = itemY1 + 40;
-        int itemY3 = itemY2 + 40;
-        int itemY4 = itemY3 + 40;
+        int itemY3 = itemY1;
+        int itemY4 = itemY2;
 
         int itemX1 = itemX - 200;
         int itemX2 = itemX1;
