@@ -17,8 +17,6 @@ public class Button extends Actor
     int x, y;
     public String name;
 
-    boolean hovered;
-
     //quadrant button locations for battle screen
     int q3X = 660;
     int q3Y = 440;
@@ -33,12 +31,7 @@ public class Button extends Actor
     int[][] quadrants = {{q1X, q1Y}, {q2X, q2Y}, {q3X, q3Y}, {q4X, q4Y}};
 
     public void act() {
-        prepare();
-
-        MouseInfo info = Greenfoot.getMouseInfo(); // see what is being done with mouse
-        if(Greenfoot.mouseClicked(this)) { // if this object is clicked
-            select(); // execute appropriate method
-        }       
+        prepare();      
     }
 
     public void whenHovered() {

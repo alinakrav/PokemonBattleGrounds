@@ -12,17 +12,17 @@ public class Party extends Actor
     boolean init = true;
     MyWorld world;
     ///////////
-    ArrayList<Pokemon> pokemons = new ArrayList<>();
+    ArrayList<PartyTag> tags = new ArrayList<>();
     ItemsList partyList;
     // hashmaps of _item name_ and _item quantity_ are in a list (to hold multiple name-quantity pairs), and there are multiple such lists for each category of items
 
     String itemChosen;
 
     public Party() {
-        pokemons.add(new Jigglypuff(9, false));
-        pokemons.add(new Jigglypuff(9, false));
-        pokemons.add(new Jigglypuff(9, false));
-        pokemons.add(new Jigglypuff(9, false));
+        tags.add(new PartyTag());
+        tags.add(new PartyTag());        
+        tags.add(new PartyTag());        
+        tags.add(new PartyTag());
         ///
         this.getImage().scale(800, 600);
     }
@@ -40,8 +40,8 @@ public class Party extends Actor
             ///////
 
             int itemsListX = itemLocations[0][0];
-            int itemsListY = itemLocations[0][1] + 60; // revert back to reference location (first transformed to be y1 from y
-            partyList = new ItemsList(pokemons, itemLocations, itemsListX, itemsListY); // first category of items array
+            int itemsListY = itemLocations[0][1] + 150; // revert back to reference location (first transformed to be y1 from y
+            partyList = new ItemsList(tags, itemLocations, itemsListX, itemsListY); // first category of items array
             world.addObject(partyList, partyList.getX(), partyList.getY());
         }
     }
@@ -49,11 +49,11 @@ public class Party extends Actor
     private int[][] listLocations() {
         // location of the future ItemsList object (derived from first item location again in BagCategories class)
         int itemX = 400;
-        int itemY = 200;
+        int itemY = 400;
 
         // list all the possible (maximum) y values in order (sideways Z pattern)
-        int itemY1 = itemY - 60;
-        int itemY2 = itemY1 + 40;
+        int itemY1 = itemY - 150;
+        int itemY2 = itemY1 + 150;
         int itemY3 = itemY1;
         int itemY4 = itemY2;
 
