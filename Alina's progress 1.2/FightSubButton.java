@@ -25,8 +25,9 @@ public class FightSubButton extends Button
     }
 
     // this method is executed in the parent's act method
-    public void whenClicked() {
+    public void select() {
         Turns.player.useMove(move, false); // moves done from the move button are only done by player
-        world.removeObjects(world.getObjects(Button.class)); // remove button from world
+                        world.removeObjects(world.getObjects(Selection.class)); 
+                        world.removeObjects(world.getObjects(Button.class)); // remove button from world
     }
 }

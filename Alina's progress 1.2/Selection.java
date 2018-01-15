@@ -14,7 +14,7 @@ public class Selection extends Actor
     int[] gridIndex = {0, 0}; // always starts at location 0
     Actor[][] grid;
 
-    public Selection(ArrayList<Button> objectList, boolean twoColumns, int dummyParameter) {
+    public Selection(ArrayList<Button> objectList, boolean twoColumns, Button dummyParameter) {
         if(twoColumns) { // if two columns, then the arraylist needs to be split into 2 arrays first
             Button[] firstColumn, secondColumn;
             secondColumn = new Button[objectList.size()/2];
@@ -34,7 +34,7 @@ public class Selection extends Actor
         }
     }
 
-    public Selection(ArrayList<Item> objectList, boolean twoColumns) {
+    public Selection(ArrayList<Item> objectList, boolean twoColumns, Item dummyParameter) {
         if(twoColumns) { // if two columns, then the arraylist needs to be split into 2 arrays first
             Item[] firstColumn, secondColumn;
             secondColumn = new Item[objectList.size()/2];
@@ -60,6 +60,9 @@ public class Selection extends Actor
 
         if(keys.keyNotNull()) {
             // see if second coordinate (y) is less than max index of current x coord-th array length in grid
+            System.out.println("no Button " + (world.getObjects(Button.class).size() == 0));
+            System.out.println("no Item " + (world.getObjects(Item.class).size() == 0));
+            System.out.println(currentItem());
             if(keys.keyIs("down") && gridIndex[1] < grid[gridIndex[0]].length - 1) 
                 setLocation(grid[gridIndex[0]][++gridIndex[1]].getX(), grid[gridIndex[0]][gridIndex[1]].getY()); 
             else if(keys.keyIs("up") && gridIndex[1] > 0)
@@ -68,16 +71,29 @@ public class Selection extends Actor
                 setLocation(grid[++gridIndex[0]][gridIndex[1]].getX(), grid[gridIndex[0]][gridIndex[1]].getY());
             else if(keys.keyIs("left") && gridIndex[0] > 0) 
                 setLocation(grid[--gridIndex[0]][gridIndex[1]].getX(), grid[gridIndex[0]][gridIndex[1]].getY());
-            System.out.println(currentItem().getClass());
-            // grid[gridIndex[0]][gridIndex[1]].whenClicked(); // let the hovered over object do whatever it does before being selected
-            //if(keys.keyIs("enter"))
-            //buttonList.select(currentItem());
+
+            hoverOverCurrent(); // let the hovered over object do whatever it does before being selected
+            if(keys.keyIs("enter"))
+                selectCurrent();
         }
+    }
+
+    private void hoverOverCurrent() {
+        if(currentItem() instanceof Button)
+            ((Button)currentItem()).whenHovered();
+        else if(currentItem() instanceof Item)
+            ((Item)currentItem()).whenHovered();
+    }
+
+    private void selectCurrent() {
+        if(currentItem() instanceof Button)
+            ((Button)currentItem()).select();
+        else if(currentItem() instanceof Item)
+            ((Item)currentItem()).select();
     }
 
     private Actor currentItem() {
         return grid[gridIndex[0]][gridIndex[1]];
-        // world.getObjectsAt(getX(), getY(), Item.class).get(0);
     }
 
     public void prepare() {
@@ -86,7 +102,7 @@ public class Selection extends Actor
             keys = world.getKeys();
             init = false;
             /////////
-            //currentItem().hoverOver();
+            hoverOverCurrent();
         }
     }
 }

@@ -6,5 +6,5 @@ comment1.target=FightSubButton(java.lang.String)
 comment2.params=
 comment2.target=void\ act()
 comment3.params=
-comment3.target=void\ whenClicked()
+comment3.target=void\ select()
 numComments=4

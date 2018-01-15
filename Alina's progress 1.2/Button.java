@@ -32,17 +32,17 @@ public class Button extends Actor
 
         MouseInfo info = Greenfoot.getMouseInfo(); // see what is being done with mouse
         if(Greenfoot.mouseClicked(this)) { // if this object is clicked
-            whenClicked(); // execute appropriate method
+            select(); // execute appropriate method
         }       
     }
-    
-    public void hoverOver() {
+
+    public void whenHovered() {
         System.out.println(this);
     }
-    
+
     // this method is called when the button is clicked. It is defined in the subclasses 
     // for functionality that is specific to that button type.
-    public void whenClicked() {}
+    public void select() {}
 
     // this method initialises world variable, and then does whatever needs to be done on instantiation 
     public void prepare() {

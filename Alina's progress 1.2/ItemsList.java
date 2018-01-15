@@ -20,7 +20,7 @@ public class ItemsList extends Actor
     int y4;
     int[][] itemLocations;
 
-    ItemSelection selection;
+    Selection selection;
     private String chosen; //string of the item that 'enter' is pressed on
 
     // the list should be passed to constructor (not made here), and be of type "string" for the item names
@@ -38,7 +38,7 @@ public class ItemsList extends Actor
         for(String itemName : itemList.get(category).keySet()) {
             things.add(new Item(itemName, itemList.get(category).get(itemName), itemLocations[tempIndexCounter][0], itemLocations[tempIndexCounter++][1]));
         }
-        
+
         // always add cancel button at the end
         things.add(new Item("Close_bag", -1, itemLocations[tempIndexCounter][0], itemLocations[tempIndexCounter][1]));
     }
@@ -59,8 +59,8 @@ public class ItemsList extends Actor
                 world.addObject(things.get(i), itemLocations[i][0], itemLocations[i][1]);
 
             // track the frame's item based on its location in relation to any item in array of these objects
-            selection = new ItemSelection(this);
-            world.addObject(selection, itemLocations[0][0], itemLocations[0][1]); // create selection around the first item in list
+            selection = new Selection(things, false, things.get(0));
+            world.addObject(selection, itemLocations[0][0], itemLocations[0][1]); // create selection around the first item in list (x and y coordinates of first array in 2d array are elements 0 and 1
         }
     }
 
@@ -77,7 +77,7 @@ public class ItemsList extends Actor
     // removes everything created from this object
     public void removeEverything() {
         world.removeObjects(world.getObjects(Item.class));
-        world.removeObject(selection);
+        world.removeObject(selection); // remove the selection (last)
     }
 
     // feeds y location of next item to selection frame, and also changes currently selected item variable

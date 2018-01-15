@@ -26,7 +26,7 @@ public class PokemonButton extends Button
     }
 
     // this method is executed in the parent's act method
-    public void whenClicked() {
+    public void select() {
         Bag bag = new Bag();
         world.addObject(bag, world.getWidth()/2, world.getHeight()/2);
 
@@ -34,6 +34,7 @@ public class PokemonButton extends Button
         world.removeObjects(world.getObjects(FightButton.class)); // have to remove this button LAST
         world.removeObjects(world.getObjects(RunButton.class)); 
         world.removeObjects(world.getObjects(BagButton.class)); 
+                        world.removeObjects(world.getObjects(Selection.class)); 
         world.removeObjects(world.getObjects(PokemonButton.class)); 
     }
 }

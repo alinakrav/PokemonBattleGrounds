@@ -5,5 +5,5 @@ comment1.target=FightButton()
 comment2.params=
 comment2.target=void\ act()
 comment3.params=
-comment3.target=void\ whenClicked()
+comment3.target=void\ select()
 numComments=4

@@ -79,7 +79,7 @@ public class Party extends Actor
 
     public void removeEverything() {
         ArrayList<Class> bagClasses = new ArrayList<>();
-        bagClasses.add(ItemSelection.class); // itemselection checks for objects of other classes in its act(), so should be removed first
+        bagClasses.add(Selection.class); // itemselection checks for objects of other classes in its act(), so should be removed first
         bagClasses.add(BagCategories.class);
         bagClasses.add(ItemsList.class);
         bagClasses.add(Item.class);

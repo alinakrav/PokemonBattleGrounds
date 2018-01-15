@@ -18,7 +18,7 @@ public class RunButton extends Button
         super(); // get functionality of superclass
         //setImage(new GreenfootImage("AttackButton.png")); // set image to the button appropriate to the mode
         //getImage().scale(400, 250);
-                name = "run";
+        name = "run";
     }   
 
     public void act() {
@@ -26,12 +26,13 @@ public class RunButton extends Button
     }
 
     // this method is executed in the parent's act method
-    public void whenClicked() {
+    public void select() {
         // make 4 attack buttons for different moves (depends on pokemon?)
         // do specific run stuff
         world.removeObjects(world.getObjects(BagButton.class)); 
         world.removeObjects(world.getObjects(PokemonButton.class)); 
         world.removeObjects(world.getObjects(FightButton.class)); // have to remove this button LAST
+        world.removeObjects(world.getObjects(Selection.class)); 
         world.removeObjects(world.getObjects(RunButton.class)); 
     }
 }

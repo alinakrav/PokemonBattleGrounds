@@ -41,7 +41,7 @@ public class MyWorld extends World
         addObject(bagButton, bagButton.x, bagButton.y);
         addObject(pokemonButton, pokemonButton.x, pokemonButton.y);
         
-        addObject(new MoveSelection(buttons, true, 0), fightButton.getX(), fightButton.getY());
+        addObject(new Selection(buttons, true, buttons.get(0)), fightButton.getX(), fightButton.getY());
         
         // temporarily make Turns object here, along with Pokemon
         addObject(new Turns(), 0, 0);

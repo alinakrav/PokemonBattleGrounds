@@ -14,7 +14,7 @@ public class MoveSelection extends Actor
     int[] gridIndex = {0, 0}; // always starts at location 0
     Actor[][] grid;
 
-    public MoveSelection(ArrayList<Button> objectList, boolean twoColumns, int dummyParameter) {
+    public MoveSelection(ArrayList<Button> objectList, boolean twoColumns, Button dummyParameter) {
         if(twoColumns) { // if two columns, then the arraylist needs to be split into 2 arrays first
             Button[] firstColumn, secondColumn;
             secondColumn = new Button[objectList.size()/2];
@@ -69,16 +69,24 @@ public class MoveSelection extends Actor
             else if(keys.keyIs("left") && gridIndex[0] > 0) 
                 setLocation(grid[--gridIndex[0]][gridIndex[1]].getX(), grid[gridIndex[0]][gridIndex[1]].getY());
 
-            Button b;
-            if(currentItem() instanceof Button)
-                b = (Button)currentItem();
-            else
-                b = (Button)currentItem();
-            b.hoverOver();
-            //grid[gridIndex[0]][gridIndex[1]].hoverOver(); // let the hovered over object do whatever it does before being selected
-            //if(keys.keyIs("enter"))
-            //buttonList.select(currentItem());
+            hoverOverCurrent(); // let the hovered over object do whatever it does before being selected
+            if(keys.keyIs("enter"))
+                selectCurrent();
         }
+    }
+
+    private void hoverOverCurrent() {
+        if(currentItem() instanceof Button)
+            ((Button)currentItem()).whenHovered();
+        else if(currentItem() instanceof Item)
+            ((Item)currentItem()).whenHovered();
+    }
+
+    private void selectCurrent() {
+        if(currentItem() instanceof Button)
+            ((Button)currentItem()).select();
+        else if(currentItem() instanceof Item)
+            ((Item)currentItem()).select();
     }
 
     private Actor currentItem() {
@@ -91,6 +99,7 @@ public class MoveSelection extends Actor
             keys = world.getKeys();
             init = false;
             /////////
+            hoverOverCurrent();
         }
     }
 }

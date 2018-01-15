@@ -51,14 +51,14 @@ public class Item extends Actor
     }
 
     // set description box's image to current item's description
-    public void hoverOver() {
+    public void whenHovered() {
         // ACTUALLY, DELETE THIS IF STATEMENT ONCE YOU MAKE AN ItemDescription_Close_bag.png IMAGE
         if(amount == -1) // if item is 'cancel' 
             world.removeObjects(world.getObjects(ItemDescription.class)); // remove description
         else if(getWorld().getObjects(ItemDescription.class).size() == 0) { // if no description made yet
             itemDescription = new ItemDescription(); // make one new dscription object
             getWorld().addObject(itemDescription, 400, 500);
-            hoverOver(); // call back to this method, since next time there will be a description present
+            whenHovered(); // call back to this method, since next time there will be a description present
         }
         else {// if description exists and item is not 'cancel', then description's image changes 
             world.getObjects(ItemDescription.class).get(0).setImage("ItemDescription_" + name + ".png");
