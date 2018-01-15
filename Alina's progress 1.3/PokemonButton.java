@@ -28,8 +28,8 @@ public class PokemonButton extends Button
 
     // this method is executed in the parent's act method
     public void select() {
-        Bag bag = new Bag();
-        world.addObject(bag, world.getWidth()/2, world.getHeight()/2);
+        Party party = new Party();
+        world.addObject(party, world.getWidth()/2, world.getHeight()/2);
 
         // specific pokemon change stuff
         world.removeObjects(world.getObjects(FightButton.class)); // have to remove this button LAST

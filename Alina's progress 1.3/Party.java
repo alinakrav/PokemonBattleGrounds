@@ -12,14 +12,17 @@ public class Party extends Actor
     boolean init = true;
     MyWorld world;
     ///////////
-    ArrayList<Pokemon> pokemons;
-
+    ArrayList<Pokemon> pokemons = new ArrayList<>();
+    ItemsList partyList;
     // hashmaps of _item name_ and _item quantity_ are in a list (to hold multiple name-quantity pairs), and there are multiple such lists for each category of items
 
     String itemChosen;
 
     public Party() {
-        
+        pokemons.add(new Jigglypuff(9, false));
+        pokemons.add(new Jigglypuff(9, false));
+        pokemons.add(new Jigglypuff(9, false));
+        pokemons.add(new Jigglypuff(9, false));
         ///
         this.getImage().scale(800, 600);
     }
@@ -36,6 +39,10 @@ public class Party extends Actor
             init = false;
             ///////
 
+            int itemsListX = itemLocations[0][0];
+            int itemsListY = itemLocations[0][1] + 60; // revert back to reference location (first transformed to be y1 from y
+            partyList = new ItemsList(pokemons, itemLocations, itemsListX, itemsListY); // first category of items array
+            world.addObject(partyList, partyList.getX(), partyList.getY());
         }
     }
 
@@ -49,7 +56,7 @@ public class Party extends Actor
         int itemY2 = itemY1 + 40;
         int itemY3 = itemY2 + 40;
         int itemY4 = itemY3 + 40;
-        
+
         int itemX1 = itemX - 200;
         int itemX2 = itemX1;
         int itemX3 = itemX + 200;

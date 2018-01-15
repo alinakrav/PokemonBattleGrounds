@@ -20,7 +20,7 @@ public class Bag extends Actor
     // 2d array of coordinates of all the item locations (taken from ItemsList constructor declaration)
     String itemChosen;
     public Bag() {//ArrayList<HashMap<String, Integer>> itemList) {
-        
+
         // later convert this to arraylist of objects instead, so it can do the same as Party
         HashMap<String, Integer> map = new HashMap<>();
         map.put("a", 1);
@@ -40,6 +40,7 @@ public class Bag extends Actor
         map.put("c", 3);
         itemList.add(map);
         ///
+
         this.getImage().scale(800, 600);
     }
 

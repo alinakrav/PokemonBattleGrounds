@@ -38,6 +38,7 @@ public class Selection extends Actor
     }
 
     public Selection(ArrayList<Item> objectList, boolean twoColumns, Item dummyParameter) {
+        setImage("itemSelection.png");
         if(twoColumns) { // if two columns, then the arraylist needs to be split into 2 arrays first
             Item[] firstColumn, secondColumn;
             secondColumn = new Item[objectList.size()/2];
@@ -52,6 +53,27 @@ public class Selection extends Actor
         }
         else { // if only one column, then grid consists of one array, to which the arraylist is just converted
             Item[][] temp = {objectList.toArray(new Item[objectList.size()])};
+            grid = temp;
+            temp = null;
+        }
+    }
+
+    public Selection(ArrayList<Pokemon> objectList, boolean twoColumns, Pokemon dummyParameter) {
+        setImage("itemSelection.png");
+        if(twoColumns) { // if two columns, then the arraylist needs to be split into 2 arrays first
+            Pokemon[] firstColumn, secondColumn;
+            secondColumn = new Pokemon[objectList.size()/2];
+            firstColumn = new Pokemon[objectList.size() - secondColumn.length];
+            for(int i = 0; i < firstColumn.length; i++) // populate first and second column lists with the buttons
+                firstColumn[i] = objectList.get(i);
+            for(int i = 0; i < secondColumn.length; i++)
+                secondColumn[i] = objectList.get(firstColumn.length + i);
+            Pokemon[][] temp = {firstColumn, secondColumn};
+            grid = temp;
+            temp = null;
+        }
+        else { // if only one column, then grid consists of one array, to which the arraylist is just converted
+            Pokemon[][] temp = {objectList.toArray(new Pokemon[objectList.size()])};
             grid = temp;
             temp = null;
         }
