@@ -79,6 +79,7 @@ public class Pokemon extends Actor
      */
     public void act() 
     {
+        System.out.println("i am in world");
         bounce(); //bounce continously
         die(); //die if it has no health
 
@@ -138,7 +139,7 @@ public class Pokemon extends Actor
         }
         //Preset 5: Balanced
         else if(statPreset == 5){
-            health = 4;//15 + level + 2 * level;
+            health = 15 + level + 2 * level;
             attack = 10 + 2 * level;
             defense = 10 + 2 * level;
             speed = 10 + 2 * level;
@@ -171,7 +172,7 @@ public class Pokemon extends Actor
             attack += 5;
             defense += 5;
             speed += 5;
-            
+
             evolutionForm++;
         }
         if(evolutionForm == 2){
@@ -180,7 +181,7 @@ public class Pokemon extends Actor
             attack += 5;
             defense += 5;
             speed += 5;
-            
+
             evolutionForm++;
         }
     }
@@ -285,17 +286,18 @@ public class Pokemon extends Actor
         System.out.println("attack" + moveName + " used.");
         // this is where the attack is made based on the name and direction (from enemy/player)
     }
-    
+
     public void useItem(String itemName, boolean enemy) {
         System.out.println(itemName + " used.");
         // this is where the item is used to boost whatever stats
     }
+
+    // this method sets the image to a small, front-facing view of the pokemon, and sets it location to be on the PartyTag that calls this method
+    public void tagView(int width, int x, int y) {
+        System.out.println("bird is at " + x + ", " + y);
+        getImage().scale(width, (int)((1.0*width)/getImage().getWidth()*getImage().getHeight()));
+        setLocation(x, y);
+    }
 }
-
-
-
-
-
-
 
 

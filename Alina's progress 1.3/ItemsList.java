@@ -26,7 +26,6 @@ public class ItemsList extends Actor
     // the list should be passed to constructor (not made here), and be of type "string" for the item names
     ArrayList<Item> things = new ArrayList<>();
     ArrayList<PartyTag> tags = new ArrayList<>();
-    ArrayList<Actor> actors = new ArrayList<>();
 
     public ItemsList(ArrayList<HashMap<String, Integer>> itemList, int[][] locations, int category, int x, int y) {
         setImage("items" + 0 + ".png"); // set the background of the list image (rectangle)
@@ -46,10 +45,10 @@ public class ItemsList extends Actor
         things.add(new Item("Close_bag", -1, locations[tempIndexCounter][0], locations[tempIndexCounter][1]));
     }
 
-    public ItemsList(ArrayList<PartyTag> tags, int[][] locations, int x, int y) {
+    public ItemsList(ArrayList<PartyTag> tags, int[][] locations) {
         //setImage("items" + 0 + ".png"); // set the background of the list image (rectangle)
-        this.x = x;
-        this.y = y;
+        this.x = locations[0][0]; // try deleting the + 150 later
+        this.y = locations[0][1] + 150; // revert back to reference location (first transformed to be y1 from y
 
         this.locations = locations;
         this.tags = tags;
@@ -66,16 +65,18 @@ public class ItemsList extends Actor
             world = (MyWorld)getWorld();
             init = false;
             ///////
-
             if(!things.isEmpty()) {
-                for(int i = 0; i < things.size(); i++)// create objects for all the items 
-                    world.addObject(things.get(i), locations[i][0], locations[i][1]);
+                for(int i = 0; i < things.size(); i++) {// create objects for all the items 
+                    world.addObject(things.get(i), things.get(i).getX(), things.get(i).getY());
+                }
                 // track the frame's item based on its location in relation to any item in array of these objects
                 selection = new Selection(things, false, things.get(0));
             }
             else {
-                for(int i = 0; i < tags.size(); i++) // create objects for all the tags 
-                    world.addObject(tags.get(i), locations[i][0], locations[i][1]);
+                for(int i = 0; i < world.getParty().size(); i++) {// create objects for all the tags based on party pokemon from world
+                    tags.add(new PartyTag(world.getParty().get(i), locations[i][0], locations[i][1]));
+                    world.addObject(tags.get(i), tags.get(i).getX(), tags.get(i).getY());	
+                }
                 selection = new Selection(tags, true, tags.get(0));
             }
             // doesn't exist a contructor for pokemonitems yet

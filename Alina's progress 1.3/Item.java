@@ -73,4 +73,12 @@ public class Item extends Actor
         // decided that I'm not using items from the Bag class
         // world.getObjects(Bag.class).get(0).itemChosen(chosen);
     }
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
 }

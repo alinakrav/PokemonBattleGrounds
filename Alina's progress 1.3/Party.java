@@ -35,13 +35,7 @@ public class Party extends Actor
             init = false;
             ///////
 
-            // if using the world to get something, do it in act method (not in constructor, when there is no world yet)
-            for(Pokemon pokemon : world.getParty()) 
-                tags.add(new PartyTag(pokemon)); 
-
-            int itemsListX = itemLocations[0][0];
-            int itemsListY = itemLocations[0][1] + 150; // revert back to reference location (first transformed to be y1 from y
-            partyList = new ItemsList(tags, itemLocations, itemsListX, itemsListY); // first category of items array
+            partyList = new ItemsList(tags, itemLocations); // first category of items array
             world.addObject(partyList, partyList.getX(), partyList.getY());
         }
     }
