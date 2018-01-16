@@ -1,0 +1,4 @@
+#BlueJ class context
+comment0.params=attacker\ enemy\ targetX\ targetY
+comment0.target=IceShard(Pokemon,\ boolean,\ int,\ int)
+numComments=1
