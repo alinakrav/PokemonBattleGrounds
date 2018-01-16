@@ -23,6 +23,8 @@ public class PartyTag extends Actor
     GreenfootImage hp, frame, frameHover, stats;
 
     PartyTag(Pokemon pokemon, int indexInParty, int x, int y) {
+        pokemon.lowerHealth(10);
+
         this.indexInParty = indexInParty;
         pokemon.setTag(this);
         this.x = x;
