@@ -1,4 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.ArrayList;
 
 /**
  * This subclass is used to make buttons that, when pressed, instantiate a game with
@@ -27,5 +28,18 @@ public class FightSubButton extends Button
         Turns.player.useMove(name, false); // moves done from the move button are only done by player
         world.removeObjects(world.getObjects(Selection.class)); 
         world.removeObjects(world.getObjects(Button.class)); // remove button from world
+
+        goToMenu();
+    }
+
+    private void goToMenu() {
+        ArrayList<Button> buttons = new ArrayList<>();
+        buttons.add(new FightButton());
+        buttons.add(new PokemonButton());
+        buttons.add(new BagButton());
+        buttons.add(new RunButton());
+        for(Button button : buttons)
+            world.addObject(button, button.x, button.y);
+        world.addObject(new Selection(buttons, true, buttons.get(0)), buttons.get(0).quadrants[0][0], buttons.get(0).quadrants[0][1]);
     }
 }

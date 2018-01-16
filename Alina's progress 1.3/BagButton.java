@@ -10,13 +10,12 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class BagButton extends Button
 {
-    public int x = q3X;
-    public int y = q3Y;
-
     // constructor makes a button for a specific mode and assigns the main game speed
     public BagButton() {
         super(); // get functionality of superclass
         //getImage().scale(400, 250);
+        x = q3X;
+        y = q3Y;
         name = "bag";
         setImage(new GreenfootImage(name + "Button.png")); // set image to the button appropriate to the mode
     }  

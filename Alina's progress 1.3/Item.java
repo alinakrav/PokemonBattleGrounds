@@ -2,6 +2,7 @@
 
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.awt.Color;
+import java.util.ArrayList;
 
 /**
  * Write a description of class Item here.
@@ -66,14 +67,25 @@ public class Item extends Actor
     }
 
     public void select() {
-        world.getObjects(Bag.class).get(0).remapItem(name, amount--); // decrease amount of item chosen
-        // i think the item should be chosen from this class, because it's less work and a shorter way
+        world.getObjects(Bag.class).get(0).remapItem(name, --amount); // decrease amount of item chosen
         Turns.player.useItem(name, false);
+        
         world.getObjects(Bag.class).get(0).removeEverything(); // exit the Bag object back to main screen
-        // decided that I'm not using items from the Bag class
-        // world.getObjects(Bag.class).get(0).itemChosen(chosen);
+        
+        goToMenu();
     }
-
+    
+    private void goToMenu() {
+        ArrayList<Button> buttons = new ArrayList<>();
+        buttons.add(new FightButton());
+        buttons.add(new PokemonButton());
+        buttons.add(new BagButton());
+        buttons.add(new RunButton());
+        for(Button button : buttons)
+            world.addObject(button, button.x, button.y);
+        world.addObject(new Selection(buttons, true, buttons.get(0)), buttons.get(0).quadrants[0][0], buttons.get(0).quadrants[0][1]);
+    }
+    
     public int getX() {
         return x;
     }

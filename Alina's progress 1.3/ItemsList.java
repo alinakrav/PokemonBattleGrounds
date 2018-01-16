@@ -74,7 +74,7 @@ public class ItemsList extends Actor
             }
             else {
                 for(int i = 0; i < world.getParty().size(); i++) {// create objects for all the tags based on party pokemon from world
-                    tags.add(new PartyTag(world.getParty().get(i), locations[i][0], locations[i][1]));
+                    tags.add(new PartyTag(world.getParty().get(i), i, locations[i][0], locations[i][1]));
                     world.addObject(tags.get(i), tags.get(i).getX(), tags.get(i).getY());	
                 }
                 selection = new Selection(tags, true, tags.get(0));

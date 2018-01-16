@@ -36,7 +36,7 @@ public class Bag extends Actor
             init = false;
             ///////
 
-            itemList = world.getItemList();
+            itemList = world.getBag();
             categories = new BagCategories(itemList, itemLocations, 100, 300); // this is where location of category object is chosen
             world.addObject(categories, categories.getX(), categories.getY());
         }
@@ -98,7 +98,7 @@ public class Bag extends Actor
         bagClasses.add(ItemDescription.class);
         for(Class c: bagClasses)
             world.removeObjects(world.getObjects(c));
-        Turns.itemList = itemList;
+        world.setBag(itemList);
         world.removeObject(this);
     }
 }

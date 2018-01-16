@@ -35,7 +35,13 @@ public class Party extends Actor
             init = false;
             ///////
 
-            partyList = new ItemsList(tags, itemLocations); // first category of items array
+            // clone the current player pokemon object to instantiate the same one in the party, but not in world yet
+            Pokemon pokeClone = Turns.player;
+            
+            world.swapParty(world.getParty().indexOf(Turns.player), pokeClone); 
+            world.removeObject(Turns.player);
+
+            partyList = new ItemsList(tags, itemLocations); // add the object that makes the list of tags
             world.addObject(partyList, partyList.getX(), partyList.getY());
         }
     }
@@ -79,12 +85,11 @@ public class Party extends Actor
         }
     }
 
-    public void removeEverything() {
+    public void removeEverything() { // except for PartyTag objects
         ArrayList<Class> bagClasses = new ArrayList<>();
         bagClasses.add(Selection.class); // itemselection checks for objects of other classes in its act(), so should be removed first
-        bagClasses.add(BagCategories.class);
         bagClasses.add(ItemsList.class);
-        bagClasses.add(Item.class);
+        //bagClasses.add(PartyTag.class);
         bagClasses.add(ItemDescription.class);
         for(Class c: bagClasses)
             world.removeObjects(world.getObjects(c));

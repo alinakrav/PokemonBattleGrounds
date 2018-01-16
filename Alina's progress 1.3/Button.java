@@ -14,7 +14,7 @@ public class Button extends Actor
     boolean init = true; // variable to allow you to initialise some actions
     MyWorld world; // this will keep track of the world (must be declared as instance variable)
     ///////////
-    int x, y;
+    public int x, y;
     public String name;
 
     //quadrant button locations for battle screen

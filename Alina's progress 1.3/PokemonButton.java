@@ -10,14 +10,13 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class PokemonButton extends Button
 {
-    public int x = q2X;
-    public int y = q2Y;
-
     // constructor makes a button for a specific mode and assigns the main game speed
     public PokemonButton() {
         super(); // get functionality of superclass
         //setImage(new GreenfootImage("AttackButton.png")); // set image to the button appropriate to the mode
         //getImage().scale(400, 250);
+        x = q2X;
+        y = q2Y;
         name = "pokemon";
         setImage(new GreenfootImage(name + "Button.png"));
     }   

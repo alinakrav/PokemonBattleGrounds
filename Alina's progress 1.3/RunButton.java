@@ -10,14 +10,13 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class RunButton extends Button
 {
-    public int x = q4X;
-    public int y = q4Y;
-
     // constructor makes a button for a specific mode and assigns the main game speed
     public RunButton() {
         super(); // get functionality of superclass
         //setImage(new GreenfootImage("AttackButton.png")); // set image to the button appropriate to the mode
         //getImage().scale(400, 250);
+        x = q4X;
+        y = q4Y;
         name = "run";
         setImage(new GreenfootImage(name + "Button.png"));
     }   

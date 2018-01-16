@@ -14,7 +14,7 @@ public class MyWorld extends World
     KeyReader keys;
 
     // hashmaps of _item name_ and _item quantity_ are in a list (to hold multiple name-quantity pairs), and there are multiple such lists for each category of items
-    ArrayList<HashMap<String, Integer>> itemList = new ArrayList<>();
+    ArrayList<HashMap<String, Integer>> bag = new ArrayList<>();
     /// keeps track of current party of pokemon objects
     ArrayList<Pokemon> pokemons = new ArrayList<>();
 
@@ -25,25 +25,26 @@ public class MyWorld extends World
         super(800, 600, 1);
 
         keys = new KeyReader();
+        addObject(keys, 0, 0);
 
         HashMap<String, Integer> map = new HashMap<>();
         //// defining objects in bag///////
         map.put("a", 1);
         map.put("b", 2);
         map.put("c", 3);
-        itemList.add(map);
+        bag.add(map);
 
         map = new HashMap<>(); // old map will still change in arraylist if changed after it was added, so make new map
         map.put("a", 3);
         map.put("b", 2);
         map.put("c", 1);
-        itemList.add(map);
+        bag.add(map);
 
         map = new HashMap<>();
         map.put("a", 2);
         map.put("b", 1);
         map.put("c", 3);
-        itemList.add(map);
+        bag.add(map);
         ///////////
 
         //// defining pokemon party
@@ -53,38 +54,44 @@ public class MyWorld extends World
         pokemons.add(new Jigglypuff(9, false));
         pokemons.add(new Jigglypuff(9, false));
 
-        ArrayList<Button> buttons = new ArrayList<>();
-        PokemonButton pokemonButton = new PokemonButton();
-        RunButton runButton = new RunButton();
-        BagButton bagButton = new BagButton();
-        FightButton fightButton = new FightButton();
-        addObject(keys, 0, 0);
-
-        buttons.add(fightButton);
-        buttons.add(pokemonButton);
-        buttons.add(bagButton);
-        buttons.add(runButton);
-
-        addObject(fightButton, fightButton.x, fightButton.y);
-        addObject(runButton, runButton.x, runButton.y);
-        addObject(bagButton, bagButton.x, bagButton.y);
-        addObject(pokemonButton, pokemonButton.x, pokemonButton.y);
-
-        addObject(new Selection(buttons, true, buttons.get(0)), buttons.get(0).quadrants[0][0], buttons.get(0).quadrants[0][1]);
+        goToMenu();
 
         // temporarily make Turns object here, along with Pokemon
         addObject(new Turns(), 0, 0);
-        Pokemon player = new Jigglypuff(9, false);
+        Pokemon player = pokemons.get(0);
         addObject(player, 100, 100);
         Turns.player = player;
     }
 
-    public ArrayList<HashMap<String, Integer>> getItemList() {
-        return itemList;
+    private void goToMenu() {
+        ArrayList<Button> buttons = new ArrayList<>();
+        buttons.add(new FightButton());
+        buttons.add(new PokemonButton());
+        buttons.add(new BagButton());
+        buttons.add(new RunButton());
+        for(Button button : buttons)
+            addObject(button, button.x, button.y);
+        addObject(new Selection(buttons, true, buttons.get(0)), buttons.get(0).quadrants[0][0], buttons.get(0).quadrants[0][1]);
+    }
+
+    public ArrayList<HashMap<String, Integer>> getBag() {
+        return bag;
+    }
+
+    public void setBag(ArrayList<HashMap<String, Integer>> bag) {
+        this.bag = bag;
     }
 
     public ArrayList<Pokemon> getParty() {
         return pokemons;
+    }
+
+    public void setParty(ArrayList<Pokemon> pokemons) {
+        this.pokemons = pokemons;
+    }
+
+    public void swapParty(int index, Pokemon pokemon) {
+        pokemons.set(index, pokemon); // the 'set()' method swaps elements of an arraylist 
     }
 
     public KeyReader getKeys() {

@@ -39,7 +39,8 @@ public class Pokemon extends Actor
     int deathCounter; // counts frames until death
     private int width;
     private int height;
-    //NameTag tag; //name tag of Pokemon
+    GreenfootImage image;
+    PartyTag tag; //name tag of Pokemon
 
     /**
      * The Pokemon constructor gives the child object: name, stats, width, height, x and y coordinates 
@@ -60,15 +61,16 @@ public class Pokemon extends Actor
         if(enemy){
             bounceX = 0;
             bounceY = 10;
-            GreenfootImage image = new GreenfootImage(name + "enemy.png");
+            image = new GreenfootImage(name + "enemy.png");
             image.scale(width, height);
             setImage(image);
         } else { //Player pokemon
             bounceX = 15;
             bounceY = 15;
             //GreenfootImage image = new GreenfootImage(name + ".png");
-            //image.scale(width, height);
-            //setImage(image);
+            image = new GreenfootImage(name + ".png");
+            image.scale(width, height);
+            setImage(image);
         }
 
     }
@@ -79,7 +81,6 @@ public class Pokemon extends Actor
      */
     public void act() 
     {
-        System.out.println("i am in world");
         bounce(); //bounce continously
         die(); //die if it has no health
 
@@ -294,10 +295,22 @@ public class Pokemon extends Actor
 
     // this method sets the image to a small, front-facing view of the pokemon, and sets it location to be on the PartyTag that calls this method
     public void tagView(int width, int x, int y) {
-        System.out.println("bird is at " + x + ", " + y);
         getImage().scale(width, (int)((1.0*width)/getImage().getWidth()*getImage().getHeight()));
         setLocation(x, y);
     }
-}
 
+    public void hide() {
+        this.setLocation(0, 0);
+        getImage().setTransparency(0);
+    }
+
+    public void unhide() {
+        setLocation(100,100);
+        setImage(image);
+    }
+    
+    public void setTag(PartyTag tag) {
+        this.tag = tag;
+    }
+}
 

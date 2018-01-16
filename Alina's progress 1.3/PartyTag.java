@@ -1,5 +1,6 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.awt.Color;
+import java.util.ArrayList;
 
 /**
  * Write a description of class PartyTag here.
@@ -13,6 +14,7 @@ public class PartyTag extends Actor
     MyWorld world; // this will keep track of the world (must be declared as instance variable)
     ///////////
     Pokemon pokemon;
+    int indexInParty;
     int x, y, width, height;
     int health, pixelsPerHealthPoint; // can only have declaration outside constructor, no separate initialisation
     int healthBarHeight = 12; 
@@ -20,7 +22,9 @@ public class PartyTag extends Actor
 
     GreenfootImage hp, frame, frameHover, stats;
 
-    PartyTag(Pokemon pokemon, int x, int y) {
+    PartyTag(Pokemon pokemon, int indexInParty, int x, int y) {
+        this.indexInParty = indexInParty;
+        pokemon.setTag(this);
         this.x = x;
         this.y = y;
         getImage().scale(200, 60); 
@@ -50,12 +54,6 @@ public class PartyTag extends Actor
         setImage(pokemon.getName() + "TagHover.png");
     }
 
-    // this method is called when the button is clicked. It is defined in the subclasses 
-    // for functionality that is specific to that button type.
-    public void select() {
-        
-    }
-
     // this method initialises world variable, and then does whatever needs to be done on instantiation 
     public void prepare() {
         if(init) {
@@ -66,6 +64,28 @@ public class PartyTag extends Actor
             drawComponents();
             drawTag(false); // not hovered at the beginning
         }
+    }
+
+    // this method is called when the button is clicked. It is defined in the subclasses 
+    // for functionality that is specific to that button type.
+    public void select() {
+        // delete everything created from the party, hide the party pokemon
+        world.getObjects(Party.class).get(0).removeEverything();
+        //set the player to the chosen pokemon
+        Turns.player = pokemon; // you also need to unhide the pokemon once you go into party menu again
+        // hide all pokemon in party except the player
+        for(PartyTag tag : world.getObjects(PartyTag.class)) { 
+            if(tag.getPokemon() != Turns.player) {
+                Pokemon tempPok = tag.getPokemon();
+                world.removeObject(tag.getPokemon());
+                world.swapParty(tag.getPokemonIndex(), tempPok);
+            }
+        }
+        world.removeObjects(world.getObjects(PartyTag.class)); // to avoid immutable list error, don't remove objects while iterating through them
+
+        // go to default battle interface
+        goToMenu();
+        //world.setParty(
     }
 
     public void drawComponents() {
@@ -109,6 +129,17 @@ public class PartyTag extends Actor
         pokemon.tagView(20, pokemon.getX(), pokemon.getY());
     }
 
+    private void goToMenu() {
+        ArrayList<Button> buttons = new ArrayList<>();
+        buttons.add(new FightButton());
+        buttons.add(new PokemonButton());
+        buttons.add(new BagButton());
+        buttons.add(new RunButton());
+        for(Button button : buttons)
+            world.addObject(button, button.x, button.y);
+        world.addObject(new Selection(buttons, true, buttons.get(0)), buttons.get(0).quadrants[0][0], buttons.get(0).quadrants[0][1]);
+    }
+
     public String getName() {
         return pokemon.getName();
     }
@@ -119,5 +150,13 @@ public class PartyTag extends Actor
 
     public int getY() {
         return y;
+    }
+
+    public Pokemon getPokemon() {
+        return pokemon;
+    }
+
+    public int getPokemonIndex() {
+        return indexInParty;
     }
 }

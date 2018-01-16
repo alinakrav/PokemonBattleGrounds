@@ -3,9 +3,6 @@ import java.util.ArrayList;
 
 public class FightButton extends Button
 {
-    public int x = q1X;
-    public int y = q1Y;
-
     Selection selection;
 
     // constructor makes a button for a specific mode and assigns the main game speed
@@ -13,6 +10,8 @@ public class FightButton extends Button
         super(); // get functionality of superclass
         //setImage(new GreenfootImage("AttackButton.png")); // set image to the button appropriate to the mode
         //getImage().scale(400, 250);
+        x = q1X;
+        y = q1Y;
         name = "fight";
         setImage(new GreenfootImage(name + "Button.png"));
     }   
@@ -23,18 +22,11 @@ public class FightButton extends Button
 
     // this method is executed in the parent's act method
     public void select() {
-        // make 4 attack buttons for different moves (depends on pokemon?)
         Pokemon player = Turns.player; // get current player object
 
         // remove all other buttons
         world.removeObjects(world.getObjects(Selection.class)); 
         world.removeObjects(world.getObjects(Button.class)); 
-        /*
-        world.removeObjects(world.getObjects(RunButton.class)); 
-        world.removeObjects(world.getObjects(BagButton.class)); 
-        world.removeObjects(world.getObjects(PokemonButton.class)); 
-        world.removeObjects(world.getObjects(FightButton.class));
-        */
 
         ///// this needs to be added to world before this button is deleted     
         ArrayList<Button> moveButtons = new ArrayList<>();
