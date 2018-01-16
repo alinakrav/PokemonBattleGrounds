@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.target=Selection
+comment1.params=objectList\ twoColumns\ dummyParameter
+comment1.target=Selection(java.util.ArrayList,\ boolean,\ Button)
+comment2.params=objectList\ twoColumns\ dummyParameter
+comment2.target=Selection(java.util.ArrayList,\ boolean,\ Item)
+comment3.params=objectList\ twoColumns\ dummyParameter
+comment3.target=Selection(java.util.ArrayList,\ boolean,\ PartyTag)
+comment4.params=
+comment4.target=void\ act()
+comment5.params=
+comment5.target=void\ hoverOverCurrent()
+comment6.params=
+comment6.target=void\ selectCurrent()
+comment7.params=
+comment7.target=greenfoot.Actor\ currentItem()
+comment8.params=
+comment8.target=void\ prepare()
+numComments=9

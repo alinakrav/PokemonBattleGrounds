@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.params=name\ damage\ speed\ attacker\ enemy\ targetX\ targetY
+comment0.target=Attack(java.lang.String,\ int,\ int,\ Pokemon,\ boolean,\ int,\ int)
+comment1.params=
+comment1.target=void\ act()
+comment1.text=\r\n\ Act\ -\ do\ whatever\ the\ Attack\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
+comment2.params=
+comment2.target=void\ hit()
+comment3.params=
+comment3.target=int\ getDamage()
+comment4.params=
+comment4.target=int\ getSpeed()
+numComments=5
