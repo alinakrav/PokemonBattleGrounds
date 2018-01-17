@@ -32,7 +32,7 @@ public class FightSubButton extends Button
     }
 
     private void goToMenu() {
-        ArrayList<Button> buttons = new ArrayList<>();
+        ArrayList<Button> buttons = new ArrayList<Button>();
         buttons.add(new FightButton());
         buttons.add(new PokemonButton());
         buttons.add(new BagButton());

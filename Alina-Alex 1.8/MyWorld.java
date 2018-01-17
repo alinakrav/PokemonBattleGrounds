@@ -15,9 +15,9 @@ public class MyWorld extends World
 
     public Pokemon player, enemy;
     // hashmaps of _item name_ and _item quantity_ are in a list (to hold multiple name-quantity pairs), and there are multiple such lists for each category of items
-    ArrayList<HashMap<String, Integer>> bag = new ArrayList<>();
+    ArrayList<HashMap<String, Integer>> bag = new ArrayList<HashMap<String, Integer>>();
     /// keeps track of current party of pokemon objects
-    ArrayList<Pokemon> pokemons = new ArrayList<>();
+    ArrayList<Pokemon> pokemons = new ArrayList<Pokemon>();
 
     public MyWorld()
     {    
@@ -30,20 +30,20 @@ public class MyWorld extends World
         addObject(keys, 0, 0);
 
         /// helper variable to make the map of items (should be made somewhere else)
-        HashMap<String, Integer> map = new HashMap<>();
+        HashMap<String, Integer> map = new HashMap<String, Integer>();
         //// defining objects in bag///////
         map.put("a", 1);
         map.put("b", 2);
         map.put("c", 3);
         bag.add(map);
 
-        map = new HashMap<>(); // old map will still change in arraylist if changed after it was added, so make new map
+        map = new HashMap<String, Integer>(); // old map will still change in arraylist if changed after it was added, so make new map
         map.put("a", 3);
         map.put("b", 2);
         map.put("c", 1);
         bag.add(map);
 
-        map = new HashMap<>();
+        map = new HashMap<String, Integer>();
         map.put("a", 2);
         map.put("b", 1);
         map.put("c", 3);
@@ -69,7 +69,7 @@ public class MyWorld extends World
     }
 
     private void goToMenu() {
-        ArrayList<Button> buttons = new ArrayList<>();
+        ArrayList<Button> buttons = new ArrayList<Button>();
         buttons.add(new FightButton());
         buttons.add(new PokemonButton());
         buttons.add(new BagButton());

@@ -1,5 +1,5 @@
 #Greenfoot properties
-#Wed Jan 17 04:48:46 EST 2018
+#Wed Jan 17 12:24:34 EST 2018
 target24.type=ClassTarget
 target16.name=Party
 dependency85.to=Party
@@ -548,7 +548,7 @@ target26.name=Bag
 target27.x=10
 target34.typeParameters=
 dependency58.to=Selection
-editor.swing.0.width=845
+editor.swing.0.width=844
 target29.naviview.expanded=false
 target29.height=50
 dependency6.from=MyWorld

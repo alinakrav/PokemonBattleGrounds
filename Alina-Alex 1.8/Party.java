@@ -12,7 +12,7 @@ public class Party extends Actor
     boolean init = true;
     MyWorld world;
     ///////////
-    ArrayList<PartyTag> tags = new ArrayList<>();
+    ArrayList<PartyTag> tags = new ArrayList<PartyTag>();
     ItemsList partyList;
     // hashmaps of _item name_ and _item quantity_ are in a list (to hold multiple name-quantity pairs), and there are multiple such lists for each category of items
 
@@ -81,7 +81,7 @@ public class Party extends Actor
     }
 
     public void removeEverything() { // except for PartyTag objects
-        ArrayList<Class> bagClasses = new ArrayList<>();
+        ArrayList<Class> bagClasses = new ArrayList<Class>();
         bagClasses.add(Selection.class); // itemselection checks for objects of other classes in its act(), so should be removed first
         bagClasses.add(ItemsList.class);
         bagClasses.add(ItemDescription.class);

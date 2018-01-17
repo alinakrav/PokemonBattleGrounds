@@ -24,8 +24,8 @@ public class ItemsList extends Actor
     private String chosen; //string of the item that 'enter' is pressed on
 
     // the list should be passed to constructor (not made here), and be of type "string" for the item names
-    ArrayList<Item> things = new ArrayList<>();
-    ArrayList<PartyTag> tags = new ArrayList<>();
+    ArrayList<Item> things = new ArrayList<Item>();
+    ArrayList<PartyTag> tags = new ArrayList<PartyTag>();
 
     public ItemsList(ArrayList<HashMap<String, Integer>> itemList, int[][] locations, int category) {
         setImage("items" + 0 + ".png"); // set the background of the list image (rectangle)

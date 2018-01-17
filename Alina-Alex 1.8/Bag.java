@@ -15,7 +15,7 @@ public class Bag extends Actor
     BagCategories categories;
 
     // the list of all items in bag (get this from world)
-    ArrayList<HashMap<String, Integer>> itemList = new ArrayList<>();
+    ArrayList<HashMap<String, Integer>> itemList = new ArrayList<HashMap<String, Integer>>();
 
     // 2d array of coordinates of all the item locations (taken from ItemsList constructor declaration)
     String itemChosen;
@@ -90,7 +90,7 @@ public class Bag extends Actor
     }
 
     public void removeEverything() {
-        ArrayList<Class> bagClasses = new ArrayList<>();
+        ArrayList<Class> bagClasses = new ArrayList<Class>();
         bagClasses.add(Selection.class); // itemselection checks for objects of other classes in its act(), so should bed first
         bagClasses.add(BagCategories.class);
         bagClasses.add(ItemsList.class);
