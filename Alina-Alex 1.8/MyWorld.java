@@ -23,7 +23,8 @@ public class MyWorld extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(800, 600, 1);
-        setImage(
+        setBackground(new GreenfootImage("battleScreen.png"));
+
         // keyboard reader
         keys = new KeyReader();
         addObject(keys, 0, 0);
