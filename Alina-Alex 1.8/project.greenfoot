@@ -1,5 +1,5 @@
 #Greenfoot properties
-#Wed Jan 17 03:15:48 EST 2018
+#Wed Jan 17 04:48:46 EST 2018
 target24.type=ClassTarget
 target16.name=Party
 dependency85.to=Party
@@ -52,7 +52,7 @@ dependency60.type=UsesDependency
 target14.showInterface=false
 dependency68.to=MyWorld
 target32.width=90
-mainWindow.width=1093
+mainWindow.width=1098
 target8.showInterface=false
 target1.typeParameters=
 target1.type=ClassTarget
@@ -548,7 +548,7 @@ target26.name=Bag
 target27.x=10
 target34.typeParameters=
 dependency58.to=Selection
-editor.swing.0.width=844
+editor.swing.0.width=845
 target29.naviview.expanded=false
 target29.height=50
 dependency6.from=MyWorld
@@ -571,7 +571,7 @@ target38.name=KeyReader
 target21.type=ClassTarget
 mainWindow.y=23
 target13.name=Item
-mainWindow.x=187
+mainWindow.x=182
 target16.y=250
 target16.x=100
 dependency28.from=BagCategories
@@ -707,7 +707,7 @@ target28.name=Heal
 dependency66.to=Pokemon
 editor.swing.0.y=23
 editor.swing.0.x=124
-mainWindow.height=653
+mainWindow.height=673
 dependency8.from=FightButton
 target28.height=50
 target40.showInterface=false

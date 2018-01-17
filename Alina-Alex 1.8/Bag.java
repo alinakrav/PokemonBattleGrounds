@@ -46,14 +46,14 @@ public class Bag extends Actor
         //boolean if statement here for whether it's bag or party
 
         // location of the future ItemsList object (derived from first item location again in BagCategories class)
-        int itemX = 400;
-        int itemY = 200;
+        int itemX = 515;
+        int itemY = 225;
 
         // list all the possible (maximum) y values in order
-        int itemY1 = itemY - 60;
-        int itemY2 = itemY1 + 40;
-        int itemY3 = itemY2 + 40;
-        int itemY4 = itemY3 + 40;
+        int itemY1 = 68;
+        int itemY2 = itemY1 + 42;
+        int itemY3 = itemY2 + 42;
+        int itemY4 = itemY3 + 42;
         int[][] itemLocations = {{itemX, itemY1}, 
                 {itemX, itemY2}, 
                 {itemX, itemY3}, 

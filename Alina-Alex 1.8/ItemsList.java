@@ -57,7 +57,7 @@ public class ItemsList extends Actor
     public void prepare() {
         if(init) {
             world = (MyWorld)getWorld();
-            setLocation(400, 200);
+            setLocation(515, 225);
             init = false;
             ///////
             if(!things.isEmpty()) {
