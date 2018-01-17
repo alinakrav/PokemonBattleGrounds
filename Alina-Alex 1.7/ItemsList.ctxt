@@ -1,9 +1,7 @@
 #BlueJ class context
 comment0.target=ItemsList
-comment1.params=itemList\ locations\ category\ x\ y
-comment1.target=ItemsList(java.util.ArrayList,\ int[][],\ int,\ int,\ int)
-comment10.params=
-comment10.target=int\ getY()
+comment1.params=itemList\ locations\ category
+comment1.target=ItemsList(java.util.ArrayList,\ int[][],\ int)
 comment2.params=tags\ locations
 comment2.target=ItemsList(java.util.ArrayList,\ int[][])
 comment3.params=
@@ -18,6 +16,4 @@ comment7.params=index
 comment7.target=int[]\ getItemLocation(int)
 comment8.params=
 comment8.target=int\ getMaxIndex()
-comment9.params=
-comment9.target=int\ getX()
-numComments=11
+numComments=9

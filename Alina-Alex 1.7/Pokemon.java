@@ -69,17 +69,13 @@ public class Pokemon extends Actor
         if(enemy){
             bounceX = 0;
             bounceY = 10;
-            image = new GifImage(name + ".gif");
-            image.resizeImages(width, height);
+            battleView();
             targetX = 400;
             targetY = -150;
         } else { //Player pokemon
             bounceX = 15;
             bounceY = 15;
-            if(!(name.equals("Pikachu") || name.equals("Mudkip"))) {
-                image = new GifImage("Back" + name + ".gif");
-                image.resizeImages(width, height);
-            }
+            battleView();
             targetX = 720;
             targetY = 300;
         }
@@ -367,8 +363,22 @@ public class Pokemon extends Actor
 
     // this method sets the image to a small, front-facing view of the pokemon, and sets it location to be on the PartyTag that calls this method
     public void tagView(int width, int x, int y) {
+        image = new GifImage(name + ".gif");
         image.resizeImages(width, (int)((1.0*width)/getImage().getWidth()*getImage().getHeight()));
         setLocation(x, y);
+    }
+
+    public void battleView() {
+        if(enemy) {
+            image = new GifImage(name + ".gif");
+            image.resizeImages(width, height);
+            setLocation(400, 200);
+        }
+        else if(!(name.equals("Pikachu") || name.equals("Mudkip"))) {
+            image = new GifImage("Back" + name + ".gif");
+            image.resizeImages(width, height);
+            setLocation(200, 400);
+        }
     }
 
     public GifImage getAnimation() {

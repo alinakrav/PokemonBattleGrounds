@@ -27,10 +27,8 @@ public class ItemsList extends Actor
     ArrayList<Item> things = new ArrayList<>();
     ArrayList<PartyTag> tags = new ArrayList<>();
 
-    public ItemsList(ArrayList<HashMap<String, Integer>> itemList, int[][] locations, int category, int x, int y) {
+    public ItemsList(ArrayList<HashMap<String, Integer>> itemList, int[][] locations, int category) {
         setImage("items" + 0 + ".png"); // set the background of the list image (rectangle)
-        this.x = x;
-        this.y = y;
 
         this.locations = locations;
         this.category = category;
@@ -46,10 +44,6 @@ public class ItemsList extends Actor
     }
 
     public ItemsList(ArrayList<PartyTag> tags, int[][] locations) {
-        //setImage("items" + 0 + ".png"); // set the background of the list image (rectangle)
-        this.x = locations[0][0]; // try deleting the + 150 later
-        this.y = locations[0][1] + 150; // revert back to reference location (first transformed to be y1 from y
-
         this.locations = locations;
         this.tags = tags;
     }
@@ -73,13 +67,15 @@ public class ItemsList extends Actor
                 selection = new Selection(things, false, things.get(0));
             }
             else {
+                world.removeObject(world.player);
                 for(int i = 0; i < world.getParty().size(); i++) {// create objects for all the tags based on party pokemon from world
-                    tags.add(new PartyTag(world.getParty().get(i), i, locations[i][0], locations[i][1]));
+                    tags.add(new PartyTag(world.getParty().get(i), locations[i][0], locations[i][1]));
                     world.addObject(tags.get(i), tags.get(i).getX(), tags.get(i).getY());	
+                    // world.addObject(tags.get(i), 100, 200);	
                 }
                 selection = new Selection(tags, true, tags.get(0));
+                //create 'close party' button here 
             }
-            // doesn't exist a contructor for pokemonitems yet
             world.addObject(selection, locations[0][0], locations[0][1]); // create selection around the first item in list (x and y coordinates of first array in 2d array are elements 0 and 1
         }
     }
@@ -107,13 +103,5 @@ public class ItemsList extends Actor
 
     public int getMaxIndex() {
         return things.size() - 1;
-    }
-
-    public int getX() {
-        return x;
-    }
-
-    public int getY() {
-        return y;
     }
 }

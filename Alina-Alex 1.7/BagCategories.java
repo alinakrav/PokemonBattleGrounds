@@ -10,7 +10,7 @@ public class BagCategories extends Actor
     KeyReader keys;
     MyWorld world;
     ////////
-    
+
     ArrayList<HashMap<String, Integer>> itemsArray;
     int[][] itemLocations;
     int x;
@@ -37,14 +37,14 @@ public class BagCategories extends Actor
             if(keys.keyIs("right") && category < finalBoxIndex) {
                 setImage("bagCategories" + ++category + ".png");
                 ItemsList tempItemsList = itemsList; // temporarily store old items object in variable to use its location
-                itemsList = new ItemsList(itemsArray, itemLocations,category, tempItemsList.getX(), tempItemsList.getY()); // create next items object in place of old one
+                itemsList = new ItemsList(itemsArray, itemLocations,category); // create next items object in place of old one
                 world.addObject(itemsList, itemsList.getX(), itemsList.getY()); // add new items object to world
                 removeItems(tempItemsList); // remove the old items list object
             }
             else if(keys.keyIs("left") && category > 0) {
                 setImage("bagCategories" + --category + ".png");
                 ItemsList tempItemsList = itemsList;
-                itemsList = new ItemsList(itemsArray, itemLocations, category, tempItemsList.getX(), tempItemsList.getY());
+                itemsList = new ItemsList(itemsArray, itemLocations, category);
                 world.addObject(itemsList, itemsList.getX(), itemsList.getY());
                 removeItems(tempItemsList);
             }
@@ -59,9 +59,7 @@ public class BagCategories extends Actor
             init = false;
             ///////
 
-            int itemsListX = itemLocations[0][0];
-            int itemsListY = itemLocations[0][1] + 60; // revert back to reference location (first transformed to be y1 from y
-            itemsList = new ItemsList(itemsArray, itemLocations, 0, itemsListX, itemsListY); // first category of items array
+            itemsList = new ItemsList(itemsArray, itemLocations, 0); // first category of items array
             world.addObject(itemsList, itemsList.getX(), itemsList.getY());
         }
     }

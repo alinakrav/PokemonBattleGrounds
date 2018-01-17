@@ -35,14 +35,8 @@ public class Party extends Actor
             init = false;
             ///////
 
-            // clone the current player pokemon object to instantiate the same one in the party, but not in world yet
-            Pokemon pokeClone = world.player;
-
-            world.swapParty(world.getParty().indexOf(world.player), pokeClone); 
-            world.removeObject(world.player);
-
             partyList = new ItemsList(tags, itemLocations); // add the object that makes the list of tags
-            world.addObject(partyList, partyList.getX(), partyList.getY());
+            world.addObject(partyList, 0, 0);
         }
     }
 
@@ -52,20 +46,21 @@ public class Party extends Actor
         int itemY = 300;
 
         // list all the possible (maximum) y values in order (sideways Z pattern)
-        int item1Y, item2Y, item3Y, item4Y, item5Y;
+        int item1Y, item2Y, item3Y, item4Y, item5Y, item6Y;
         item1Y = item4Y = itemY - 150;
         item2Y = item5Y = item1Y + 150;
-        item3Y = item2Y + 150;
+        item3Y = item6Y = item2Y + 150;
 
-        int item1X, item2X, item3X, item4X, item5X;
+        int item1X, item2X, item3X, item4X, item5X, item6X;
         item1X = item2X = item3X = itemX - 250;
-        item4X = item5X = item1X + 250;
+        item4X = item5X = item6X = item1X + 250;
 
         int[][] itemLocations = {{item1X, item1Y}, 
                 {item2X, item2Y}, 
                 {item3X, item3Y}, 
                 {item4X, item4Y},
-                {item5X, item5Y}};
+                {item5X, item5Y},
+                {item6X, item6Y}};
 
         return itemLocations;
     }

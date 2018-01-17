@@ -24,9 +24,11 @@ public class MyWorld extends World
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(800, 600, 1);
 
+        // keyboard reader
         keys = new KeyReader();
         addObject(keys, 0, 0);
 
+        /// helper variable to make the map of items (should be made somewhere else)
         HashMap<String, Integer> map = new HashMap<>();
         //// defining objects in bag///////
         map.put("a", 1);
@@ -47,15 +49,20 @@ public class MyWorld extends World
         bag.add(map);
         ///////////
 
-        //// defining pokemon party
+        //// defining pokemon party (should be made somewhere else)
         pokemons.add(new Jigglypuff(9, false));
         pokemons.add(new Charmander(9, false));
+        pokemons.add(new Pikachu(9, false));
         pokemons.add(new Dragonite(9, false));
         pokemons.add(new Pikachu(9, false));
         pokemons.add(new Mudkip(9, false));
+        // create and add player and enemy to battle
         player = pokemons.get(0);
-        
-        addObject(new Pikachu(9, false), 100, 100); // add player to world
+        enemy = makeRandomEnemy(); // enemy should be chosen at random
+        addObject(enemy, 0, 0);
+        addObject(player, 0, 0); // add player to world
+        player.battleView(); // you cannot setlocation in the constructor itself, so put pokemon into battleview when they're made here
+        enemy.battleView();
 
         goToMenu();
     }
@@ -87,8 +94,23 @@ public class MyWorld extends World
         this.pokemons = pokemons;
     }
 
-    public void swapParty(int index, Pokemon pokemon) {
-        pokemons.set(index, pokemon); // the 'set()' method swaps elements of an arraylist 
+    public Pokemon makeRandomEnemy() { // give them variable stats?
+        String[] enemies = {"Charmander", "Dragonite", "Pikachu", "Jigglypuff", "Mudkip", "Gyarados"}; // define all possible enemies
+        int randInd = (int)(Math.random() * 5 + 1); // generate random index out of the above array (min = 0, max = 5)
+        // make instance of the enemy classes described in the array, based on the random index
+        if(enemies[randInd].equals("Charmander"))
+            return new Charmander(9, true);
+        else if(enemies[randInd].equals("Dragonite"))
+            return new Dragonite(9, true);
+        else if(enemies[randInd].equals("Pikachu"))
+            return new Pikachu(9, true);
+        else if(enemies[randInd].equals("Jigglypuff"))
+            return new Jigglypuff(9, true);
+        else if(enemies[randInd].equals("Mudkip"))
+            return new Mudkip(9, true);
+        else if(enemies[randInd].equals("Gyarados"))
+            return new Gyarados(9, true);
+        return null; // return nothing if index doesn't point to String
     }
 
     public KeyReader getKeys() {

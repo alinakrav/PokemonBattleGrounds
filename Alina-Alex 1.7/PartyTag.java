@@ -14,46 +14,47 @@ public class PartyTag extends Actor
     MyWorld world; // this will keep track of the world (must be declared as instance variable)
     ///////////
     Pokemon pokemon;
-    int indexInParty;
     int x, y, width, height;
     double pixelsPerHealthPoint; // can only have declaration outside constructor, no separate initialisation
     int health;
     int healthBarHeight = 12; 
     int healthBarWidth = 137;
 
-    GreenfootImage hp, frame, frameHover, stats;
+    GreenfootImage hp, frame, frameHover, stats, close, closeHover;
 
-    PartyTag(Pokemon pokemon, int indexInParty, int x, int y) {
-        this.indexInParty = indexInParty;
-        pokemon.setTag(this);
+    PartyTag(Pokemon pokemon, int x, int y) {
         this.x = x;
         this.y = y;
-        getImage().scale(200, 60);
-        width = getImage().getWidth();
-        height = getImage().getHeight();
+        setLocation(x, y);
+        if(pokemon != null) { // for every tag except 'close party' one 
+            getImage().scale(200, 60);
+            width = getImage().getWidth();
+            height = getImage().getHeight();
 
-        this.pokemon = pokemon;
-        health = pokemon.getCurHealth();
-        pixelsPerHealthPoint = (double)healthBarWidth / pokemon.getHealth(); // width divided by max health
+            pokemon.setTag(this);
+            this.pokemon = pokemon;
+            health = pokemon.getCurHealth();
+            pixelsPerHealthPoint = (double)healthBarWidth / pokemon.getHealth(); // width divided by max health
 
-        hp = new GreenfootImage(width, height);
-        frame = new GreenfootImage(width, height);
-        frameHover = new GreenfootImage(width, height);
-        stats = new GreenfootImage(width, height);
+            hp = new GreenfootImage(width, height);
+            frame = new GreenfootImage(width, height);
+            frameHover = new GreenfootImage(width, height);
+            stats = new GreenfootImage(width, height);
+        }
+        else {
+            getImage().scale(400, 60); // size of the 'close' option at the bottom
+            width = getImage().getWidth();
+            height = getImage().getHeight();
+
+            close = new GreenfootImage(width, height);  
+            closeHover = new GreenfootImage(width, height);
+        }
     }
 
     public void act() 
     {
         prepare();
     }    
-
-    public void whenHovered() {
-        for(PartyTag tag : world.getObjects(PartyTag.class)) {
-            if(tag != this)
-                tag.drawTag(false);
-        }
-        drawTag(true);
-    }
 
     // this method initialises world variable, and then does whatever needs to be done on instantiation 
     public void prepare() {
@@ -73,7 +74,10 @@ public class PartyTag extends Actor
         // delete everything created from the party, hide the party pokemon
         world.getObjects(Party.class).get(0).removeEverything();
         //set the player to the chosen pokemon
-        world.player = pokemon;
+        if(pokemon != null) { // if the tag isn't a 'close' button
+            world.player = pokemon; // make the tag's pokemon the player
+            world.player.battleView();
+        }
         // for all pokemon in party except the player
         for(PartyTag tag : world.getObjects(PartyTag.class)) { 
             if(tag.getPokemon() != world.player) {
@@ -87,10 +91,16 @@ public class PartyTag extends Actor
     }
 
     public void drawComponents() {
-        drawHP();
-        drawFrame();
-        drawFrameHover();
-        drawStats();
+        if(pokemon != null) {
+            drawHP();
+            drawFrame();
+            drawFrameHover();
+            drawStats();
+        }
+        else {
+            drawClose();
+            drawCloseHover();
+        }
     }
 
     // this method redraws the image of the health bar as health decreases
@@ -115,17 +125,33 @@ public class PartyTag extends Actor
         stats.drawString(pokemon.getName(), 100, 20);
     }
 
-    public void drawTag(boolean hovered) {
-        getImage().drawImage(hp, 0, 0);
-        if(!hovered)
-            getImage().drawImage(frame, 0, 0);
-        else 
-            getImage().drawImage(frameHover, 0, 0);
-        getImage().drawImage(stats, 0, 0);
+    public void drawClose() {
+        close.drawImage(new GreenfootImage("tagClose.png"), 0, 0);
+    }
 
-        world.addObject(pokemon, getX(), getY()); // add the pokemon to world
-        if(!(pokemon.getName().equals("Pikachu") || pokemon.getName().equals("Mudkip"))) 
-            pokemon.tagView(20, pokemon.getX(), pokemon.getY());
+    public void drawCloseHover() {
+        closeHover.drawImage(new GreenfootImage("tagCloseHover.png"), 0, 0);
+    }
+
+    public void drawTag(boolean hovered) {
+        if(pokemon != null) {
+            getImage().drawImage(hp, 0, 0);
+            if(!hovered)
+                getImage().drawImage(frame, 0, 0);
+            else 
+                getImage().drawImage(frameHover, 0, 0);
+            getImage().drawImage(stats, 0, 0);
+
+            world.addObject(pokemon, getX(), getY()); // add the pokemon to world
+            if(!(pokemon.getName().equals("Pikachu") || pokemon.getName().equals("Mudkip"))) 
+                pokemon.tagView(20, pokemon.getX(), pokemon.getY());
+        }
+        else {
+            if(!hovered)
+                getImage().drawImage(close, 0, 0);
+            else
+                getImage().drawImage(closeHover, 0, 0);
+        }
     }
 
     private void goToMenu() {
@@ -161,9 +187,5 @@ public class PartyTag extends Actor
 
     public Pokemon getPokemon() {
         return pokemon;
-    }
-
-    public int getPokemonIndex() {
-        return indexInParty;
     }
 }

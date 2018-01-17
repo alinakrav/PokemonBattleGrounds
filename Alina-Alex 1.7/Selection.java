@@ -59,17 +59,22 @@ public class Selection extends Actor
         }
     }
 
+    PartyTag closeButton;
     public Selection(ArrayList<PartyTag> objectList, boolean twoColumns, PartyTag dummyParameter) {
         setImage("null.png");
         if(twoColumns) { // if two columns, then the arraylist needs to be split into 2 arrays first
             PartyTag[] firstColumn, secondColumn;
             secondColumn = new PartyTag[objectList.size()/2];
-            firstColumn = new PartyTag[objectList.size() - secondColumn.length];
-            for(int i = 0; i < firstColumn.length; i++) // populate first and second column lists with the buttons
+            firstColumn = new PartyTag[objectList.size() - secondColumn.length + 1]; // bigger half, plus one spot for the close button
+            for(int i = 0; i < firstColumn.length - 1; i++) // populate first and second column lists with the buttons
                 firstColumn[i] = objectList.get(i);
+
+            // close button is indicated with 'null' pokemon. X and Y of the close button are defined here
+            closeButton = new PartyTag(null, 410, 520);
+            firstColumn[firstColumn.length - 1] = closeButton;
+
             for(int i = 0; i < secondColumn.length; i++)
-                secondColumn[i] = objectList.get(firstColumn.length + i);
-            //System.out.println("size of secondcolumn is " + secondColumn.length);
+                secondColumn[i] = objectList.get(firstColumn.length - 1 + i);
             PartyTag[][] temp = {firstColumn, secondColumn};
             grid = temp;
             temp = null;
@@ -86,8 +91,16 @@ public class Selection extends Actor
         prepare();
         if(keys.keyNotNull()) {
             // see if second coordinate (y) is less than max index of current x coord-th array length in grid
-            if(keys.keyIs("down") && gridIndex[1] < grid[gridIndex[0]].length - 1) 
+            if(keys.keyIs("down") && grid[0][0] instanceof PartyTag && gridIndex[0] > 0 && gridIndex[1] == grid[gridIndex[0]].length - 1) {
+                setLocation(grid[--gridIndex[0]][grid[gridIndex[0]].length - 1].getX(), grid[gridIndex[0]][grid[gridIndex[0]].length - 1].getY());
+                gridIndex[1] = grid[gridIndex[0]].length - 1;
+            }
+            else if(keys.keyIs("down") && gridIndex[1] < grid[gridIndex[0]].length - 1)
                 setLocation(grid[gridIndex[0]][++gridIndex[1]].getX(), grid[gridIndex[0]][gridIndex[1]].getY()); 
+            else if(keys.keyIs("up") && grid[0][0] instanceof PartyTag && gridIndex[0] < grid.length - 1 && gridIndex[1] == grid[gridIndex[0]].length - 1) {
+                setLocation(grid[++gridIndex[0]][grid[gridIndex[0]].length - 1].getX(), grid[gridIndex[0]][grid[gridIndex[0]].length - 1].getY());
+                gridIndex[1] = grid[gridIndex[0]].length - 1;
+            }
             else if(keys.keyIs("up") && gridIndex[1] > 0)
                 setLocation(grid[gridIndex[0]][--gridIndex[1]].getX(), grid[gridIndex[0]][gridIndex[1]].getY());
             else if(keys.keyIs("right") && gridIndex[0] < grid.length - 1 && gridIndex[1] < grid[gridIndex[0] + 1].length)
@@ -129,6 +142,11 @@ public class Selection extends Actor
             keys = world.getKeys();
             init = false;
             /////////
+
+            // if this selection is on a PartyTag collection, closeButton will be initialised and must be added to world
+            if(closeButton != null)	
+            // world.addObject(closeButton, 200,200);
+                world.addObject(closeButton, closeButton.getX(), closeButton.getY());
             hoverOverCurrent();
         }
     }
