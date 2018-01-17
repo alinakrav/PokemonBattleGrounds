@@ -49,10 +49,6 @@ public class Pokemon extends Actor
     GifImage image;
     PartyTag tag; //name tag of Pokemon
 
-    
-    int gifIndex = 0;
-    GreenfootImage[] gifs;
-
     /**
      * The Pokemon constructor gives the child object: name, stats, width, height, x and y coordinates 
      * of name tag, and vertical and horizontal bounce. It also sets the image for the Pokemon and rescales it.
@@ -73,23 +69,20 @@ public class Pokemon extends Actor
         if(enemy){
             bounceX = 0;
             bounceY = 10;
-            //GreenfootImage image = new GreenfootImage(name + "enemy.png");
             image = new GifImage(name + ".gif");
             image.resizeImages(width, height);
-            //setImage(image);
             targetX = 400;
             targetY = -150;
         } else { //Player pokemon
             bounceX = 15;
             bounceY = 15;
-            //GreenfootImage image = new GreenfootImage(name + ".png");
-            image = new GifImage("BackPikachu.gif");
-            image.resizeImages(width, height);
+            if(!(name.equals("Pikachu") || name.equals("Mudkip"))) {
+                image = new GifImage("Back" + name + ".gif");
+                image.resizeImages(width, height);
+            }
             targetX = 720;
             targetY = 300;
         }
-
-        gifs = new GreenfootImage[] {new GreenfootImage(name + ".gif")};
     }
 
     /**
@@ -98,8 +91,9 @@ public class Pokemon extends Actor
      */
     public void act() 
     {
-        //animate();
-        setImage(image.getCurrentImage());
+        if(!(name.equals("Pikachu") || name.equals("Mudkip"))) {
+            setImage(image.getCurrentImage());
+        }
         //bounce(); //bounce continously
         die(); //die if it has no health
 
@@ -383,9 +377,5 @@ public class Pokemon extends Actor
 
     public void setTag(PartyTag tag) {
         this.tag = tag;
-    }
-
-    public void animate() {
-        setImage(gifs[gifIndex++]);
     }
 }

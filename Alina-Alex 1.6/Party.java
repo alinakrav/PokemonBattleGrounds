@@ -37,7 +37,7 @@ public class Party extends Actor
 
             // clone the current player pokemon object to instantiate the same one in the party, but not in world yet
             Pokemon pokeClone = world.player;
-            
+
             world.swapParty(world.getParty().indexOf(world.player), pokeClone); 
             world.removeObject(world.player);
 
@@ -89,7 +89,6 @@ public class Party extends Actor
         ArrayList<Class> bagClasses = new ArrayList<>();
         bagClasses.add(Selection.class); // itemselection checks for objects of other classes in its act(), so should be removed first
         bagClasses.add(ItemsList.class);
-        //bagClasses.add(PartyTag.class);
         bagClasses.add(ItemDescription.class);
         for(Class c: bagClasses)
             world.removeObjects(world.getObjects(c));

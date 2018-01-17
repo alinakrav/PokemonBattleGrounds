@@ -123,8 +123,9 @@ public class PartyTag extends Actor
             getImage().drawImage(frameHover, 0, 0);
         getImage().drawImage(stats, 0, 0);
 
-       // world.addObject(pokemon, getX(), getY()); // add the pokemon to world
-        pokemon.tagView(20, pokemon.getX(), pokemon.getY());
+        world.addObject(pokemon, getX(), getY()); // add the pokemon to world
+        if(!(pokemon.getName().equals("Pikachu") || pokemon.getName().equals("Mudkip"))) 
+            pokemon.tagView(20, pokemon.getX(), pokemon.getY());
     }
 
     private void goToMenu() {

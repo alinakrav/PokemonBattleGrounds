@@ -54,6 +54,7 @@ public class MyWorld extends World
         pokemons.add(new Pikachu(9, false));
         pokemons.add(new Mudkip(9, false));
         player = pokemons.get(0);
+        
         addObject(new Pikachu(9, false), 100, 100); // add player to world
 
         goToMenu();

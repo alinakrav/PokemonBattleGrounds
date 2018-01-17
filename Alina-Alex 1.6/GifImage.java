@@ -134,11 +134,6 @@ public class GifImage
         time = System.currentTimeMillis();
     }
 
-    public void resizeImages(int x, int y)
-    {
-        for (int i=0; i < images.length; i++) images[i].scale(x, y);
-    }
-
     /**
      * Class GifDecoder - Decodes a GIF file into one or more frames. <br><br>
      * 
@@ -933,5 +928,8 @@ public class GifImage
             } while ((blockSize > 0) && !err());
         }
     }
-
+    public void resizeImages(int x, int y)
+    {
+        for (int i=0; i < images.length; i++) images[i].scale(x, y);
+    }
 }
