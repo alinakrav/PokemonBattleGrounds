@@ -42,7 +42,8 @@ public class Attack extends Move
             //((Stages)getWorld()).nextTurn();
             getWorld().removeObject(this);
         }
-        hit();
+        else
+            hit();
     }    
 
     public void hit() {

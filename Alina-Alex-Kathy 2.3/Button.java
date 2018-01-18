@@ -1,5 +1,6 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.ArrayList; 
+import java.awt.Color;
 
 /**
  * This class is used to make buttons that can be pressed, and 
@@ -35,11 +36,12 @@ public class Button extends Actor
     }
 
     public void hover() {
+        GreenfootImage img = new GreenfootImage(145, 12);
         for(Button button : world.getObjects(Button.class)) {
             if(button.name != null) 
                 button.setImage("Button" + button.name + ".png");
+            setImage("ButtonHover" + name + ".png");
         }
-        setImage("ButtonHover" + name + ".png");
     }
 
     // this method is called when the button is clicked. It is defined in the subclasses 

@@ -117,11 +117,11 @@ public class PartyTag extends Actor
     }
 
     public void drawFrame() {
-        frame.drawImage(new GreenfootImage("tagFrame.png"), 0, 0);
+        frame.drawImage(new GreenfootImage("TagStandard.png"), 0, 0);
     }
 
     public void drawFrameHover() {
-        frameHover.drawImage(new GreenfootImage("tagFrameHover.png"), 0, 0);
+        frameHover.drawImage(new GreenfootImage("TagStandardHover.png"), 0, 0);
     }
 
     public void drawStats() { 
