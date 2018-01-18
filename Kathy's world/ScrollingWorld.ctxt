@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=ScrollingWorld
+comment0.text=\n\ \ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment1.params=x\ y\ s
+comment1.target=ScrollingWorld(int,\ int,\ boolean)
+comment2.params=x\ y
+comment2.target=void\ setMap(int,\ int)
+comment2.text=\n\ the\ method\ sets\ &\ repaints\ the\ background\n
+comment3.params=
+comment3.target=void\ prepareObjects()
+comment3.text=\n\ add\ the\ objects\ to\ the\ world\ and\ allow\ them\ to\ scroll\ together\ with\ the\ background\n
+numComments=4

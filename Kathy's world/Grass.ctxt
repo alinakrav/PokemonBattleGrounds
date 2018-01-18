@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=Grass
+comment0.text=\n\ If\ the\ player\ object\ intersects\ with\ this\ object,\ the\ game\ will\ switch\ to\ the\ battle\n\ setting\n\ \n\ get\ pokemon\:\ \n\ pokemons\ are\ going\ to\ have\ number\ orders\:\n\ 1\ for\ pikachu\n\ 2\ for\ rockdude\ etc\n\ in\ the\ getPokemon(int\ x)\ method,\ each\ x\ will\ provide\ a\ corresponding\ wild\ pokemon\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment1.params=
+comment1.target=void\ act()
+comment1.text=\n\ Act\ -\ do\ whatever\ the\ Grass\ wants\ to\ do.\ This\ method\ is\ called\ whenever\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\n
+comment2.params=
+comment2.target=void\ setOriginalGrass()
+numComments=3
