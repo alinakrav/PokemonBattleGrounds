@@ -14,6 +14,6 @@ public class Tree4x2 extends Trees
      */
     public void act() 
     {
-         obstacleCollision();
+         //obstacleCollision();
     }    
 }

@@ -14,6 +14,8 @@ public class Trainers extends Objects
      */
     public void act() 
     {
-        // Add your action code here.
+
     }    
+    
+                public void collide() {}
 }

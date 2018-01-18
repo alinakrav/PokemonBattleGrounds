@@ -14,6 +14,8 @@ public class Trees extends Objects
      */
     public void act() 
     {
-        // Add your action code here.
+
     }    
+
+    public void collide() {}
 }

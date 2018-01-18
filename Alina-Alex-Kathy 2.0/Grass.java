@@ -23,20 +23,10 @@ public class Grass extends Objects
     public void act() 
     { 
         //wildPokemonCollision();     
-        setOriginalGrass();
         super.act();
     }
 
-    private void setOriginalGrass(){        
-        Player p1 = (Player)getOneIntersectingObject (Player.class);
-        if (p1 == null){            
-            GreenfootImage originalGrass = new GreenfootImage("grass 2x2.png");
-            setImage(originalGrass);
-            if (getWorld().getObjects(buttonE.class) != null){
-                getWorld().removeObjects(getWorld().getObjects(buttonE.class));
-            }
-        }
-        else
-            return;
+    public void collide() {
+        System.out.println("grass collide");
     }
 }

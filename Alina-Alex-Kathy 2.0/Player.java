@@ -9,6 +9,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Player extends MainTrainer
 {
+    /**
+     * the method allows the player to walk around
+     */
+
     public Player(){
         // the player is initially facing front
         setImage("P-front.png");
@@ -17,7 +21,6 @@ public class Player extends MainTrainer
     public void act() 
     {   
         walk();
-        collide();
     } 
 
     /**
@@ -29,21 +32,44 @@ public class Player extends MainTrainer
         if(Greenfoot.isKeyDown("down")&& scrollOnDirection(DOWN)){
             setImage("P-front.png");
             setLocation(getX(), getY() + 5);
-            ob.wildPokemonCollision();
+            if ((Grass)getOneIntersectingObject (Grass.class) != null){
+                changeWorld();
+            }
         }
-        if(Greenfoot.isKeyDown("up")&& scrollOnDirection(UP)){
+        else if(Greenfoot.isKeyDown("up")&& scrollOnDirection(UP)){
             setImage("P-back.png");
             setLocation(getX(), getY() - 5);
+
+            if ((Grass)getOneIntersectingObject (Grass.class) != null){
+                changeWorld();
+            }
         }
-        if(Greenfoot.isKeyDown("right")&& scrollOnDirection(RIGHT)){
+        else if(Greenfoot.isKeyDown("right")&& scrollOnDirection(RIGHT)){
             setImage("p-right.png");
-            setLocation(getX() + 5, getY());          
+            setLocation(getX() + 5, getY());       
+
+            if ((Grass)getOneIntersectingObject (Grass.class) != null){
+                changeWorld();
+            }
         }
-        if(Greenfoot.isKeyDown("left")&& scrollOnDirection(LEFT)){
+        else if (Greenfoot.isKeyDown("left")&& scrollOnDirection(LEFT)){
             setImage("p-left.png");
             setLocation(getX() - 5, getY());
+
+            if ((Grass)getOneIntersectingObject (Grass.class) != null){
+                changeWorld();
+            }
         }
 
+    }
+
+    public void changeWorld(){
+        if (Greenfoot.getRandomNumber(100) <= 2){
+            GreenfootImage lighterGrass = new GreenfootImage("grass 2x2 lighter.png");
+            setImage(lighterGrass);
+            TrainerBattleWorld w = new TrainerBattleWorld(((ScrollingWorld)getWorld()).locationX,((ScrollingWorld)getWorld()).locationY, "grass");
+            Greenfoot.setWorld(w);
+        }
     }
 
     public void collide(){
@@ -51,9 +77,22 @@ public class Player extends MainTrainer
         if(obj != null){ //if we're touching an object
             //We determine what type of object we're colliding with.
             //Depending on the object, we go into a different type of battle
-            if(obj instanceof Obstacles || obj instanceof Trees || obj instanceof Trainers || obj instanceof Grass) 
-                obj.collide();
-
+            if(obj instanceof Obstacles) {
+                Obstacles obs = (Obstacles)obj;
+                obs.collide();
+            }
+            else if(obj instanceof Trees) {
+                Trees tree = (Trees)obj;
+                tree.collide();
+            }
+            else if(obj instanceof Trainers) {
+                Trainers trainer = (Trainers)obj;
+                trainer.collide();
+            }
+            else if(obj instanceof Grass) {
+                Grass grass = (Grass)obj;
+                grass.collide();
+            }
         }
     }
 }

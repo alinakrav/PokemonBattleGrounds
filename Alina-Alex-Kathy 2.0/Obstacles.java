@@ -8,5 +8,5 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Obstacles extends Objects
 {
-
+    public void collide() {}
 }

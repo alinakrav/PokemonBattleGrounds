@@ -51,7 +51,7 @@ public class ScrollingWorld extends World
         addObject(new Sign(), 225 + dx, 76 + dy); // placed in the right place
         addObject(new Sign(), 1161 + dx, 360 + dy);
 
-        //addObject(new Pool(), 1260 + dx, 157 + dy);
+        addObject(new Pool(), 1260 + dx, 157 + dy);
 
         addObject(new Tree1x1(), 1510 + dx, 335 + dy); 
         addObject(new Tree1x1(), 775+ dx, 93+ dy); // this is set
