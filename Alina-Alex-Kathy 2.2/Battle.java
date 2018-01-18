@@ -12,6 +12,8 @@ public class Battle extends World
     KeyReader keys;
 
     public Pokemon player, enemy;
+    int x, y;
+    public boolean wildMode;
     // hashmaps of _item name_ and _item quantity_ are in a list (to hold multiple name-quantity pairs), and there are multiple such lists for each category of items
     ArrayList<HashMap<String, Integer>> bag = new ArrayList<HashMap<String, Integer>>();
     /// keeps track of current party of pokemon objects
@@ -23,6 +25,10 @@ public class Battle extends World
         super(800, 600, 1);
         setBackground(new GreenfootImage("battleScreen.png"));
 
+        this.x = x;
+        this.y = y;
+        this.wildMode = wildMode;
+        
         // keyboard reader
         keys = new KeyReader();
         addObject(keys, 0, 0);

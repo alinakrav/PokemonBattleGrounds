@@ -82,7 +82,8 @@ public class PartyTag extends Actor
         }
         // for all pokemon in party except the player
         for(PartyTag tag : world.getObjects(PartyTag.class)) { 
-            if(tag.getPokemon() != world.player) {
+            if(tag.getPokemon() != world.player || world.player.getCurHealth() <= 0) { // if iterated tag doesn't have player, or if player is dead
+                System.out.println(world.player.getCurHealth() <= 0);
                 // delete pokemon from WORLD, not from array
                 world.removeObject(tag.getPokemon());
             }

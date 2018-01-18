@@ -37,7 +37,6 @@ public class Attack extends Move
         move(speed);
         //keep it in domain
 
-        
         if(getX() > getWorld().getWidth()-5 || getX() < 5 || getY() > getWorld().getHeight()-5) {
             //if(((Stages)getWorld()).getTurn() == 3)
             //((Stages)getWorld()).nextTurn();
@@ -51,6 +50,9 @@ public class Attack extends Move
         int damageInflicted = (int)(attacker.getAttack() * (damage * 0.1 + 1)); 
         if(pokemon != null && pokemon != attacker){
             pokemon.getHit(damageInflicted);
+            if(pokemon.getCurHealth() <= 0) {
+                attacker.expToLevelUpChange(-pokemon.getExp());
+            }
             //((Stages)getWorld()).nextTurn();
             getWorld().removeObject(this);
         }

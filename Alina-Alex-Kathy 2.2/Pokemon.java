@@ -90,6 +90,7 @@ public class Pokemon extends Actor
         if(!(name.equals("Pikachu") || name.equals("Mudkip"))) {
             setImage(image.getCurrentImage());
         }
+        levelUp();
         //bounce(); //bounce continously
         die(); //die if it has no health
 
@@ -105,7 +106,7 @@ public class Pokemon extends Actor
     // this method removes the character from the world and goes to the end screen when the health is
     // depleted and a short break time is passed
     public void die() {
-        if(health <= 0) { // when no more health
+        if(curHealth <= 0) { // when no more health
             deathCounter++; // count frames until death           
             if(deathCounter == 80) { // after 80 frames             
                 getWorld().removeObject(this); // delete character from the world
@@ -114,9 +115,16 @@ public class Pokemon extends Actor
     }
 
     public void levelUp(){
-        level++;
-        statCalculation();
-        curHealth += 2;
+        if(expToLevelUp <= 0){
+            level++;
+            calculateExpToLevelUp(level);       
+            statCalculation();
+            curHealth += 2;
+        }
+    }
+
+    public void calculateExpToLevelUp(int level){
+        expToLevelUp = (int)Math.pow(level, 1.5);
     }
 
     public void statCalculation(){ //calculate stats for each Pokemon using an equation. There will be presets for how the stats will be determined (attack preset, defense preset, speed preset, health preset, etc)
@@ -215,6 +223,11 @@ public class Pokemon extends Actor
             curHealth = 0;
         }
     }
+
+    public void expToLevelUpChange(int change){
+        expToLevelUp += change;
+    }
+
     //RETURN STATS
     public int getHealth(){
         return health;
@@ -388,7 +401,5 @@ public class Pokemon extends Actor
     public void setTag(PartyTag tag) {
         this.tag = tag;
     }
-
-    
 
 }

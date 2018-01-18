@@ -4,6 +4,7 @@ import java.util.ArrayList;
 public class FightButton extends Button
 {
     Selection selection;
+    boolean greyOut;
 
     // constructor makes a button for a specific mode and assigns the main game speed
     public FightButton() {
@@ -18,6 +19,7 @@ public class FightButton extends Button
 
     public void act() {
         super.act();
+        greyOutIfDead();
     }
 
     // this method is executed in the parent's act method
@@ -37,5 +39,28 @@ public class FightButton extends Button
 
         selection = new Selection(moveButtons, true, moveButtons.get(0));
         world.addObject(selection, moveButtons.get(0).x, moveButtons.get(0).y);
+    }
+
+    // this makes the top 2 buttons unpressable if the player is dead, and makes them available again after 
+    public void greyOutIfDead() {
+        if(world.player.getWorld() != null) {
+            if(this.getImage().toString().equals("Button" + name + "Grey.png")) {
+                greyOut = false;
+
+                this.setImage("Button" + name + ".png");
+                getWorld().getObjects(BagButton.class).get(0).setImage("ButtonBag.png");
+            }
+        }
+        else if(world.player.getWorld() == null && !greyOut) { // if they player is not currently in world (dead)
+            // grey the top buttons out 
+            this.setImage("Button" + name + "Grey.png");
+            getWorld().getObjects(BagButton.class).get(0).setImage("ButtonBagGrey.png");
+            Actor[][] grid = getWorld().getObjects(Selection.class).get(0).getGrid();
+            Actor[][] tempGrid = new Actor[grid.length][grid[0].length - 1];
+            grid[0][0] = grid[0][1]; // the first button is now the second one from the top
+            grid[1][0] = grid[1][1];
+            getWorld().getObjects(Selection.class).get(0).setGrid(grid);
+            greyOut = true;
+        }
     }
 }

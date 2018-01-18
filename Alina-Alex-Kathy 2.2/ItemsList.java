@@ -75,7 +75,6 @@ public class ItemsList extends Actor
                     // world.addObject(tags.get(i), 100, 200);	
                 }
                 selection = new Selection(tags, true, tags.get(0));
-                //create 'close party' button here 
             }
             world.addObject(selection, locations[0][0], locations[0][1]); // create selection around the first item in list (x and y coordinates of first array in 2d array are elements 0 and 1
         }
@@ -87,8 +86,6 @@ public class ItemsList extends Actor
         // i think the item should be chosen from this class, because it's less work and a shorter way
         world.player.useItem(chosen, false);
         world.getObjects(Bag.class).get(0).removeEverything(); // exit the Bag object back to main screen
-        // decided that I'm not using items from the Bag class
-        // world.getObjects(Bag.class).get(0).itemChosen(chosen);
     }
 
     // removes everything created from this object

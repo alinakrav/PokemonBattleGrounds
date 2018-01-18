@@ -151,4 +151,12 @@ public class Selection extends Actor
         }
     }
 
+    public Actor[][] getGrid() {
+        return grid;
+    }
+
+    public void setGrid(Actor[][] grid) {
+        this.grid = grid;
+    }
+
 }

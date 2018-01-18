@@ -2,6 +2,8 @@
 comment0.target=Selection
 comment1.params=objectList\ twoColumns\ dummyParameter
 comment1.target=Selection(java.util.ArrayList,\ boolean,\ Button)
+comment10.params=grid
+comment10.target=void\ setGrid(greenfoot.Actor[][])
 comment2.params=objectList\ twoColumns\ dummyParameter
 comment2.target=Selection(java.util.ArrayList,\ boolean,\ Item)
 comment3.params=objectList\ twoColumns\ dummyParameter
@@ -16,4 +18,6 @@ comment7.params=
 comment7.target=greenfoot.Actor\ currentItem()
 comment8.params=
 comment8.target=void\ prepare()
-numComments=9
+comment9.params=
+comment9.target=greenfoot.Actor[][]\ getGrid()
+numComments=11
