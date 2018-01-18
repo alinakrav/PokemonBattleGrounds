@@ -82,11 +82,11 @@ public class PartyTag extends Actor
         }
         // for all pokemon in party except the player
         for(PartyTag tag : world.getObjects(PartyTag.class)) { 
-            if(tag.getPokemon() != world.player || world.player.getCurHealth() <= 0) { // if iterated tag doesn't have player, or if player is dead
-                System.out.println(world.player.getCurHealth() <= 0);
-                // delete pokemon from WORLD, not from array
+            if(tag.getPokemon() != world.player || world.player.getCurHealth() <= 0)  // if iterated tag doesn't have player, or if player is dead
+            // delete pokemon from WORLD, not from array
                 world.removeObject(tag.getPokemon());
-            }
+            else
+                world.player.battleView();
         }
         world.removeObjects(world.getObjects(PartyTag.class)); // to avoid immutable list error, don't remove objects while iterating through them
         // go to default battle interface
