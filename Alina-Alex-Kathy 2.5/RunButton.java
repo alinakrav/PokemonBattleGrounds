@@ -26,13 +26,7 @@ public class RunButton extends Button
     }
 
     // this method is executed in the parent's act method
-    public void select() {
-        // make 4 attack buttons for different moves (depends on pokemon?)
-        // do specific run stuff
-        world.removeObjects(world.getObjects(BagButton.class)); 
-        world.removeObjects(world.getObjects(PokemonButton.class)); 
-        world.removeObjects(world.getObjects(FightButton.class)); // have to remove this button LAST
-        world.removeObjects(world.getObjects(Selection.class)); 
-        world.removeObjects(world.getObjects(RunButton.class)); 
+    public void select() {        
+        Greenfoot.setWorld(new ScrollingWorld(((Battle)getWorld()).x, ((Battle)getWorld()).y, false));
     }
 }

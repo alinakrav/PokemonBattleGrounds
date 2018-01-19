@@ -100,7 +100,9 @@ public class Pokemon extends Actor
     public void die() {
         if(curHealth <= 0) { // when no more health
             deathCounter++; // count frames until death           
-            if(deathCounter == 80) { // after 80 frames             
+            if(deathCounter == 80) { // after 80 frames  
+                if(enemy) 
+                    Greenfoot.setWorld(new ScrollingWorld(((Battle)getWorld()).x, ((Battle)getWorld()).y, false));
                 getWorld().removeObject(this); // delete character from the world
             }
         }
@@ -384,7 +386,7 @@ public class Pokemon extends Actor
      * List of Pokemon
      * 
      * Jigglypuff
-     * Pikachu
+     * tau
      * Charmander
      * Dragonite
      * Gyarados
@@ -431,4 +433,18 @@ public class Pokemon extends Actor
         this.tag = tag;
     }
 
+    //change view of pokemon
+    public void flip(){
+        String fileName = image.getFileName();
+        if(fileName.contains("back")){
+            image = new GifImage(name+".gif");
+        } else {
+            image = new GifImage(name+" back.gif");
+        }
+    }
+
+    public void capture(){
+        enemy = false;
+        flip();
+    }
 }

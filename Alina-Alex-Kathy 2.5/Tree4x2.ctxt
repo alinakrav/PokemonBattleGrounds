@@ -2,6 +2,6 @@
 comment0.target=Tree4x2
 comment0.text=\n\ Write\ a\ description\ of\ class\ Tree4x2\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
 comment1.params=
-comment1.target=void\ act()
+comment1.target=Tree4x2()
 comment1.text=\n\ Act\ -\ do\ whatever\ the\ Tree4x2\ wants\ to\ do.\ This\ method\ is\ called\ whenever\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\n
 numComments=2

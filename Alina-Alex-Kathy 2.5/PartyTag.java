@@ -19,8 +19,8 @@ public class PartyTag extends Actor
     int x, y, width, height;
     double pixelsPerHealthPoint; // can only have declaration outside constructor, no separate initialisation
     int health;
-    int healthBarHeight = 14; 
-    int healthBarWidth = 98;
+    int healthBarHeight = 12; 
+    int healthBarWidth = 144;
 
     GreenfootImage hp, frame, frameHover, stats, close, closeHover;
 
@@ -106,9 +106,9 @@ public class PartyTag extends Actor
         // black background rectangle drawn first, which is visible behind a non-full HP bar
         hp.setColor(Color.BLACK);
         // THIS IS WHERE THE LOCATION SHOULD BE SET, THE IMAGE SIZE SHOULDN'T DETERMINE THE RECTANGLE SIZE
-        hp.fillRect(287, 84, (int)healthBarWidth, healthBarHeight);
+        hp.fillRect(193, 79, healthBarWidth/2, healthBarHeight);
         hp.setColor(Color.GREEN);
-        hp.fillRect(287, 84, (int)(health * pixelsPerHealthPoint), healthBarHeight);
+        hp.fillRect(193, 79, (int)(health * pixelsPerHealthPoint), healthBarHeight);
     }
 
     public void drawFrame() {
@@ -135,14 +135,15 @@ public class PartyTag extends Actor
         clearImage();
         if(pokemon != null) {
             getImage().drawImage(hp, 0, 0);
+
             if(!hovered)
                 getImage().drawImage(frame, 0, 0);
             else 
                 getImage().drawImage(frameHover, 0, 0);
-            getImage().drawImage(stats, 0, 0);
 
-            world.addObject(pokemon, getX(), getY()); // add the pokemon to world
-            pokemon.tagView(20, pokemon.getX(), pokemon.getY());
+            getImage().drawImage(stats, 0, 0);
+            world.addObject(pokemon, getX() - 95, getY() - 17); // add the pokemon to world
+            pokemon.tagView(67, pokemon.getX(), pokemon.getY());
         }
         else {
             if(!hovered)

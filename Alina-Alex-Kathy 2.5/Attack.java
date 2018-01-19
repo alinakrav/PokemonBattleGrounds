@@ -28,13 +28,14 @@ public class Attack extends Move
             setRotation(-40);
         else
             setRotation(140);
+    }
 
-        /* this doesn't work with greenfoot's turnTowards() method.
-        if(!enemy)
-        turnTowards(targetX, -targetY);
-        else
-        turnTowards(0,0);
-         */
+    public Attack(String name, int speed, int targetX, int targetY){
+        super(name, false);
+        this.name = name;
+        this.speed = speed;
+        this.targetX = targetX;
+        this.targetY = targetY;
     }
 
     /**
@@ -47,27 +48,30 @@ public class Attack extends Move
         move(speed);
         //keep it in domain
 
-        if(getX() > getWorld().getWidth()-5 || getX() < 5 || getY() > getWorld().getHeight()-5) {
+        if(getX() > getWorld().getWidth()-5 || getX() < 5 || getY() > getWorld().getHeight() - 5) {
             //if(((Stages)getWorld()).getTurn() == 3)
             //((Stages)getWorld()).nextTurn();
             getWorld().removeObject(this);
         }
         else
             hit();
-    }    
+    }  
 
     public void hit() {
         Pokemon pokemon = (Pokemon)getOneObjectAtOffset(0,0, Pokemon.class);
-        int damageInflicted = (int)(attacker.getAttack() * (damage * 0.1 + 1)); 
-        if(pokemon != null && pokemon != attacker){
-            pokemon.getHit(damageInflicted);
-            if(pokemon.getCurHealth() <= 0) {
-                attacker.expToLevelUpChange(-pokemon.getExp());
-            }
-            //((Stages)getWorld()).nextTurn();
 
-            changeTurn();
-            getWorld().removeObject(this);
+        if(this instanceof Pokeball && pokemon!= null && pokemon != attacker){
+            ((Battle)getWorld()).capturePokemon(pokemon);
+        } else {
+            int damageInflicted = (int)(attacker.getAttack() * (damage * 0.1 + 1)); 
+            if(pokemon != null && pokemon != attacker){
+                pokemon.getHit(damageInflicted);
+                if(pokemon.getCurHealth() <= 0) {
+                    attacker.expToLevelUpChange(-pokemon.getExp());
+                }
+                changeTurn();
+                getWorld().removeObject(this);
+            }
         }
     }
 

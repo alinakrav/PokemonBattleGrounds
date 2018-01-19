@@ -8,11 +8,6 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Trainers extends Objects
 {
-    public void act() 
-    {
-        // Add your action code here.
-    }    
-
     public void collide() {
         System.out.println("trainer collision");
     }

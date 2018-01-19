@@ -12,9 +12,7 @@ public class Tree4x2 extends Trees
      * Act - do whatever the Tree4x2 wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    public void act() 
-    {
-         obstacleCollision();
+    public Tree4x2(){       
          setImage(new GreenfootImage("tree 4x2.png"));
-    }    
+    }
 }

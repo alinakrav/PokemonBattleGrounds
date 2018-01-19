@@ -12,7 +12,7 @@ public class Battle extends World
     KeyReader keys;
 
     public Pokemon player, enemy;
-    int x, y;
+    public int x, y;
     public boolean wildMode;
     // hashmaps of _item name_ and _item quantity_ are in a list (to hold multiple name-quantity pairs), and there are multiple such lists for each category of items
     ArrayList<HashMap<String, Integer>> bag = new ArrayList<HashMap<String, Integer>>();
@@ -58,12 +58,12 @@ public class Battle extends World
         ///////////
 
         //// defining pokemon party (should be made somewhere else)
-        pokemons.add(new Golbat(9, false));
-        pokemons.add(new Oddish(9, false));
+        pokemons.add(new Pikachu(9, false));
         pokemons.add(new Snorlax(9, false));
         pokemons.add(new Mudkip(9, false));
-        pokemons.add(new Pikachu(9, false));
-        pokemons.add(new Mewtwo(9, false));
+        pokemons.add(new Gyarados(9, false));
+        pokemons.add(new Dragonite(9, false));
+        pokemons.add(new Jigglypuff(9, false));
         // create and add player and enemy to battle
         player = pokemons.get(0);
         enemy = makeRandomEnemy(); // enemy should be chosen at random
@@ -104,8 +104,21 @@ public class Battle extends World
 
     public Pokemon makeRandomEnemy() { // give them variable stats?
         String[] enemies = {"Charmander", "Pikachu", "Articuno", "Mudkip", "Gyarados", "Gengar", "Dragonite", "Jigglypuff", "Snorlax", "Oddish", "Arcanine", "Kyogre", "Golbat", "Arceus", "Tropius", "Mewtwo"}; // define all possible enemies
-        int randInd = (int)(Math.random() * (16 + 1)); // generate random index out of the above array (min = 0, max = 5)
-        int level = 9;
+        //int randInd = (int)(Math.random() * (15 + 1)); // generate random index out of the above array (min = 0, max = 5)
+        int max = 15;
+        int min = 0;
+        int randInd = (int)Math.random()*(max - min + 1) + min; // generate random index out of the above array (min = 0, max = 5)
+        int level = 0;
+       
+        if(wildMode){
+            max = 15;
+            min = 1;
+            level = (int)Math.random()*(max - min + 1) + min;
+        } else {
+            max = 30;
+            min = 10;
+            level = (int)Math.random()*(max - min + 1) + min;
+        }
         // make instance of the enemy classes described in the array, based on the random index
         if(enemies[randInd].equals("Charmander"))
             return new Charmander(level, true);
@@ -140,7 +153,12 @@ public class Battle extends World
         else //if(enemies[randInd].equals("Mewtwo"))
             return new Mewtwo(level, true); 
     }
-
+    
+    public void capturePokemon(Pokemon captured){
+        pokemons.add(captured);
+        removeObject(captured);
+    }
+    
     public KeyReader getKeys() {
         return keys;
     }

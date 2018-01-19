@@ -12,9 +12,7 @@ public class Tree3x2 extends Trees
      * Act - do whatever the Tree8 wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    public void act() 
-    {
-        obstacleCollision();
-        setImage(new GreenfootImage("tree 3x2.png"));
-    }    
+    public Tree3x2(){       
+         setImage(new GreenfootImage("tree 3x2.png"));
+    }   
 }

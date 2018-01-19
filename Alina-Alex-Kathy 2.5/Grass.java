@@ -19,8 +19,4 @@ public class Grass extends Objects
     {
         setImage(new GreenfootImage("grass 2x2.png"));
     } 
-
-    public void collide() {
-        System.out.println("grass collision");
-    }
 }

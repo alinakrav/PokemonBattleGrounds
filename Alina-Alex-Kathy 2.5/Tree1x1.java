@@ -12,9 +12,7 @@ public class Tree1x1 extends Trees
      * Act - do whatever the Obstacle1 wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    public void act() 
-    {
-        obstacleCollision();
-        setImage(new GreenfootImage("tree 1x1.png"));
+    public Tree1x1(){       
+         setImage(new GreenfootImage("tree 1x1.png"));
     }    
 }
