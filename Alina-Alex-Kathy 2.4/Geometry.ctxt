@@ -1,6 +1,0 @@
-#BlueJ class context
-comment0.target=Geometry
-comment0.text=\n\ Write\ a\ description\ of\ class\ Geometry\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
-comment1.params=attacker\ enemy\ targetX\ targetY
-comment1.target=Geometry(Pokemon,\ boolean,\ int,\ int)
-numComments=2

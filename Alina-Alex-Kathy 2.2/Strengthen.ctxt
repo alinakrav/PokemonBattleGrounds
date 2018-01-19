@@ -1,6 +1,0 @@
-#BlueJ class context
-comment0.target=Strengthen
-comment0.text=\n\ Write\ a\ description\ of\ class\ Strengthen\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
-comment1.params=caster\ enemy
-comment1.target=Strengthen(Pokemon,\ boolean)
-numComments=2
