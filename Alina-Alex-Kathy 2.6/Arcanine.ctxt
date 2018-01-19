@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.target=Arcanine
+comment0.text=\n\ Write\ a\ description\ of\ class\ Arcanine\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment1.params=level\ enemy
+comment1.target=Arcanine(int,\ boolean)
+numComments=2

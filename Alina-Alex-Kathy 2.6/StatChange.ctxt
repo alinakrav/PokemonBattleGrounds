@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.target=StatChange
+comment0.text=\n\ Write\ a\ description\ of\ class\ StatChange\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment1.params=name\ statType\ value\ caster\ enemy
+comment1.target=StatChange(java.lang.String,\ java.lang.String,\ int,\ Pokemon,\ boolean)
+comment2.params=
+comment2.target=void\ act()
+numComments=3
