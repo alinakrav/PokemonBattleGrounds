@@ -36,6 +36,8 @@ public class Attack extends Move
         this.speed = speed;
         this.targetX = targetX;
         this.targetY = targetY;
+
+        setRotation(-40);
     }
 
     /**
@@ -53,16 +55,18 @@ public class Attack extends Move
             //((Stages)getWorld()).nextTurn();
             getWorld().removeObject(this);
         }
-        else
+        else 
             hit();
     }  
 
     public void hit() {
         Pokemon pokemon = (Pokemon)getOneObjectAtOffset(0,0, Pokemon.class);
 
-        if(this instanceof Pokeball && pokemon!= null && pokemon != attacker){
-            ((Battle)getWorld()).capturePokemon(pokemon);
-        } else {
+        if(this instanceof Pokeball) {
+            if(pokemon!= null && pokemon != attacker) 
+                capture();
+        }
+        else {
             int damageInflicted = (int)(attacker.getAttack() * (damage * 0.1 + 1)); 
             if(pokemon != null && pokemon != attacker){
                 pokemon.getHit(damageInflicted);
@@ -73,6 +77,12 @@ public class Attack extends Move
                 getWorld().removeObject(this);
             }
         }
+    }
+
+    public void capture() {
+        ((Battle)getWorld()).party.add(((Battle)getWorld()).enemy);
+        ((Battle)getWorld()).enemy.die();
+        // trace here to see if statement reachable
     }
 
     public int getDamage(){

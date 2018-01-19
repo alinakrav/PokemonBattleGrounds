@@ -368,6 +368,9 @@ public class Pokemon extends Actor
         else if(moveName.equals("Geometry")){
             move1 = new Geometry(this, enemy,targetX,targetY);
         }   
+        else if(moveName.equals("Pokeball")) {
+            move1 = new Pokeball(targetX, targetY);
+        }
         getWorld().addObject(move1, this.getX(), this.getY());
 
         move1 = null; // fixes infrequent error from happening
@@ -402,6 +405,8 @@ public class Pokemon extends Actor
 
     public void useItem(String itemName, boolean enemy) {
         System.out.println(itemName + " used.");
+        if(itemName.equals("Pokeball"))
+            ((Battle)getWorld()).player.move(itemName);
         // this is where the item is used to boost whatever stats
     }
 

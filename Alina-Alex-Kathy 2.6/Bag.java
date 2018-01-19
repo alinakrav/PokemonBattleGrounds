@@ -46,7 +46,7 @@ public class Bag extends Actor
                 itemList = ((Battle)world).getBag();
             else
                 itemList = ((ScrollingWorld)world).getBag();
-            categories = new BagCategories(itemList, itemLocations, 100, 300); // this is where location of category object is chosen
+            categories = new BagCategories(itemList, itemLocations, 100, 400); // this is where location of category object is chosen
             world.addObject(categories, 0, 0);
         }
     }
