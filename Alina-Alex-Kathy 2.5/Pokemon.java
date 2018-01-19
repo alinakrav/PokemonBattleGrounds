@@ -94,7 +94,6 @@ public class Pokemon extends Actor
             setImage(image.getCurrentImage());
         }
         levelUp();
-        //bounce(); //bounce continously
         die(); //die if it has no health
     }  
 
@@ -323,7 +322,6 @@ public class Pokemon extends Actor
 
     //Pokemon will create a move object. Depending on whether it is an enemy or not it, the direction of the move will be different (Enemy attacks go toward the player's pokemon, player attacks go toward the enemy's Pokemon).
     public void move(String moveName){
-
         Move move1 = null;
         if(moveName.equals("Fire_ball")){
             move1 = new FireBall(this, enemy, targetX, targetY);

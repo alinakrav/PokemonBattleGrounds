@@ -20,7 +20,7 @@ public class PartyTag extends Actor
     double pixelsPerHealthPoint; // can only have declaration outside constructor, no separate initialisation
     int health;
     int healthBarHeight = 14; 
-    int healthBarWidth = 145;
+    int healthBarWidth = 98;
 
     GreenfootImage hp, frame, frameHover, stats, close, closeHover;
 

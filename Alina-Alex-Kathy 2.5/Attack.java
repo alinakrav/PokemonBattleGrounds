@@ -24,7 +24,17 @@ public class Attack extends Move
         this.targetX = targetX;
         this.targetY = targetY;
 
-        turnTowards(0, 0);
+        if(!enemy)
+            setRotation(-40);
+        else
+            setRotation(140);
+
+        /* this doesn't work with greenfoot's turnTowards() method.
+        if(!enemy)
+        turnTowards(targetX, -targetY);
+        else
+        turnTowards(0,0);
+         */
     }
 
     /**

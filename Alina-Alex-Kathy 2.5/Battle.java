@@ -58,12 +58,12 @@ public class Battle extends World
         ///////////
 
         //// defining pokemon party (should be made somewhere else)
-        pokemons.add(new Jigglypuff(9, false));
-        pokemons.add(new Charmander(9, false));
-        pokemons.add(new Pikachu(9, false));
-        pokemons.add(new Dragonite(9, false));
-        pokemons.add(new Pikachu(9, false));
+        pokemons.add(new Golbat(9, false));
+        pokemons.add(new Oddish(9, false));
+        pokemons.add(new Snorlax(9, false));
         pokemons.add(new Mudkip(9, false));
+        pokemons.add(new Pikachu(9, false));
+        pokemons.add(new Mewtwo(9, false));
         // create and add player and enemy to battle
         player = pokemons.get(0);
         enemy = makeRandomEnemy(); // enemy should be chosen at random
@@ -103,19 +103,44 @@ public class Battle extends World
     }
 
     public Pokemon makeRandomEnemy() { // give them variable stats?
-        String[] enemies = {"Charmander", "Dragonite", "Jigglypuff", "Gyarados"}; // define all possible enemies
-        int randInd = (int)(Math.random() * (3 + 1)); // generate random index out of the above array (min = 0, max = 5)
+        String[] enemies = {"Charmander", "Pikachu", "Articuno", "Mudkip", "Gyarados", "Gengar", "Dragonite", "Jigglypuff", "Snorlax", "Oddish", "Arcanine", "Kyogre", "Golbat", "Arceus", "Tropius", "Mewtwo"}; // define all possible enemies
+        int randInd = (int)(Math.random() * (16 + 1)); // generate random index out of the above array (min = 0, max = 5)
+        int level = 9;
         // make instance of the enemy classes described in the array, based on the random index
         if(enemies[randInd].equals("Charmander"))
-            return new Charmander(9, true);
+            return new Charmander(level, true);
+        else if(enemies[randInd].equals("Pikachu"))
+            return new Pikachu(level, true); 
+        else if(enemies[randInd].equals("Articuno"))
+            return new Articuno(level, true); 
+        else if(enemies[randInd].equals("Mudkip"))
+            return new Mudkip(level, true); 
         else if(enemies[randInd].equals("Dragonite"))
-            return new Dragonite(9, true);
+            return new Dragonite(level, true);
         else if(enemies[randInd].equals("Jigglypuff"))
-            return new Jigglypuff(9, true);
+            return new Jigglypuff(level, true);
         else if(enemies[randInd].equals("Gyarados"))
-            return new Gyarados(9, true); 
+            return new Gyarados(level, true); 
+        else if(enemies[randInd].equals("Gengar"))
+            return new Gengar(level, true); 
+        else if(enemies[randInd].equals("Snorlax"))
+            return new Snorlax(level, true); 
+        else if(enemies[randInd].equals("Oddish"))
+            return new Oddish(level, true); 
+        else if(enemies[randInd].equals("Arcanine"))
+            return new Arcanine(level, true); 
+        else if(enemies[randInd].equals("Kyogre"))
+            return new Kyogre(level, true); 
+        else if(enemies[randInd].equals("Golbat"))
+            return new Golbat(level, true); 
+        else if(enemies[randInd].equals("Arceus"))
+            return new Arceus(level, true); 
+        else if(enemies[randInd].equals("Tropius"))
+            return new Tropius(level, true); 
+        else //if(enemies[randInd].equals("Mewtwo"))
+            return new Mewtwo(level, true); 
         //else return new Dragonite(9 , true); //FIX THIS*********************************************************************************************************************************************************
-        return null; // return nothing if index doesn't point to String
+        //return null; // return nothing if index doesn't point to String
     }
 
     public KeyReader getKeys() {

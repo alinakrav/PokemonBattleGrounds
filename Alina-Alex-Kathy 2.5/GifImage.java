@@ -936,7 +936,7 @@ public class GifImage
 
     public void flipImages()
     {
-        for (int i=0; i < images.length; i++) images[i].mirrorHorizontally();
+        for (int i=0; i < images.length; i++) images[i].mirrorVertically();
     }
 
     public String getFileName(){
