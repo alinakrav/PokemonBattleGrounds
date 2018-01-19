@@ -81,21 +81,27 @@ public class Intro extends World
     public ArrayList<HashMap<String, Integer>> makeBag() {
         HashMap<String, Integer> map = new HashMap<String, Integer>();
         //// defining objects in bag///////
+        /*
         map.put("a", 1);
         map.put("b", 2);
         map.put("c", 3);
+        */
         bag.add(map);
 
         map = new HashMap<String, Integer>(); // old map will still change in arraylist if changed after it was added, so make new map
+        /*
         map.put("a", 3);
         map.put("b", 2);
         map.put("c", 1);
+        */
         bag.add(map);
 
         map = new HashMap<String, Integer>();
-        map.put("a", 2);
+        map.put("Pokeball", 3);
+        /*
         map.put("b", 1);
         map.put("c", 3);
+        */
         bag.add(map);
         ///////////
         return bag;

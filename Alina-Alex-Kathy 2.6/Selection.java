@@ -111,7 +111,7 @@ public class Selection extends Actor
 
             hoverOverCurrent(); // let the hovered over object do whatever it does before being selected
             if(grid[0][0] instanceof Item) {
-                if(canPress && keys.keyIs("enter")) // if the selection is on bag items, it can only press according to canPress boolean
+                if((canPress || (((Item)currentItem()).name).equals("Close")) && keys.keyIs("enter")) // if the selection is on bag items, it can only press according to canPress boolean
                     selectCurrent();
             }
             else if(keys.keyIs("enter")) // if selection is not for bag items, then it will always press

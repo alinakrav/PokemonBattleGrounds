@@ -44,40 +44,42 @@ public class Item extends Actor
             else
                 world = (ScrollingWorld)getWorld();
             init = false;
-            ////////
         }
     }
 
     public void assignImage() {
-        setImage("item" + name + ".png");
+        setImage("Item" + name + ".png");
         if(amount != -1) // if item isn't 'cancel'
-            getImage().drawImage(new GreenfootImage("amount" + amount + ".png"), 0, 0); // note: the x and y are relative to the image, not window coordinates
+            getImage().drawImage(new GreenfootImage("Amount" + amount + ".png"), 0, 0); // note: the x and y are relative to the image, not window coordinates
     }
 
     // set description box's image to current item's description
     public void hover() {
-        // ACTUALLY, DELETE THIS IF STATEMENT ONCE YOU MAKE AN ItemDescription_Close_bag.png IMAGE
-        if(amount == -1) // if item is 'cancel' 
+        System.out.println(name);
+        if(name.equals("Close")) // if item is 'cancel' 
             world.removeObjects(world.getObjects(ItemDescription.class)); // remove description
         else if(getWorld().getObjects(ItemDescription.class).size() == 0) { // if no description made yet
             itemDescription = new ItemDescription(); // make one new dscription object
-            getWorld().addObject(itemDescription, 400, 500);
+            getWorld().addObject(itemDescription, 405, 520);
             hover(); // call back to this method, since next time there will be a description present
         }
         else {// if description exists and item is not 'cancel', then description's image changes 
-            world.getObjects(ItemDescription.class).get(0).setImage("ItemDescription_" + name + ".png");
+            world.getObjects(ItemDescription.class).get(0).setImage("ItemDescription" + name + ".png");
         }
     }
 
     public void select() {
-        world.getObjects(Bag.class).get(0).remapItem(name, --amount); // decrease amount of item chosen
-        if(world instanceof Battle)
-            ((Battle)world).player.useItem(name, false);
-        else
-            ((ScrollingWorld)world).player.useItem(name, false);
+        if(!name.equals("Close")) {
+            world.getObjects(Bag.class).get(0).remapItem(name, --amount); // decrease amount of item chosen
+            if(world instanceof Battle)
+                ((Battle)world).player.useItem(name, false);
+            else
+                ((ScrollingWorld)world).player.useItem(name, false);
+        }
         world.getObjects(Bag.class).get(0).removeEverything(); // exit the Bag object back to main screen
 
-        goToMenu();
+        if(!(world instanceof ScrollingWorld))
+            goToMenu();
     }
 
     private void goToMenu() {

@@ -33,6 +33,7 @@ public class Bag extends Actor
     public void act() 
     {
         prepare(listLocations());
+        exitInScrollingWorld();
     }   
 
     // initialises world, then prepares by creating the vategory choice bar of the bag
@@ -59,9 +60,9 @@ public class Bag extends Actor
 
         // list all the possible (maximum) y values in order
         int itemY1 = 68;
-        int itemY2 = itemY1 + 42;
-        int itemY3 = itemY2 + 42;
-        int itemY4 = itemY3 + 42;
+        int itemY2 = itemY1 + 50;
+        int itemY3 = itemY2 + 50;
+        int itemY4 = itemY3 + 50;
         int[][] itemLocations = {{itemX, itemY1}, 
                 {itemX, itemY2}, 
                 {itemX, itemY3}, 
@@ -87,15 +88,17 @@ public class Bag extends Actor
         }
     }
 
+    /*
     // this method is used to check (from the player class) whether an item is chosen (not null), at which point the item name will be deciphered in its own class (maybe same Item class) for properties and used on Pokemon
     public String itemChosen() {
-        if(itemChosen == null)  
-            return null;
-        else {
-            removeEverything();
-            return itemChosen;
-        }
+    if(itemChosen == null)  
+    return null;
+    else {
+    removeEverything();
+    return itemChosen;
     }
+    }
+     */
 
     public void removeEverything() {
         ArrayList<Class> bagClasses = new ArrayList<Class>();
@@ -111,5 +114,11 @@ public class Bag extends Actor
         else
             ((ScrollingWorld)world).setBag(itemList);
         world.removeObject(this);
+    }
+
+    public void exitInScrollingWorld() {
+        if(world instanceof ScrollingWorld && ((ScrollingWorld)world).getKeys().keyNotNull() && ((ScrollingWorld)world).getKeys().keyIs("escape")) {
+            removeEverything(); // exit the Bag object back to main screen
+        }
     }
 }

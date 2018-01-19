@@ -25,24 +25,25 @@ public class Player extends MainTrainer
      */
     public void walk(){ 
         Objects ob = new Objects();
-        // only walks when the direction key is pressed and it is not at the edge
-        if(Greenfoot.isKeyDown("down")&& scrollOnDirection(DOWN)){
-            setImage("P-front.png");
-            setLocation(getX(), getY() + 5);
+        if(getWorld().getObjects(Bag.class).isEmpty()) {
+            // only walks when the direction key is pressed and it is not at the edge
+            if(Greenfoot.isKeyDown("down")&& scrollOnDirection(DOWN)){
+                setImage("P-front.png");
+                setLocation(getX(), getY() + 5);
+            }
+            else if(Greenfoot.isKeyDown("up")&& scrollOnDirection(UP)){
+                setImage("P-back.png");
+                setLocation(getX(), getY() - 5);
+            }
+            else if(Greenfoot.isKeyDown("right")&& scrollOnDirection(RIGHT)){
+                setImage("p-right.png");
+                setLocation(getX() + 5, getY());   
+            }
+            else if (Greenfoot.isKeyDown("left")&& scrollOnDirection(LEFT)){
+                setImage("p-left.png");
+                setLocation(getX() - 5, getY());
+            }
         }
-        else if(Greenfoot.isKeyDown("up")&& scrollOnDirection(UP)){
-            setImage("P-back.png");
-            setLocation(getX(), getY() - 5);
-        }
-        else if(Greenfoot.isKeyDown("right")&& scrollOnDirection(RIGHT)){
-            setImage("p-right.png");
-            setLocation(getX() + 5, getY());   
-        }
-        else if (Greenfoot.isKeyDown("left")&& scrollOnDirection(LEFT)){
-            setImage("p-left.png");
-            setLocation(getX() - 5, getY());
-        }
-
     }
 
     public void collide(){

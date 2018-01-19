@@ -40,7 +40,7 @@ public class ItemsList extends Actor
         }
 
         // always add cancel button at the end
-        items.add(new Item("Close_bag", -1, locations[tempIndexCounter][0], locations[tempIndexCounter][1]));
+        items.add(new Item("Close", -1, locations[tempIndexCounter][0], locations[tempIndexCounter][1]));
     }
 
     public ItemsList(ArrayList<PartyTag> tags, int[][] locations) {
