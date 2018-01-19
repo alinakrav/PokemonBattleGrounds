@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class Selection extends Actor
 {
     boolean init = true;
-    Battle world;
+    World world;
     KeyReader keys;
     //////////
 
@@ -37,7 +37,9 @@ public class Selection extends Actor
         }
     }
 
-    public Selection(ArrayList<Item> objectList, boolean twoColumns, Item dummyParameter) {
+    boolean canPress; // this determines whether user can press with this selection (only for this constructor)
+    public Selection(ArrayList<Item> objectList, boolean twoColumns, Item dummyParameter, boolean canPress) {
+        this.canPress = canPress;
         setImage("itemSelection.png");
         if(twoColumns) { // if two columns, then the arraylist needs to be split into 2 arrays first
             Item[] firstColumn, secondColumn;
@@ -108,7 +110,11 @@ public class Selection extends Actor
                 setLocation(grid[--gridIndex[0]][gridIndex[1]].getX(), grid[gridIndex[0]][gridIndex[1]].getY());
 
             hoverOverCurrent(); // let the hovered over object do whatever it does before being selected
-            if(keys.keyIs("enter"))
+            if(grid[0][0] instanceof Item) {
+                if(canPress && keys.keyIs("enter")) // if the selection is on bag items, it can only press according to canPress boolean
+                    selectCurrent();
+            }
+            else if(keys.keyIs("enter")) // if selection is not for bag items, then it will always press
                 selectCurrent();
         }
     }
@@ -137,13 +143,19 @@ public class Selection extends Actor
 
     public void prepare() {
         if(init) {
-            world = (Battle)getWorld();
-            keys = world.getKeys();
+            if(getWorld() instanceof Battle) {
+                world = (Battle)getWorld();
+                keys = ((Battle)world).getKeys();
+            }
+            else {
+                world = (ScrollingWorld)getWorld();
+                keys = ((ScrollingWorld)world).getKeys();
+            }
             init = false;
             /////////
 
             // if this selection is on a PartyTag collection, closeButton will be initialised and must be added to world
-            if(closeButton != null)	
+            if(closeButton != null) 
             // world.addObject(closeButton, 200,200);
                 world.addObject(closeButton, closeButton.getX(), closeButton.getY());
             hoverOverCurrent();

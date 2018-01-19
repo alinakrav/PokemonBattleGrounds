@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class Item extends Actor
 {
     boolean init = true;
-    Battle world;
+    World world;
     ///
 
     int x;
@@ -39,7 +39,10 @@ public class Item extends Actor
 
     public void prepare() {
         if(init) {
-            world = (Battle)getWorld();
+            if(getWorld() instanceof Battle)
+                world = (Battle)getWorld();
+            else
+                world = (ScrollingWorld)getWorld();
             init = false;
             ////////
         }
@@ -68,13 +71,15 @@ public class Item extends Actor
 
     public void select() {
         world.getObjects(Bag.class).get(0).remapItem(name, --amount); // decrease amount of item chosen
-        world.player.useItem(name, false);
-        
+        if(world instanceof Battle)
+            ((Battle)world).player.useItem(name, false);
+        else
+            ((ScrollingWorld)world).player.useItem(name, false);
         world.getObjects(Bag.class).get(0).removeEverything(); // exit the Bag object back to main screen
-        
+
         goToMenu();
     }
-    
+
     private void goToMenu() {
         ArrayList<Button> buttons = new ArrayList<Button>();
         buttons.add(new FightButton());
@@ -85,7 +90,7 @@ public class Item extends Actor
             world.addObject(button, button.x, button.y);
         world.addObject(new Selection(buttons, true, buttons.get(0)), buttons.get(0).quadrants[0][0], buttons.get(0).quadrants[0][1]);
     }
-    
+
     public int getX() {
         return x;
     }

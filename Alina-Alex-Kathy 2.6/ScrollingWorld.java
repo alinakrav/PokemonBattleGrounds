@@ -18,6 +18,7 @@ public class ScrollingWorld extends World
     public static boolean switched;
     public ArrayList<HashMap<String, Integer>> bag;
     public ArrayList<Pokemon> party;
+    public Pokemon player;
 
     private KeyReader keys = new KeyReader();
     /**
@@ -35,14 +36,14 @@ public class ScrollingWorld extends World
 
         this.bag = bag;
         this.party = party;
+        player = party.get(0);
 
-        addObject(keys, 0, 0);
         prepareObjects(); 
     }
 
     public void act() {
         if(keys.keyNotNull() && keys.keyIs("space"))
-            addObject(new Bag(this), 0, 0);
+            addObject(new Bag(this), 400, 300);
     }
 
     /**
@@ -57,7 +58,9 @@ public class ScrollingWorld extends World
     /**
      * add the objects to the world and allow them to scroll together with the background
      */
-    public void prepareObjects(){
+    public void prepareObjects() {
+        addObject(keys, 0, 0); 
+
         addObject(new Grass(), 247+ dx, 381+ dy);
         addObject(new Grass(), 205+ dx, 503+ dy);
         addObject(new Grass(), 694+ dx, 544+ dy); // remember to make it shine before
@@ -104,5 +107,13 @@ public class ScrollingWorld extends World
 
     public void setBag(ArrayList<HashMap<String, Integer>> bag) {
         this.bag = bag;
+    }
+
+    public KeyReader getKeys() {
+        return keys;
+    }
+
+    public ArrayList<Pokemon> getParty() {
+        return party;
     }
 }

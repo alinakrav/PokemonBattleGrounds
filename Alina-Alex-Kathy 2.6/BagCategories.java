@@ -54,11 +54,14 @@ public class BagCategories extends Actor
     // initialises world variable, then prepares by making the item window in the world
     public void prepare() {
         if(init) {
-            if(getWorld() instanceof Battle)
+            if(getWorld() instanceof Battle) {
                 world = (Battle)getWorld();
-            else 
+                keys = ((Battle)world).getKeys();
+            }
+            else {
                 world = (ScrollingWorld)getWorld();
-            keys = world.getKeys();
+                keys = ((ScrollingWorld)world).getKeys();
+            }
             setLocation(100, 200);
             init = false;
             ///////

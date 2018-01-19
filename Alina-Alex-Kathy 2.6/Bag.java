@@ -26,7 +26,7 @@ public class Bag extends Actor
             world = (Battle)curWorld;
         else {
             world = (ScrollingWorld)curWorld;
-            setLocation(0,0);
+            setLocation(400,300);
         }
     }
 
