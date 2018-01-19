@@ -1,0 +1,18 @@
+#BlueJ class context
+comment0.target=Bag
+comment0.text=\n\ \n
+comment1.params=
+comment1.target=Bag()
+comment2.params=
+comment2.target=void\ act()
+comment3.params=itemLocations
+comment3.target=void\ prepare(int[][])
+comment4.params=
+comment4.target=int[][]\ listLocations()
+comment5.params=name\ amount
+comment5.target=void\ remapItem(java.lang.String,\ int)
+comment6.params=
+comment6.target=java.lang.String\ itemChosen()
+comment7.params=
+comment7.target=void\ removeEverything()
+numComments=8

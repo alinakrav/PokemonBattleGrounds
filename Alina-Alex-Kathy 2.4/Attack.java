@@ -55,6 +55,8 @@ public class Attack extends Move
                 attacker.expToLevelUpChange(-pokemon.getExp());
             }
             //((Stages)getWorld()).nextTurn();
+
+            changeTurn();
             getWorld().removeObject(this);
         }
     }

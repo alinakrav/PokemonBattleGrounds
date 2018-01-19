@@ -41,6 +41,8 @@ public class Pokemon extends Actor
     int deathCounter; // counts frames until death
     private int width;
     private int height;
+    private int timerAmount = 100; //two second timer
+    private int timer = timerAmount;
 
     //Variables determining where the pokemon's attack will go to
     private int targetX;
@@ -70,8 +72,8 @@ public class Pokemon extends Actor
             bounceX = 0;
             bounceY = 10;
             battleView();
-            targetX = 400;
-            targetY = -150;
+            targetX = 240;
+            targetY = 420;
         } else { //Player pokemon
             bounceX = 15;
             bounceY = 15;
@@ -87,20 +89,13 @@ public class Pokemon extends Actor
      */
     public void act() 
     {
+        enemyMove();
         if(!(name.equals("Pikachu") || name.equals("Mudkip"))) {
             setImage(image.getCurrentImage());
         }
         levelUp();
         //bounce(); //bounce continously
         die(); //die if it has no health
-
-        /*//do this only for the first act
-        if(!started) {
-        // add the name tag to the world
-        getWorld().addObject(tag, tag.getX(), tag.getY());
-        // don't add it again
-        started = true;
-        }*/
     }  
 
     // this method removes the character from the world and goes to the end screen when the health is
@@ -313,25 +308,39 @@ public class Pokemon extends Actor
         }
     }
 
+    public void enemyMove(){
+        if(enemy && getWorld() instanceof Battle){
+            if(((Battle)getWorld()).getTurn() == 1){
+                int min = 0;
+                int max = 3; //inclusive
+                int n = (int)(min + (Math.random() *( max + 0 + 1))); //generates a random number from 0 to 3 inclusive
+
+                move(moveSet[n]);
+                ((Battle)getWorld()).setTurn(0);
+            }
+        }
+    }
+
     //Pokemon will create a move object. Depending on whether it is an enemy or not it, the direction of the move will be different (Enemy attacks go toward the player's pokemon, player attacks go toward the enemy's Pokemon).
     public void move(String moveName){
+
         Move move1 = null;
-        if(moveName.equals("Fire Ball")){
+        if(moveName.equals("Fire_ball")){
             move1 = new FireBall(this, enemy, targetX, targetY);
         }
-        else if(moveName.equals("Ice Shard")){
+        else if(moveName.equals("Ice_shard")){
             move1 = new IceShard(this, enemy, targetX, targetY);
         }
-        else if(moveName.equals("Lightning Bolt")){
+        else if(moveName.equals("Lightning_bolt")){
             move1 = new LightningBolt(this, enemy, targetX, targetY);
         }
-        else if(moveName.equals("Celestial Spiral")){
+        else if(moveName.equals("Celestial_spiral")){
             move1 = new CelestialSpiral(this, enemy, targetX, targetY);
         }
-        else if(moveName.equals("Dark Boom")){
+        else if(moveName.equals("Dark_boom")){
             move1 = new DarkBoom(this, enemy, targetX, targetY);
         }
-        else if(moveName.equals("Creeping Barrage")){
+        else if(moveName.equals("Creeping_barrage")){
             move1 = new CreepingBarrage(this, enemy, targetX, targetY);
         }
         else if(moveName.equals("Heal")){
@@ -340,7 +349,6 @@ public class Pokemon extends Actor
         else if(moveName.equals("Strengthen")){
             move1 = new Strengthen(this, enemy);
         }
-
         else if(moveName.equals("Rock")){
             move1 = new Rock(this, enemy, targetX, targetY);
         }
@@ -350,20 +358,22 @@ public class Pokemon extends Actor
         else if(moveName.equals("Defend")){
             move1 = new Defend(this, enemy);
         }   
-        else if(moveName.equals("Quick Boost")){
+        else if(moveName.equals("Quick_boost")){
             move1 = new QuickBoost(this, enemy);
         }   
-        else if(moveName.equals("Purp Blast")){
+        else if(moveName.equals("Purp_blast")){
             move1 = new PurpBlast(this, enemy,targetX,targetY);
         }   
-        else if(moveName.equals("Magic Laser")){
+        else if(moveName.equals("Magic_laser")){
             move1 = new MagicLaser(this, enemy,targetX,targetY);
         }  
         else if(moveName.equals("Geometry")){
             move1 = new Geometry(this, enemy,targetX,targetY);
         }   
         getWorld().addObject(move1, this.getX(), this.getY());
+
         move1 = null; // fixes infrequent error from happening
+
     }
 
     //Change the pokemon's orientation. If it is facing you, then it will face the other way and vice versa.

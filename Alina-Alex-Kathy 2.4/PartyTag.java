@@ -19,20 +19,19 @@ public class PartyTag extends Actor
     int x, y, width, height;
     double pixelsPerHealthPoint; // can only have declaration outside constructor, no separate initialisation
     int health;
-    int healthBarHeight = 12; 
-    int healthBarWidth = 137;
+    int healthBarHeight = 14; 
+    int healthBarWidth = 145;
 
     GreenfootImage hp, frame, frameHover, stats, close, closeHover;
 
     PartyTag(Pokemon pokemon, int x, int y) {
+        clearImage();
+        width = getImage().getWidth();
+        height = getImage().getHeight();
         this.x = x;
         this.y = y;
         setLocation(x, y);
         if(pokemon != null) { // for every tag except 'close party' one 
-            getImage().scale(200, 60);
-            width = getImage().getWidth();
-            height = getImage().getHeight();
-
             pokemon.setTag(this);
             this.pokemon = pokemon;
             health = pokemon.getCurHealth();
@@ -44,10 +43,6 @@ public class PartyTag extends Actor
             stats = new GreenfootImage(width, height);
         }
         else {
-            getImage().scale(400, 60); // size of the 'close' option at the bottom
-            width = getImage().getWidth();
-            height = getImage().getHeight();
-
             close = new GreenfootImage(width, height);  
             closeHover = new GreenfootImage(width, height);
         }
@@ -111,9 +106,9 @@ public class PartyTag extends Actor
         // black background rectangle drawn first, which is visible behind a non-full HP bar
         hp.setColor(Color.BLACK);
         // THIS IS WHERE THE LOCATION SHOULD BE SET, THE IMAGE SIZE SHOULDN'T DETERMINE THE RECTANGLE SIZE
-        hp.fillRect(50, 40, (int)healthBarWidth, healthBarHeight);
+        hp.fillRect(287, 84, (int)healthBarWidth, healthBarHeight);
         hp.setColor(Color.GREEN);
-        hp.fillRect(50, 40, (int)(health * pixelsPerHealthPoint), healthBarHeight);
+        hp.fillRect(287, 84, (int)(health * pixelsPerHealthPoint), healthBarHeight);
     }
 
     public void drawFrame() {
@@ -136,7 +131,8 @@ public class PartyTag extends Actor
         closeHover.drawImage(new GreenfootImage("tagCloseHover.png"), 0, 0);
     }
 
-    public void drawTag(boolean hovered) {
+    public void drawTag(boolean hovered) { 
+        clearImage();
         if(pokemon != null) {
             getImage().drawImage(hp, 0, 0);
             if(!hovered)
@@ -190,5 +186,10 @@ public class PartyTag extends Actor
 
     public Pokemon getPokemon() {
         return pokemon;
+    }
+
+    public void clearImage() {
+        setImage("null.png");
+        getImage().scale(384, 147);
     }
 }

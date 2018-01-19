@@ -19,6 +19,9 @@ public class Battle extends World
     /// keeps track of current party of pokemon objects
     ArrayList<Pokemon> pokemons = new ArrayList<Pokemon>();
 
+    //Basically, turn 0 is when the player can attack. Turn 1 is when the enemy is attacking. Once the person clicks the button for the attack, turn 0 is updated to 1. Then the opponent will attack and turn set it back to turn 0;
+    private int turn = 0; 
+
     public Battle(int x, int y, boolean wildMode)
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
@@ -28,7 +31,7 @@ public class Battle extends World
         this.x = x;
         this.y = y;
         this.wildMode = wildMode;
-        
+
         // keyboard reader
         keys = new KeyReader();
         addObject(keys, 0, 0);
@@ -100,25 +103,30 @@ public class Battle extends World
     }
 
     public Pokemon makeRandomEnemy() { // give them variable stats?
-        String[] enemies = {"Charmander", "Dragonite", "Pikachu", "Jigglypuff", "Mudkip", "Gyarados"}; // define all possible enemies
-        int randInd = (int)(Math.random() * 5 + 1); // generate random index out of the above array (min = 0, max = 5)
+        String[] enemies = {"Charmander", "Dragonite", "Jigglypuff", "Gyarados"}; // define all possible enemies
+        int randInd = (int)(Math.random() * (3 + 1)); // generate random index out of the above array (min = 0, max = 5)
         // make instance of the enemy classes described in the array, based on the random index
         if(enemies[randInd].equals("Charmander"))
             return new Charmander(9, true);
         else if(enemies[randInd].equals("Dragonite"))
             return new Dragonite(9, true);
-        else if(enemies[randInd].equals("Pikachu"))
-            return new Pikachu(9, true);
         else if(enemies[randInd].equals("Jigglypuff"))
             return new Jigglypuff(9, true);
-        else if(enemies[randInd].equals("Mudkip"))
-            return new Mudkip(9, true);
         else if(enemies[randInd].equals("Gyarados"))
-            return new Gyarados(9, true);
+            return new Gyarados(9, true); 
+        //else return new Dragonite(9 , true); //FIX THIS*********************************************************************************************************************************************************
         return null; // return nothing if index doesn't point to String
     }
 
     public KeyReader getKeys() {
         return keys;
+    }
+
+    public void setTurn(int turn){
+        this.turn = turn;
+    }
+
+    public int getTurn(){
+        return turn;
     }
 }

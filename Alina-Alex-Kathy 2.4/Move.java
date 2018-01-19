@@ -13,9 +13,11 @@ public class Move extends Actor
 
     private int width = 150;
     private int height = 150;
+    boolean enemy;
 
     public Move(String name, boolean enemy){
         this.name = name;
+        this.enemy = enemy;
         image = new GifImage(name + ".gif"); 
         image.resizeImages(width, height);
         if(enemy) image.flipImages(); //flip the image depending on whether it is an enemy or not enemy using it
@@ -29,4 +31,14 @@ public class Move extends Actor
     {
         setImage(image.getCurrentImage());
     }    
+
+    public void changeTurn(){
+        if(!enemy){
+            ((Battle)getWorld()).setTurn(1);
+        } else {
+            ((Battle)getWorld()).setTurn(0);
+        }
+    }
+    
+    
 }

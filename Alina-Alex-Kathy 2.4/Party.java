@@ -47,13 +47,16 @@ public class Party extends Actor
 
         // list all the possible (maximum) y values in order (sideways Z pattern)
         int item1Y, item2Y, item3Y, item4Y, item5Y, item6Y;
-        item1Y = item4Y = itemY - 150;
-        item2Y = item5Y = item1Y + 150;
-        item3Y = item6Y = item2Y + 150;
+        item1Y = 90;
+        item2Y = item1Y + 150;
+        item3Y = item2Y + 150;
+        item4Y = 120;
+        item5Y = item4Y + 150;
+        item6Y = item5Y + 150;
 
         int item1X, item2X, item3X, item4X, item5X, item6X;
-        item1X = item2X = item3X = itemX - 250;
-        item4X = item5X = item6X = item1X + 250;
+        item1X = item2X = item3X = 210;
+        item4X = item5X = item6X = 600;
 
         int[][] itemLocations = {{item1X, item1Y}, 
                 {item2X, item2Y}, 

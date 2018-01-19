@@ -55,7 +55,7 @@ public class ItemsList extends Actor
 
     // initialises world, then prepares by creating the category choice bar of the bag
     public void prepare() {
-        if(init) {
+        if(init) {  
             world = (Battle)getWorld();
             setLocation(515, 225);
             init = false;
