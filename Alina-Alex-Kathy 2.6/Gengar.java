@@ -13,7 +13,7 @@ public class Gengar extends Pokemon
     private int level;
     private static int evolutionForm = 3;
     private static int statPreset= 1;
-    private static String[] moveSet = {"Fire_ball","Fire_ball","Fire_ball","Fire_ball"};
+    private static String[] moveSet = {"Dark_boom","Creeping_barrage","Fire_ball","Quick_boost"};
     
     
     //Misc

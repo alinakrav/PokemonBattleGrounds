@@ -1,6 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.ArrayList;
 import java.awt.Color;
+import java.awt.Font;
 
 /**
  * This subclass is used to make buttons that, when pressed, instantiate a game with
@@ -17,10 +18,7 @@ public class FightSubButton extends Button
     public FightSubButton(String name) {
         super(); // get functionality of superclass
         this.name = name;
-        GreenfootImage img = new GreenfootImage(130, 50);
-        img.setColor(Color.WHITE);
-        img.fillRect(130, 50, 0, 0);
-        setImage(new GreenfootImage("Button" + name + ".png")); // set image to the button appropriate to the move
+        setImage("Button" + name + ".png"); // set image to the button appropriate to the move
     }   
 
     public void act() {

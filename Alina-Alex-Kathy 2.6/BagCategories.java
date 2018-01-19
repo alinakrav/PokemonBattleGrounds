@@ -8,7 +8,7 @@ public class BagCategories extends Actor
 {
     boolean init = true;
     KeyReader keys;
-    Battle world;
+    World world;
     ////////
 
     ArrayList<HashMap<String, Integer>> itemsArray;
@@ -54,7 +54,10 @@ public class BagCategories extends Actor
     // initialises world variable, then prepares by making the item window in the world
     public void prepare() {
         if(init) {
-            world = (Battle)getWorld();
+            if(getWorld() instanceof Battle)
+                world = (Battle)getWorld();
+            else 
+                world = (ScrollingWorld)getWorld();
             keys = world.getKeys();
             setLocation(100, 200);
             init = false;

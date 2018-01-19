@@ -10,7 +10,7 @@ import java.util.HashMap;
 public class Bag extends Actor
 {
     boolean init = true;
-    Battle world;
+    World world;
     ///////////
     BagCategories categories;
 
@@ -19,9 +19,15 @@ public class Bag extends Actor
 
     // 2d array of coordinates of all the item locations (taken from ItemsList constructor declaration)
     String itemChosen;
-    public Bag() {//ArrayList<HashMap<String, Integer>> itemList) {
-        ///
-        this.getImage().scale(800, 600);
+    public Bag(World curWorld) {//ArrayList<HashMap<String, Integer>> itemList) {
+        setImage("Bag.png");
+        getImage().scale(800, 600);
+        if(curWorld instanceof Battle)
+            world = (Battle)curWorld;
+        else {
+            world = (ScrollingWorld)curWorld;
+            setLocation(0,0);
+        }
     }
 
     public void act() 
@@ -32,11 +38,13 @@ public class Bag extends Actor
     // initialises world, then prepares by creating the vategory choice bar of the bag
     public void prepare(int[][] itemLocations) {
         if(init) {
-            world = (Battle)getWorld();
             init = false;
             ///////
 
-            itemList = world.getBag();
+            if(world instanceof Battle)
+                itemList = ((Battle)world).getBag();
+            else
+                itemList = ((ScrollingWorld)world).getBag();
             categories = new BagCategories(itemList, itemLocations, 100, 300); // this is where location of category object is chosen
             world.addObject(categories, 0, 0);
         }
@@ -98,7 +106,10 @@ public class Bag extends Actor
         bagClasses.add(ItemDescription.class);
         for(Class c: bagClasses)
             world.removeObjects(world.getObjects(c));
-        world.setBag(itemList);
+        if(world instanceof Battle)
+            ((Battle)world).setBag(itemList);
+        else
+            ((ScrollingWorld)world).setBag(itemList);
         world.removeObject(this);
     }
 }

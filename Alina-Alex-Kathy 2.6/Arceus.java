@@ -13,7 +13,7 @@ public class Arceus extends Pokemon
     private int level;
     private static int evolutionForm = 1;
     private static int statPreset= 5;
-    private static String[] moveSet = {"Fire_ball","Fire_ball","Fire_ball","Fire_ball"};
+    private static String[] moveSet = {"Celestial_spiral","Geometry","Magic_laser","Fire_ball"};
     
     
     //Misc

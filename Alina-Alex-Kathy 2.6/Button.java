@@ -36,7 +36,6 @@ public class Button extends Actor
     }
 
     public void hover() {
-        GreenfootImage img = new GreenfootImage(145, 12);
         for(Button button : world.getObjects(Button.class)) {
             if(button.name != null) 
                 button.setImage("Button" + button.name + ".png");

@@ -13,7 +13,7 @@ public class Kyogre extends Pokemon
     private int level;
     private static int evolutionForm = 1;
     private static int statPreset= 7;
-    private static String[] moveSet = {"Fire_ball","Fire_ball","Fire_ball","Fire_ball"};
+    private static String[] moveSet = {"Defend","Ice_shard","Dark_boom","Purp_blast"};
     
     
     //Misc

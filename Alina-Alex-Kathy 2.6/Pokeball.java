@@ -1,4 +1,5 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+
 
 /**
  * Write a description of class Pokeball here.
@@ -16,6 +17,5 @@ public class Pokeball extends Attack
     private int targetY;
     public Pokeball(int targetX, int targetY){
         super(name, speed, targetX, targetY);
-        
     }     
 }

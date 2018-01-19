@@ -3,6 +3,8 @@ import java.awt.Scrollbar;
 import java.util.List;
 import greenfoot.Actor;
 import greenfoot.GreenfootImage;
+import java.util.*;
+
 /**
  *  
  * @author (your name) 
@@ -14,11 +16,15 @@ public class ScrollingWorld extends World
     public static int locationX, locationY;
     private static int dx, dy;
     public static boolean switched;
+    public ArrayList<HashMap<String, Integer>> bag;
+    public ArrayList<Pokemon> party;
+
+    private KeyReader keys = new KeyReader();
     /**
      * the constructor passes through the initial position of the map
      */
     private GreenfootImage scroll = new GreenfootImage("final map.png");  
-    public ScrollingWorld(int x, int y, boolean s)
+    public ScrollingWorld(int x, int y, boolean s, ArrayList<HashMap<String, Integer>> bag, ArrayList<Pokemon> party)
     {
         super(800, 600, 1, false);
         switched = s;
@@ -26,7 +32,17 @@ public class ScrollingWorld extends World
         locationY = y;         
         dx = x + 800;
         dy = y + 600;
+
+        this.bag = bag;
+        this.party = party;
+
+        addObject(keys, 0, 0);
         prepareObjects(); 
+    }
+
+    public void act() {
+        if(keys.keyNotNull() && keys.keyIs("space"))
+            addObject(new Bag(this), 0, 0);
     }
 
     /**
@@ -42,7 +58,6 @@ public class ScrollingWorld extends World
      * add the objects to the world and allow them to scroll together with the background
      */
     public void prepareObjects(){
-
         addObject(new Grass(), 247+ dx, 381+ dy);
         addObject(new Grass(), 205+ dx, 503+ dy);
         addObject(new Grass(), 694+ dx, 544+ dy); // remember to make it shine before
@@ -81,5 +96,13 @@ public class ScrollingWorld extends World
         addObject(new Trainer5(), 345 + dx, 60 + dy);
 
         addObject(new Player(), 400, 300);  
+    }
+
+    public ArrayList<HashMap<String, Integer>> getBag() {
+        return bag;
+    }
+
+    public void setBag(ArrayList<HashMap<String, Integer>> bag) {
+        this.bag = bag;
     }
 }

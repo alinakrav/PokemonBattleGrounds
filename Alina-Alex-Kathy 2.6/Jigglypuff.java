@@ -13,7 +13,7 @@ public class Jigglypuff extends Pokemon
     private int level;
     private static int evolutionForm = 1;
     private static int statPreset= 4;
-    private static String[] moveSet = {"Fire_ball", "Fire_ball", "Fire_ball", "Fire_ball"};
+    private static String[] moveSet = {"Heal", "Celestial_spiral", "Purp_blast", "Lightning_bolt"};
     
     
     //Misc

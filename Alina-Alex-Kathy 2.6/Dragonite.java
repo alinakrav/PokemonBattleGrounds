@@ -13,7 +13,7 @@ public class Dragonite extends Pokemon
     private int level;
     private static int evolutionForm = 2;
     private static int statPreset= 6;
-    private static String[] moveSet = {"Fire_ball", "Fire_ball", "Fire_ball", "Fire_ball"};
+    private static String[] moveSet = {"Fire_ball", "Defend", "Magic_laser", "Purp_blast"};
     
     
     //Misc

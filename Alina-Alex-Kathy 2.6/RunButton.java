@@ -27,6 +27,6 @@ public class RunButton extends Button
 
     // this method is executed in the parent's act method
     public void select() {        
-        Greenfoot.setWorld(new ScrollingWorld(((Battle)getWorld()).x, ((Battle)getWorld()).y, false));
+        Greenfoot.setWorld(new ScrollingWorld(((Battle)getWorld()).x, ((Battle)getWorld()).y, false, ((Battle)getWorld()).bag, ((Battle)getWorld()).party));
     }
 }

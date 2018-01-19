@@ -15,14 +15,14 @@ public class Battle extends World
     public int x, y;
     public boolean wildMode;
     // hashmaps of _item name_ and _item quantity_ are in a list (to hold multiple name-quantity pairs), and there are multiple such lists for each category of items
-    ArrayList<HashMap<String, Integer>> bag = new ArrayList<HashMap<String, Integer>>();
+    public ArrayList<HashMap<String, Integer>> bag = new ArrayList<HashMap<String, Integer>>();
     /// keeps track of current party of pokemon objects
-    ArrayList<Pokemon> pokemons = new ArrayList<Pokemon>();
+    public ArrayList<Pokemon> party = new ArrayList<Pokemon>();
 
     //Basically, turn 0 is when the player can attack. Turn 1 is when the enemy is attacking. Once the person clicks the button for the attack, turn 0 is updated to 1. Then the opponent will attack and turn set it back to turn 0;
     private int turn = 0; 
 
-    public Battle(int x, int y, boolean wildMode)
+    public Battle(int x, int y, boolean wildMode, ArrayList<HashMap<String, Integer>> bag, ArrayList<Pokemon> party)
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(800, 600, 1);
@@ -31,41 +31,15 @@ public class Battle extends World
         this.x = x;
         this.y = y;
         this.wildMode = wildMode;
+        this.bag = bag;
+        this.party = party;
 
         // keyboard reader
         keys = new KeyReader();
         addObject(keys, 0, 0);
 
-        /// helper variable to make the map of items (should be made somewhere else)
-        HashMap<String, Integer> map = new HashMap<String, Integer>();
-        //// defining objects in bag///////
-        map.put("a", 1);
-        map.put("b", 2);
-        map.put("c", 3);
-        bag.add(map);
-
-        map = new HashMap<String, Integer>(); // old map will still change in arraylist if changed after it was added, so make new map
-        map.put("a", 3);
-        map.put("b", 2);
-        map.put("c", 1);
-        bag.add(map);
-
-        map = new HashMap<String, Integer>();
-        map.put("a", 2);
-        map.put("b", 1);
-        map.put("c", 3);
-        bag.add(map);
-        ///////////
-
-        //// defining pokemon party (should be made somewhere else)
-        pokemons.add(new Charmander(9, false));
-        pokemons.add(new Snorlax(9, false));
-        pokemons.add(new Mudkip(9, false));
-        pokemons.add(new Gyarados(9, false));
-        pokemons.add(new Dragonite(9, false));
-        pokemons.add(new Jigglypuff(9, false));
         // create and add player and enemy to battle
-        player = pokemons.get(0);
+        player = party.get(0);
         enemy = makeRandomEnemy(); // enemy should be chosen at random
         addObject(enemy, 0, 0);
         addObject(player, 0, 0); // add player to world
@@ -95,11 +69,11 @@ public class Battle extends World
     }
 
     public ArrayList<Pokemon> getParty() {
-        return pokemons;
+        return party;
     }
 
-    public void setParty(ArrayList<Pokemon> pokemons) {
-        this.pokemons = pokemons;
+    public void setParty(ArrayList<Pokemon> party) {
+        this.party = party;
     }
 
     public Pokemon makeRandomEnemy() { // give them variable stats?
@@ -109,7 +83,7 @@ public class Battle extends World
         int min = 0;
         int randInd = (int)Math.random()*(max - min + 1) + min; // generate random index out of the above array (min = 0, max = 5)
         int level = 0;
-       
+
         if(wildMode){
             max = 15;
             min = 1;
@@ -153,12 +127,12 @@ public class Battle extends World
         else //if(enemies[randInd].equals("Mewtwo"))
             return new Mewtwo(level, true); 
     }
-    
+
     public void capturePokemon(Pokemon captured){
-        pokemons.add(captured);
+        party.add(captured);
         removeObject(captured);
     }
-    
+
     public KeyReader getKeys() {
         return keys;
     }

@@ -13,7 +13,7 @@ public class Tropius extends Pokemon
     private int level;
     private static int evolutionForm = 1;
     private static int statPreset= 4;
-    private static String[] moveSet = {"Fire_ball","Fire_ball","Fire_ball","Fire_ball"};
+    private static String[] moveSet = {"Defend","Rock","Celestial_spiral","Purp_blast"};
     
     
     //Misc

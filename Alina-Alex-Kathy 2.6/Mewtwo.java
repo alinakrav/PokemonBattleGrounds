@@ -13,7 +13,7 @@ public class Mewtwo extends Pokemon
     private int level;
     private static int evolutionForm = 1;
     private static int statPreset= 6;
-    private static String[] moveSet = {"Fire_ball","Fire_ball","Fire_ball","Fire_ball"};
+    private static String[] moveSet = {"Fire_ball","Lightning_bolt","Geometry","Beam"};
     
     
     //Misc

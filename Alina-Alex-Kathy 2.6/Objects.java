@@ -1,5 +1,6 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import greenfoot.GreenfootImage;
+import java.util.*;
 
 /**
  * Write a description of class Objects here.
@@ -12,9 +13,7 @@ public class Objects extends Actor
 {
     public void grassCollide(){
         if (Greenfoot.getRandomNumber(300) <= 2){
-            //TrainerBattleWorld w = new TrainerBattleWorld(((ScrollingWorld)getWorld()).locationX,((ScrollingWorld)getWorld()).locationY, "grass");
-
-            Battle battle = new Battle(((ScrollingWorld)getWorld()).locationX,((ScrollingWorld)getWorld()).locationY, true);
+            Battle battle = new Battle(((ScrollingWorld)getWorld()).locationX, ((ScrollingWorld)getWorld()).locationY, true, ((ScrollingWorld)getWorld()).bag, ((ScrollingWorld)getWorld()).party);
             Greenfoot.setWorld(battle);
         }
     }
@@ -40,7 +39,7 @@ public class Objects extends Actor
             ScrollingWorld.switched = false;
             }*/
             int offset = 50;
-            Battle battle = new Battle(((ScrollingWorld)getWorld()).locationX + offset, ((ScrollingWorld)getWorld()).locationY, true);
+            Battle battle = new Battle(((ScrollingWorld)getWorld()).locationX + offset, ((ScrollingWorld)getWorld()).locationY, true, ((ScrollingWorld)getWorld()).bag, ((ScrollingWorld)getWorld()).party);
             Greenfoot.setWorld(battle);
         }
     }

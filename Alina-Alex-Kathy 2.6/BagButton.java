@@ -26,7 +26,7 @@ public class BagButton extends Button
 
     // this method is executed in the parent's act method
     public void select() {
-        Bag bag = new Bag();
+        Bag bag = new Bag(getWorld());
         world.addObject(bag, world.getWidth()/2, world.getHeight()/2);
         // specific bag stuff
 

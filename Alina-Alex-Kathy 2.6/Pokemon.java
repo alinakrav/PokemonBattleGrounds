@@ -102,7 +102,7 @@ public class Pokemon extends Actor
             deathCounter++; // count frames until death           
             if(deathCounter == 80) { // after 80 frames  
                 if(enemy) 
-                    Greenfoot.setWorld(new ScrollingWorld(((Battle)getWorld()).x, ((Battle)getWorld()).y, false));
+                    Greenfoot.setWorld(new ScrollingWorld(((Battle)getWorld()).x, ((Battle)getWorld()).y, false, ((Battle)getWorld()).bag, ((Battle)getWorld()).party));
                 getWorld().removeObject(this); // delete character from the world
             }
         }
