@@ -90,9 +90,7 @@ public class Pokemon extends Actor
     public void act() 
     {
         enemyMove();
-        if(!(name.equals("Pikachu") || name.equals("Mudkip"))) {
-            setImage(image.getCurrentImage());
-        }
+        setImage(image.getCurrentImage());
         levelUp();
         die(); //die if it has no health
     }  
@@ -418,7 +416,7 @@ public class Pokemon extends Actor
             image.resizeImages(width, height);
             setLocation(600, 230);
         }
-        else if(!(name.equals("Pikachu") || name.equals("Mudkip"))) {
+        else {
             image = new GifImage("Back" + name + ".gif");
             image.resizeImages(width, height);
             setLocation(240, 420);

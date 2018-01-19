@@ -139,8 +139,6 @@ public class Battle extends World
             return new Tropius(level, true); 
         else //if(enemies[randInd].equals("Mewtwo"))
             return new Mewtwo(level, true); 
-        //else return new Dragonite(9 , true); //FIX THIS*********************************************************************************************************************************************************
-        //return null; // return nothing if index doesn't point to String
     }
 
     public KeyReader getKeys() {
