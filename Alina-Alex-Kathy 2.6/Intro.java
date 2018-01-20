@@ -50,7 +50,7 @@ public class Intro extends World
         if(!started) {
             //play theme song on loop
             song = new GreenfootSound("theme.mp3");
-            song.setVolume(10);
+            song.setVolume(30);
             song.playLoop();
             //do not repeat this action for other acts
             started = true;
@@ -61,13 +61,13 @@ public class Intro extends World
         //if it's spacebar
         if(key == "enter" && cooldownCount >= cooldown && screenCounter < 3) {
             //increase the screen number count
-            if(screenCounter < 2)
+            if(screenCounter < 3)
                 screenCounter++;
             //set background to new screen number count (next screen in set of screens for intro)
-            setBackground(new GreenfootImage("IntroScreen" + screenCounter + ".png"));
+            if(screenCounter <= 2) setBackground(new GreenfootImage("IntroScreen" + screenCounter + ".png"));
             getBackground().scale(800, 600);
             //if last screen image was shown, then move onto the main menu
-            if(screenCounter == 2) {
+            if(screenCounter >= 3) {
                 //set up the difficulty buttons
 
                 Greenfoot.setWorld(m);

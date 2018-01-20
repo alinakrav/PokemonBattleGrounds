@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.target=Attack
+comment0.text=\n\ Write\ a\ description\ of\ class\ Attack\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment1.params=name\ damage\ speed\ attacker\ enemy\ targetX\ targetY
+comment1.target=Attack(java.lang.String,\ int,\ int,\ Pokemon,\ boolean,\ int,\ int)
+comment2.params=name\ speed\ targetX\ targetY
+comment2.target=Attack(java.lang.String,\ int,\ int,\ int)
+comment3.params=
+comment3.target=void\ act()
+comment3.text=\n\ Act\ -\ do\ whatever\ the\ Attack\ wants\ to\ do.\ This\ method\ is\ called\ whenever\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\n
+comment4.params=
+comment4.target=void\ hit()
+comment5.params=
+comment5.target=void\ capture()
+comment6.params=
+comment6.target=int\ getDamage()
+comment7.params=
+comment7.target=int\ getSpeed()
+numComments=8

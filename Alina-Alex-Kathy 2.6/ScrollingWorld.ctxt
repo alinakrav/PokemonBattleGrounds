@@ -3,6 +3,7 @@ comment0.target=ScrollingWorld
 comment0.text=\n\ \ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
 comment1.params=x\ y\ s\ bag\ party
 comment1.target=ScrollingWorld(int,\ int,\ boolean,\ java.util.ArrayList,\ java.util.ArrayList)
+comment1.text=\n\ the\ constructor\ passes\ through\ the\ initial\ position\ of\ the\ map\n
 comment2.params=
 comment2.target=void\ act()
 comment3.params=x\ y

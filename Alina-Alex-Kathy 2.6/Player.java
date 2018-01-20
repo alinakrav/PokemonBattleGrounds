@@ -58,6 +58,7 @@ public class Player extends MainTrainer
                 obj.battle(this);
                 //obj.grassCollide();
             }
+            // to trigger the wild battle, the player has to touch the grass object and walking at the same time  
             else if(obj instanceof Grass && ( Greenfoot.isKeyDown("left") || Greenfoot.isKeyDown("right") || Greenfoot.isKeyDown("up") || Greenfoot.isKeyDown("down"))) {
                 obj.grassCollide();
             }

@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=KeyReader
+comment0.text=\n\ Write\ a\ description\ of\ class\ KeyReader\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment1.params=source
+comment1.target=KeyReader(java.lang.Object)
+comment2.params=
+comment2.target=void\ act()
+comment3.params=s\ someSource
+comment3.target=boolean\ keyIs(java.lang.String,\ java.lang.Object)
+numComments=4

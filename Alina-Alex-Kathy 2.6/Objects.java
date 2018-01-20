@@ -19,29 +19,14 @@ public class Objects extends Actor
     }
 
     public void battle(Player p1){
-        // the map's current location 
-        int currentX = ((ScrollingWorld)getWorld()).locationX;
-        int currentY = ((ScrollingWorld)getWorld()).locationY; 
-        // intersection
-
-        if (p1 != null)
-        { 
-            /*
-            //press space to enter the trainerBattle  
-            if (ScrollingWorld.switched == false){
-            TrainerBattleWorld t = new TrainerBattleWorld(currentX, currentY, "trainer");
-
-            Greenfoot.setWorld(t);
-            }
-            else{
-            obstacleCollide(p1, 30);
-            // allows the player to enter the battle for several times at the same trainer
-            ScrollingWorld.switched = false;
-            }*/
+            /** before the player enters the battle, pass the current map location to the battle world's constructor(set the map's location 50 away from its origin, 
+             * so the player does not touch the trainer again when it returns from the battle.
+             * also passes the bag and party information to the battle.
+            */
             int offset = 50;
             Battle battle = new Battle(((ScrollingWorld)getWorld()).locationX + offset, ((ScrollingWorld)getWorld()).locationY, true, ((ScrollingWorld)getWorld()).bag, ((ScrollingWorld)getWorld()).party);
             Greenfoot.setWorld(battle);
-        }
+        
     }
 
     /**

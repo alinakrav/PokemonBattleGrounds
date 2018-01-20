@@ -5,10 +5,6 @@ import java.util.List; // use a list to keep track of the trainers
  * 1. tells the world to scroll or not
  * 2. super class for the player
  * 
- * 
- * !!!!!!!!!!to minimize the storage usage, set the initial location at -612, -133
- * with the pic final map croped
- * 
  * @author (your name) 
  * @version (a version number or a date)
  */
@@ -44,8 +40,6 @@ import java.util.List; // use a list to keep track of the trainers
      * indicate whether the player can continue scrolling the world on that direction
      */
     public boolean scrollOnDirection(int direction){
-        // the currentX and Y is the location of the map
-        // the map is initially at -612, -133
         int currentX = ((ScrollingWorld)getWorld()).locationX;
         int currentY = ((ScrollingWorld)getWorld()).locationY;
         if(direction == LEFT){
@@ -76,28 +70,4 @@ import java.util.List; // use a list to keep track of the trainers
              return false;
             
     } 
-    
-     /**
-     * the move() method is the same as the setLocation() method
-    public void move(int distance){
-        List<Objects> objects = getWorld().getObjects(Objects.class);
-        // set map while placing the first object
-        if (objects.size() > 0){
-            Actor ob = objects.get(0);
-            int x = ob.getX();
-            int y = ob.getY();
-            int originDirection = ob.getRotation();
-            ob.setRotation(getRotation() - 90);
-            ob.move(- distance);
-            ob.setRotation(originDirection);
-            ((ScrollingWorld)getWorld()).setMap(ob.getX() - x, ob.getY() - y);            
-        }
-        for (int i= 1; i < objects.size(); i ++){
-            Actor ob = objects.get(i);
-            int originDirection = ob.getRotation();
-            ob.setRotation(getRotation() - 90);
-            ob.move(- distance);
-            ob.setRotation(originDirection);
-        }
-    }*/
 }
