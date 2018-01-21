@@ -10,7 +10,7 @@ import java.util.List;
  */
 public class Player extends MainTrainer
 {
-    boolean init;
+    boolean init = true;
     private int lastMove;
     KeyReader keys = new KeyReader(this);
 
@@ -29,7 +29,7 @@ public class Player extends MainTrainer
     private void init() {
         if(init) {
             init = false;
-            keys = ((ScrollingWorld)getWorld()).getKeys();
+            getWorld().addObject(keys, 0, 0);
         }
     }
 

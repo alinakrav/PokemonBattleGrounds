@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.target=Player
+comment0.text=\nplayer\ needs\ to\ \n\ 1.\ walk\ around(in\ a\ fixed\ point,\ only\ the\ background\ scrolls)\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment1.params=
+comment1.target=Player()
+comment2.params=
+comment2.target=void\ act()
+comment3.params=
+comment3.target=void\ init()
+comment4.params=
+comment4.target=void\ walk()
+comment4.text=\n\ the\ method\ allows\ the\ player\ to\ walk\ around\n
+comment5.params=
+comment5.target=void\ collide()
+comment5.text=\n\ \ \ \ public\ void\ walk(){\ \n\ \ \ \ Objects\ ob\ \=\ new\ Objects();\n\ \ \ \ if(getWorld().getObjects(Bag.class).isEmpty())\ {\n\ \ \ \ //\ only\ walks\ when\ the\ direction\ key\ is\ pressed\ and\ it\ is\ not\ at\ the\ edge\n\ \ \ \ if(Greenfoot.isKeyDown("down")&&\ scrollOnDirection(DOWN)){\n\ \ \ \ setImage("P-front.png");\n\ \ \ \ setLocation(getX(),\ getY()\ +\ 5);\n\ \ \ \ }\n\ \ \ \ else\ if(Greenfoot.isKeyDown("up")&&\ scrollOnDirection(UP)){\n\ \ \ \ setImage("P-back.png");\n\ \ \ \ setLocation(getX(),\ getY()\ -\ 5);\n\ \ \ \ }\n\ \ \ \ else\ if(Greenfoot.isKeyDown("right")&&\ scrollOnDirection(RIGHT)){\n\ \ \ \ setImage("p-right.png");\n\ \ \ \ setLocation(getX()\ +\ 5,\ getY());\ \ \ \n\ \ \ \ }\n\ \ \ \ else\ if\ (Greenfoot.isKeyDown("left")&&\ scrollOnDirection(LEFT)){\n\ \ \ \ setImage("p-left.png");\n\ \ \ \ setLocation(getX()\ -\ 5,\ getY());\n\ \ \ \ }\n\ \ \ \ }\n\ \ \ \ }\n
+numComments=6

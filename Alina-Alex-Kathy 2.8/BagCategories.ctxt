@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=BagCategories
+comment1.params=itemsArray\ itemLocations
+comment1.target=BagCategories(java.util.ArrayList,\ int[][])
+comment2.params=
+comment2.target=void\ act()
+comment3.params=
+comment3.target=void\ prepare()
+comment4.params=itemsList
+comment4.target=void\ removeItems(ItemsList)
+numComments=5

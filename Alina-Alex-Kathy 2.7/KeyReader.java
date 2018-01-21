@@ -8,25 +8,51 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class KeyReader extends Actor
 {
-    String key;
+    private String key;
     Object source;
+    boolean set;
 
     public KeyReader(Object source) {
         this.source = source;
-        System.out.println(source);
     }
 
     public void act() {
-        key = Greenfoot.getKey();
-    }    
+        if(!set) {
+            key = null;
+            key = Greenfoot.getKey();
+            for(KeyReader instance : getWorld().getObjects(KeyReader.class)) {
+                instance.setKey(key);
+            }
+        }
+        set = false;
+    }
 
     public boolean keyIs(String s, Object someSource) {
-        if(key == null || someSource != source)
-            return false;
-        else{
-            boolean keyIs = s.equals(key);
-            key = null;
-            return keyIs;
+        if(getWorld() instanceof Intro) {
+            return s.equals(key); // no priority order if in Intro world (only one KeyReader)
+        }
+        else if(getWorld() instanceof ScrollingWorld || getWorld() instanceof Battle) {
+            if(getWorld().getObjects(BagCategories.class).isEmpty()) // if bag DOESN'T exist, then only allow any keys (no conflicting classes)
+                return s.equals(key);
+            else { // if bag exists, only allow keys from bag-related classes to be read	
+                return s.equals(key) && (someSource instanceof Selection || someSource instanceof BagCategories);
+
+            }
+        }
+        else {
+            if(!getWorld().getObjects(BagCategories.class).isEmpty())
+                return s == key && (someSource instanceof Selection || someSource instanceof BagCategories);
+            else
+                return s.equals(key);
         }
     }
+
+    // other KeyReader instances can set the key pressed in a single act so all instances get the key pressed with getKey(), not just the first one to call the method
+    private void setKey(String key) {
+        this.key = key;
+        set = true;
+    }
+    
+    public void keyPressed(String s) {
+        
 }

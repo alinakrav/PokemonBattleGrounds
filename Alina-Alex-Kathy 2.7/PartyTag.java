@@ -58,14 +58,14 @@ public class PartyTag extends Actor
 
     public void act() 
     {
-        prepare();
+        init();
     }    
 
     // this method initialises world variable, and then does whatever needs to be done on instantiation 
-    public void prepare() {
-        if(init) {
+    public void init() {
+        if(!init) {
             world = (Battle)getWorld();
-            init = false;
+            init = true;
             //////////
 
             drawComponents();
@@ -128,7 +128,7 @@ public class PartyTag extends Actor
     }
 
     public void drawStats() { 
-        
+
         stats.setColor(Color.WHITE);
         // draw the name (for charmander's long name, make font smaller)
         if(!pokemon.getName().equals("Charmander")) {

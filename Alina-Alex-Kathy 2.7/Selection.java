@@ -8,6 +8,7 @@ public class Selection extends Actor
     boolean init = true;
     World world;
     KeyReader keys = new KeyReader(this);
+    Bag bag;
     //////////
 
     String key;
@@ -103,8 +104,10 @@ public class Selection extends Actor
         }
         else if(keyIs("up") && gridIndex[1] > 0)
             setLocation(grid[gridIndex[0]][--gridIndex[1]].getX(), grid[gridIndex[0]][gridIndex[1]].getY());
-        else if(keyIs("right") && gridIndex[0] < grid.length - 1 && gridIndex[1] < grid[gridIndex[0] + 1].length)
+        else if(keyIs("right") && gridIndex[0] < grid.length - 1 && gridIndex[1] < grid[gridIndex[0] + 1].length) {
             setLocation(grid[++gridIndex[0]][gridIndex[1]].getX(), grid[gridIndex[0]][gridIndex[1]].getY());
+            System.out.println("right");
+        }
         else if(keyIs("left") && gridIndex[0] > 0 && gridIndex[1] < grid[gridIndex[0] - 1].length) 
             setLocation(grid[--gridIndex[0]][gridIndex[1]].getX(), grid[gridIndex[0]][gridIndex[1]].getY());
 
@@ -147,6 +150,7 @@ public class Selection extends Actor
             else {
                 world = (ScrollingWorld)getWorld();
             }
+            world.addObject(keys, 0, 0);
             init = false;
             /////////
 

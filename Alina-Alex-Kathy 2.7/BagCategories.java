@@ -8,7 +8,7 @@ public class BagCategories extends Actor
 {
     boolean init = true;
     KeyReader keys = new KeyReader(this);
-    World world;
+    Bag bag;
     ////////
 
     ArrayList<HashMap<String, Integer>> itemsArray;
@@ -31,18 +31,17 @@ public class BagCategories extends Actor
         prepare();
 
         if(keyIs("right") && category < finalBoxIndex) {
-            System.out.println(category);
             setImage("BagCategory" + ++category + ".png");
             ItemsList tempItemsList = itemsList; // temporarily store old items object in variable to use its location
             itemsList = new ItemsList(itemsArray, itemLocations,category); // create next items object in place of old one
-            world.addObject(itemsList, 0, 0); // add new items object to world
+            getWorld().addObject(itemsList, 0, 0); // add new items object to world
             removeItems(tempItemsList); // remove the old items list object
         }
         else if(keyIs("left") && category > 0) {
             setImage("BagCategory" + --category + ".png");
             ItemsList tempItemsList = itemsList;
             itemsList = new ItemsList(itemsArray, itemLocations, category);
-            world.addObject(itemsList, 0, 0);
+            getWorld().addObject(itemsList, 0, 0);
             removeItems(tempItemsList);
         }
     }
@@ -50,25 +49,20 @@ public class BagCategories extends Actor
     // initialises world variable, then prepares by making the item window in the world
     public void prepare() {
         if(init) {
-            if(getWorld() instanceof Battle) {
-                world = (Battle)getWorld();
-            }
-            else {
-                world = (ScrollingWorld)getWorld();
-            }
             init = false;
+            getWorld().addObject(keys, 0, 0);
             ///////
 
             setLocation(400, 300);
             itemsList = new ItemsList(itemsArray, itemLocations, 0); // first category of items array
-            world.addObject(itemsList, 0, 0);
+            getWorld().addObject(itemsList, 0, 0);
         }
     }
 
     // removes the items list and everything created from that object
     private void removeItems(ItemsList itemsList) {
         itemsList.removeEverything();
-        world.removeObject(itemsList);
+        getWorld().removeObject(itemsList);
     }
 
     // determines whether key is pressed (in this KeyReader instance)

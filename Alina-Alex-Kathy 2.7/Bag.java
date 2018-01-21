@@ -13,6 +13,7 @@ public class Bag extends Actor
     World world;
     ///////////
     BagCategories categories;
+    KeyReader keys = new KeyReader(this);
 
     // the list of all items in bag (get this from world)
     ArrayList<HashMap<String, Integer>> itemList = new ArrayList<HashMap<String, Integer>>();
@@ -39,8 +40,8 @@ public class Bag extends Actor
     public void prepare(int[][] itemLocations) {
         if(init) {
             init = false;
+            getWorld().addObject(keys, 0, 0);
             ///////
-
             if(world instanceof Battle)
                 itemList = ((Battle)world).getBag();
             else
@@ -87,18 +88,6 @@ public class Bag extends Actor
         }
     }
 
-    /*
-    // this method is used to check (from the player class) whether an item is chosen (not null), at which point the item name will be deciphered in its own class (maybe same Item class) for properties and used on Pokemon
-    public String itemChosen() {
-    if(itemChosen == null)  
-    return null;
-    else {
-    removeEverything();
-    return itemChosen;
-    }
-    }
-     */
-
     public void removeEverything() {
         ArrayList<Class> bagClasses = new ArrayList<Class>();
         bagClasses.add(Selection.class); // itemselection checks for objects of other classes in its act(), so should bed first
@@ -113,5 +102,10 @@ public class Bag extends Actor
         else
             ((ScrollingWorld)world).setBag(itemList);
         world.removeObject(this);
+    }
+
+    public KeyReader getKeys() {
+        System.out.println("getting keys");
+        return keys;
     }
 }
