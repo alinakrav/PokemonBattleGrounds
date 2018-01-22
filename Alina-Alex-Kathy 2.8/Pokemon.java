@@ -373,7 +373,7 @@ public class Pokemon extends Actor
             move1 = new Geometry(this, enemy,targetX,targetY);
         }   
         else if(moveName.equals("Pokeball")) {
-            move1 = new Pokeball(targetX, targetY);
+            move1 = new Pokeball(this, targetX, targetY);
         }
         getWorld().addObject(move1, this.getX(), this.getY());
 
@@ -401,8 +401,10 @@ public class Pokemon extends Actor
      */
 
     public void useItem(String itemName, boolean enemy) {
-        if(itemName.equals("Pokeball"))
+        if(itemName.equals("Pokeball")) 
             ((Battle)getWorld()).player.move(itemName);
+        getWorld().removeObjects(getWorld().getObjects(Selection.class)); 
+        getWorld().removeObjects(getWorld().getObjects(Button.class)); // remove button from world
         // this is where the item is used to boost whatever stats
     }
 
@@ -447,5 +449,10 @@ public class Pokemon extends Actor
     public void capture(){
         enemy = false;
         flip();
+    }
+
+    public void addToParty() {
+        enemy = false;
+        ((Battle)getWorld()).party.add(this);
     }
 }

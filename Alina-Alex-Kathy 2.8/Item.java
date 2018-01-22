@@ -77,7 +77,7 @@ public class Item extends Actor
         }
         world.getObjects(Bag.class).get(0).removeEverything(); // exit the Bag object back to main screen
 
-        if(!(world instanceof ScrollingWorld))
+        if(!(world instanceof ScrollingWorld) && !name.equals("Pokeball"))
             goToMenu();
     }
 

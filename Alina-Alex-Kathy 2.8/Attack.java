@@ -10,8 +10,9 @@ public class Attack extends Move
 {
     boolean attackDone = false; // makes sure attack is only applying its effects once, before the animation plays out
     int cooldownCount = 0;
-    int cooldown = 70;
+    int cooldown = 50;
 
+    Pokemon pokemon; // the pokemon the attack is supposed to reach
     private String name;
     private int damage;
     private int speed;
@@ -33,10 +34,11 @@ public class Attack extends Move
             setRotation(140);
     }
 
-    public Attack(String name, int speed, int targetX, int targetY){
+    public Attack(String name, int speed, Pokemon attacker, int targetX, int targetY){
         super(name, false);
         this.name = name;
         this.speed = speed;
+        this.attacker = attacker;
         this.targetX = targetX;
         this.targetY = targetY;
 
@@ -62,11 +64,14 @@ public class Attack extends Move
     }  
 
     public void hit() {
-        Pokemon pokemon = (Pokemon)getOneObjectAtOffset(0,0, Pokemon.class);
+        pokemon = (Pokemon)getOneObjectAtOffset(0,0, Pokemon.class);
 
-        if(this instanceof Pokeball) {
-            if(pokemon != null && pokemon != attacker && (((Battle)getWorld()).getParty()).size() < 6) 
+        if(this instanceof Pokeball && pokemon != null && pokemon != attacker) {
+            attackDone = true;
+            if((((Battle)getWorld()).getParty()).size() < 6) 
                 capture();
+            else
+                removePokeball();
         }
         else {
             // if the non-attacking pokemon was hit (pokemon != null)
@@ -90,9 +95,7 @@ public class Attack extends Move
                     changeTurn(); // prepare turn for next actions
                     getWorld().removeObject(mvDescObj);
                     if(enemy) {
-                        System.out.println(enemy); 
                         ((Battle)getWorld()).goToMenu();
-
                     }
                     getWorld().removeObject(this);
                 }
@@ -101,9 +104,26 @@ public class Attack extends Move
     }
 
     public void capture() {
-        ((Battle)getWorld()).party.add(((Battle)getWorld()).enemy);
-        ((Battle)getWorld()).enemy.die();
+        pokemon.addToParty();
+        getWorld().removeObject(pokemon);
+        // generate new enemy here or reset game
+        // if capturing gives you the turn again
+        ((Battle)getWorld()).goToMenu();
+        changeTurn(); // prepare turn for next actions
+        getWorld().removeObject(this);
         // trace here to see if statement reachable
+    }
+
+    public void removePokeball() {
+        if(cooldownCount++ < cooldown) {
+            if(2 < cooldownCount % 10 && cooldownCount % 10 < 10)
+                setImage("null.png");
+        }
+        else { // end process
+            attackDone = false; // reset attack status to move with the next object
+            changeTurn(); // prepare turn for next actions
+            getWorld().removeObject(this);
+        }
     }
 
     public int getDamage(){

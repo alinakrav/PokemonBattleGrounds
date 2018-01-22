@@ -120,7 +120,6 @@ public class Intro extends World
         party.add(new Mudkip(9, false));
         party.add(new Gyarados(9, false));
         party.add(new Dragonite(9, false));
-        party.add(new Jigglypuff(9, false));
 
         return party;
     }

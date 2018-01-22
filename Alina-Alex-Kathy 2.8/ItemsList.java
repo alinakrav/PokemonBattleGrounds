@@ -61,7 +61,6 @@ public class ItemsList extends Actor
             setLocation(515, 225);
             init = false;
             ///////
-
             if(!items.isEmpty()) { // if the list is of bag items
                 for(int i = 0; i < items.size(); i++) {// create objects for all the items 
                     getWorld().addObject(items.get(i), items.get(i).getX(), items.get(i).getY());

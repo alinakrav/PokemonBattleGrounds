@@ -23,8 +23,6 @@ public class PartyTag extends Actor
     int healthBarHeight = 12; 
     int healthBarWidth = 144;
 
-    GreenfootImage hp, frame, frameHover, stats, close, closeHover;
-
     PartyTag(Pokemon pokemon, int x, int y) {
         this.x = x;
         this.y = y;
@@ -39,24 +37,12 @@ public class PartyTag extends Actor
             this.pokemon = pokemon;
             health = pokemon.getCurHealth();
             pixelsPerHealthPoint = (double)healthBarWidth / pokemon.getHealth(); // width divided by max health
-
-            /*             
-            hp = new GreenfootImage(width, height);
-            frame = new GreenfootImage(width, height);
-            frameHover = new GreenfootImage(width, height);
-            stats = new GreenfootImage(width, height);
-             */
         }
         else {
             setImage("null.png");   
             getImage().scale(790, 94);
             width = getImage().getWidth();
             height = getImage().getHeight();
-
-            /*
-            close = new GreenfootImage(width, height);  
-            closeHover = new GreenfootImage(width, height);
-             */
         }
     }
 
@@ -71,7 +57,6 @@ public class PartyTag extends Actor
             init = true;
             //////////
 
-            //drawComponents();
             drawTag(false); // not hovered at the beginning
         }
     }
