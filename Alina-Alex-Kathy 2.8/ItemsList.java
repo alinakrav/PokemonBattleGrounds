@@ -46,6 +46,7 @@ public class ItemsList extends Actor
         this.tags = tags;
     }
 
+    // the information of the bag object is passed between the Battle world and the Scrolling world
     public void act() 
     {
         if(getWorld() instanceof Battle)

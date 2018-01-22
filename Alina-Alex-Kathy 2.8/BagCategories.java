@@ -29,7 +29,7 @@ public class BagCategories extends Actor
     public void act() 
     {
         prepare();
-
+        // change imgaes based on the key pressed --> creates an effect that the player has selected on different bag catergories
         if(keys.keyIs("right") && category < finalBoxIndex) {
             setImage("BagCategory" + ++category + ".png");
             ItemsList tempItemsList = itemsList; // temporarily store old items object in variable to use its location
