@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class IceShard extends Attack
 {
-    private static String name = "Ice_shard";
+    private static String name = "Ice Shard";
     private static int damage = 7;
     private static int speed = 3;
     private Pokemon attacker;

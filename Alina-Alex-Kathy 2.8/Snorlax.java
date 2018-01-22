@@ -13,7 +13,7 @@ public class Snorlax extends Pokemon
     private int level;
     private static int evolutionForm = 1;
     private static int statPreset= 7;
-    private static String[] moveSet = {"Rock","Magic_laser","Defend","Ice_shard"};
+    private static String[] moveSet = {"Rock","Magic Laser","Defend","Ice Shard"};
     
     
     //Misc

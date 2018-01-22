@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class CreepingBarrage extends Attack
 {
-    private static String name = "Creeping_barrage";
+    private static String name = "Creeping Barrage";
     private static int damage = 7;
     private static int speed = 5;
     private Pokemon attacker;

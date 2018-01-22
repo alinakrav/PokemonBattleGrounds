@@ -13,7 +13,7 @@ public class Mudkip extends Pokemon
     private int level;
     private static int evolutionForm = 2;
     private static int statPreset= 2;
-    private static String[] moveSet = {"Ice_shard", "Rock", "Defend", "Creeping_barrage"};
+    private static String[] moveSet = {"Ice Shard", "Rock", "Defend", "Creeping Barrage"};
     
     
     //Misc

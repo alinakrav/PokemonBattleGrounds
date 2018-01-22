@@ -13,7 +13,7 @@ public class Articuno extends Pokemon
     private int level;
     private static int evolutionForm = 1;
     private static int statPreset= 2;
-    private static String[] moveSet = {"Celestial_spiral","Heal","Ice_shard","Beam"};
+    private static String[] moveSet = {"Celestial Spiral","Heal","Ice Shard","Beam"};
     
     
     //Misc

@@ -66,10 +66,11 @@ public class PartyTag extends Actor
     public void select() {
         // delete everything created from the party, hide the party pokemon
         ((Battle)getWorld()).getObjects(Party.class).get(0).removeEverything();
+        ((Battle)getWorld()).player.removeBattleTag(); // delete the old battle tag
         //set the player to the chosen pokemon
         if(pokemon != null) { // if the tag isn't a 'close' button
             ((Battle)getWorld()).player = pokemon; // make the tag's pokemon the player
-            ((Battle)getWorld()).player.battleView();
+            //((Battle)getWorld()).player.battleView();
         }
         // for all pokemon in party except the player
         for(PartyTag tag : ((Battle)getWorld()).getObjects(PartyTag.class)) { 
@@ -77,7 +78,7 @@ public class PartyTag extends Actor
             // delete pokemon from WORLD, not from array
                 ((Battle)getWorld()).removeObject(tag.getPokemon());
             else
-                ((Battle)getWorld()).player.battleView();
+                tag.getPokemon().battleView();
         }
         // go to default battle interface
         goToMenu();
@@ -87,18 +88,18 @@ public class PartyTag extends Actor
 
     /*
     public void drawComponents() {
-        if(pokemon != null) {
-            drawHP();
-            drawFrame();
-            drawFrameHover();
-            drawStats();
-        }
-        else {
-            drawClose();
-            drawCloseHover();
-        }
+    if(pokemon != null) {
+    drawHP();
+    drawFrame();
+    drawFrameHover();
+    drawStats();
     }
-    */
+    else {
+    drawClose();
+    drawCloseHover();
+    }
+    }
+     */
 
     // this method redraws the image of the health bar as health decreases
     public GreenfootImage drawHP(){

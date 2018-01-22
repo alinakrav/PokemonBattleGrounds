@@ -29,7 +29,7 @@ comment4.params=
 comment4.target=void\ select()
 comment5.params=
 comment5.target=greenfoot.GreenfootImage\ drawHP()
-comment5.text=\n\ \ \ \ public\ void\ drawComponents()\ {\n\ \ \ \ \ \ \ \ if(pokemon\ \!\=\ null)\ {\n\ \ \ \ \ \ \ \ \ \ \ \ drawHP();\n\ \ \ \ \ \ \ \ \ \ \ \ drawFrame();\n\ \ \ \ \ \ \ \ \ \ \ \ drawFrameHover();\n\ \ \ \ \ \ \ \ \ \ \ \ drawStats();\n\ \ \ \ \ \ \ \ }\n\ \ \ \ \ \ \ \ else\ {\n\ \ \ \ \ \ \ \ \ \ \ \ drawClose();\n\ \ \ \ \ \ \ \ \ \ \ \ drawCloseHover();\n\ \ \ \ \ \ \ \ }\n\ \ \ \ }\n
+comment5.text=\n\ \ \ \ public\ void\ drawComponents()\ {\n\ \ \ \ if(pokemon\ \!\=\ null)\ {\n\ \ \ \ drawHP();\n\ \ \ \ drawFrame();\n\ \ \ \ drawFrameHover();\n\ \ \ \ drawStats();\n\ \ \ \ }\n\ \ \ \ else\ {\n\ \ \ \ drawClose();\n\ \ \ \ drawCloseHover();\n\ \ \ \ }\n\ \ \ \ }\n
 comment6.params=
 comment6.target=greenfoot.GreenfootImage\ drawFrame()
 comment7.params=

@@ -13,7 +13,7 @@ public class Gyarados extends Pokemon
     private int level;
     private static int evolutionForm = 2;
     private static int statPreset= 6;
-    private static String[] moveSet = {"Fire_ball", "Ice_shard", "Strengthen", "Dark_boom"};
+    private static String[] moveSet = {"Fire Ball", "Ice Shard", "Strengthen", "Dark Boom"};
 
     //Misc
     private boolean enemy;

@@ -13,7 +13,7 @@ public class Charmander extends Pokemon
     private int level;
     private static int evolutionForm = 1;
     private static int statPreset = 1;
-    private static String[] moveSet = {"Fire_ball", "Rock", "Strengthen", "Beam"};
+    private static String[] moveSet = {"Fire Ball", "Rock", "Strengthen", "Beam"};
     
     
     //Misc

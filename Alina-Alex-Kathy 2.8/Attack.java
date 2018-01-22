@@ -27,11 +27,6 @@ public class Attack extends Move
         this.attacker = attacker;
         this.targetX = targetX;
         this.targetY = targetY;
-
-        if(!enemy)
-            setRotation(-40);
-        else 
-            setRotation(140);
     }
 
     public Attack(String name, int speed, Pokemon attacker, int targetX, int targetY){
@@ -41,8 +36,6 @@ public class Attack extends Move
         this.attacker = attacker;
         this.targetX = targetX;
         this.targetY = targetY;
-
-        setRotation(-40);
     }
 
     /**
@@ -52,8 +45,10 @@ public class Attack extends Move
     public void act() 
     {
         super.act();
-        if(!attackDone) // don't move if attack 
+        if(!attackDone) { // don't move if attack 
             move(speed);
+            turnTowards(targetX, targetY);
+        }
         //keep it in domain
 
         if(getX() > getWorld().getWidth()-5 || getX() < 5 || getY() > getWorld().getHeight() - 5) {
@@ -105,6 +100,7 @@ public class Attack extends Move
 
     public void capture() {
         pokemon.addToParty();
+        pokemon.removeBattleTag(); // remove the tag displaying its stats in battle
         getWorld().removeObject(pokemon);
         // generate new enemy here or reset game
         // if capturing gives you the turn again

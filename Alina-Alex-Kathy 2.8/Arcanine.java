@@ -13,7 +13,7 @@ public class Arcanine extends Pokemon
     private int level;
     private static int evolutionForm = 1;
     private static int statPreset= 1;
-    private static String[] moveSet = {"Fire_ball","Strengthen","Heal","Magic_laser"};
+    private static String[] moveSet = {"Fire Ball","Strengthen","Heal","Magic Laser"};
     
     
     //Misc

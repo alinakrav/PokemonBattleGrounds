@@ -13,7 +13,7 @@ public class Oddish extends Pokemon
     private int level;
     private static int evolutionForm = 1;
     private static int statPreset= 5;
-    private static String[] moveSet = {"Rock","Defend","Purp_blast","Heal"};
+    private static String[] moveSet = {"Rock","Defend","Purp Blast","Heal"};
     
     
     //Misc

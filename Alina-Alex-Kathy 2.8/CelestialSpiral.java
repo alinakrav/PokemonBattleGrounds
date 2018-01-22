@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class CelestialSpiral extends Attack
 {
-    private static String name = "Celestial_spiral";
+    private static String name = "Celestial Spiral";
     private static int damage = 7;
     private static int speed = 3;
     private Pokemon attacker;

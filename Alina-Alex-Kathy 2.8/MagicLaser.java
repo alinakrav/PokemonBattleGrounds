@@ -1,4 +1,5 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+
 
 /**
  * Write a description of class MagicBlast here.
@@ -8,7 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class MagicLaser extends Attack
 {
-    private static String name = "MagicLaser";
+    private static String name = "Magic Laser";
     private static int damage = 12;
     private static int speed = 5;
     private Pokemon attacker;

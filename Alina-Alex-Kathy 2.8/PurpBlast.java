@@ -1,4 +1,5 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+
 
 /**
  * Write a description of class PurpBlast here.
@@ -8,7 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class PurpBlast extends Attack
 {
-    private static String name = "PurpBlast";
+    private static String name = "Purp Blast";
     private static int damage = 7;
     private static int speed = 3;
     private Pokemon attacker;

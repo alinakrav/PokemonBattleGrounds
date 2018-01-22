@@ -66,8 +66,8 @@ public class Move extends Actor
         // 'move description image' image
         GreenfootImage mvDescImg = new GreenfootImage("MoveDescriptionBlank.png");
         mvDescImg.setColor(Color.BLACK);
-        mvDescImg.setFont(new java.awt.Font("Dialog", Font.PLAIN, 20));
-        mvDescImg.drawString(attacker + " used " + name + ".", 100, 100);
+        mvDescImg.setFont(new java.awt.Font("Dialog", Font.PLAIN, 30));
+        mvDescImg.drawString(attacker + " used " + name + ".", 60, 70);
         mvDescObj = new ItemDescription();
         mvDescObj.setImage(mvDescImg);
 

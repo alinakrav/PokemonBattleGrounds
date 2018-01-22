@@ -13,7 +13,7 @@ public class Pikachu extends Pokemon
     private int level;
     private static int evolutionForm = 1;
     private static int statPreset= 3;
-    private static String[] moveSet = {"Lightning_bolt", "Rock", "Quick_boost", "Beam"};
+    private static String[] moveSet = {"Lightning Bolt", "Rock", "Quick Boost", "Beam"};
     
     
     //Misc

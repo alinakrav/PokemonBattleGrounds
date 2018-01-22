@@ -13,7 +13,7 @@ public class Golbat extends Pokemon
     private int level;
     private static int evolutionForm = 1;
     private static int statPreset= 3;
-    private static String[] moveSet = {"Ice_shard","Heal","Beam","Strengthen"};
+    private static String[] moveSet = {"Ice Shard","Heal","Beam","Strengthen"};
     
     
     //Misc

@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class DarkBoom extends Attack
 {
-    private static String name = "Dark_boom";
+    private static String name = "Dark Boom";
     private static int damage = 7;
     private static int speed = 4;
     private Pokemon attacker;

@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class LightningBolt extends Attack
 {
-    private static String name = "Lightning_bolt";
+    private static String name = "Lightning Bolt";
     private static int damage = 7;
     private static int speed = 4;
     private Pokemon attacker;

@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Pokemon extends Actor
 {
-    boolean init = true; // for doing things on initialisation
+    boolean init = true;
 
     //Stats for Pokemon
     private String name;
@@ -72,13 +72,11 @@ public class Pokemon extends Actor
         if(enemy){
             bounceX = 0;
             bounceY = 10;
-            battleView();
             targetX = 240;
             targetY = 420;
         } else { //Player pokemon
             bounceX = 15;
             bounceY = 15;
-            battleView();
             targetX = 600;
             targetY = 230;
         }
@@ -90,7 +88,6 @@ public class Pokemon extends Actor
      */
     public void act() 
     {
-        init();
         enemyMove();
         setImage(image.getCurrentImage());
         levelUp();
@@ -99,11 +96,17 @@ public class Pokemon extends Actor
 
     public void init() {
         if(init) {
-            init = false;
-            battleTag = new BattleTag(this);
-            getWorld().addObject(battleTag, 0, 0);
+            battleView();
         }
+    }
 
+    public void makeBattleTag() {
+        battleTag = new BattleTag(this);
+        getWorld().addObject(battleTag, 0, 0);
+    }
+
+    public void removeBattleTag() {
+        getWorld().removeObject(battleTag);
     }
 
     // this method removes the character from the world and goes to the end screen when the health is
@@ -114,6 +117,7 @@ public class Pokemon extends Actor
             if(deathCounter == 80) { // after 80 frames  
                 if(enemy) 
                     Greenfoot.setWorld(new ScrollingWorld(((Battle)getWorld()).x, ((Battle)getWorld()).y, false, ((Battle)getWorld()).bag, ((Battle)getWorld()).party));
+                removeBattleTag();
                 getWorld().removeObject(this); // delete character from the world
             }
         }
@@ -346,22 +350,22 @@ public class Pokemon extends Actor
     //Pokemon will create a move object. Depending on whether it is an enemy or not it, the direction of the move will be different (Enemy attacks go toward the player's pokemon, player attacks go toward the enemy's Pokemon).
     public void move(String moveName){
         Move move1 = null;
-        if(moveName.equals("Fire_ball")){
+        if(moveName.equals("Fire Ball")){
             move1 = new FireBall(this, enemy, targetX, targetY);
         }
-        else if(moveName.equals("Ice_shard")){
+        else if(moveName.equals("Ice Shard")){
             move1 = new IceShard(this, enemy, targetX, targetY);
         }
-        else if(moveName.equals("Lightning_bolt")){
+        else if(moveName.equals("Lightning Bolt")){
             move1 = new LightningBolt(this, enemy, targetX, targetY);
         }
-        else if(moveName.equals("Celestial_spiral")){
+        else if(moveName.equals("Celestial Spiral")){
             move1 = new CelestialSpiral(this, enemy, targetX, targetY);
         }
-        else if(moveName.equals("Dark_boom")){
+        else if(moveName.equals("Dark Boom")){
             move1 = new DarkBoom(this, enemy, targetX, targetY);
         }
-        else if(moveName.equals("Creeping_barrage")){
+        else if(moveName.equals("Creeping Barrage")){
             move1 = new CreepingBarrage(this, enemy, targetX, targetY);
         }
         else if(moveName.equals("Heal")){
@@ -379,13 +383,13 @@ public class Pokemon extends Actor
         else if(moveName.equals("Defend")){
             move1 = new Defend(this, enemy);
         }   
-        else if(moveName.equals("Quick_boost")){
+        else if(moveName.equals("Quick Boost")){
             move1 = new QuickBoost(this, enemy);
         }   
-        else if(moveName.equals("Purp_blast")){
+        else if(moveName.equals("Purp Blast")){
             move1 = new PurpBlast(this, enemy,targetX,targetY);
         }   
-        else if(moveName.equals("Magic_laser")){
+        else if(moveName.equals("Magic Laser")){
             move1 = new MagicLaser(this, enemy,targetX,targetY);
         }  
         else if(moveName.equals("Geometry")){
@@ -435,6 +439,8 @@ public class Pokemon extends Actor
     }
 
     public void battleView() {
+        battleTag = new BattleTag(this);
+        getWorld().addObject(battleTag, 0, 0);
         if(enemy) {
             image = new GifImage(name + ".gif");
             image.resizeImages((int)(width*0.7), (int)(height*0.7));
