@@ -204,17 +204,23 @@ public class Pokemon extends Actor
      * using the the damage of the attack, 
      * and the defense of the pokemon getting hit. Then apply the change to 
      * the current health of the pokemon getting hit */
-    public void getHit(int damageReceived){
-        getWorld().addObject(new Explosion(), this.getX(), this.getY()); //add explosion 
-        int damageInflicted = damageReceived - defense;
-        if(damageInflicted <= 0 && curHealth - 2 >= 0){
-            curHealth -= 2;
-        } else if (damageInflicted <= 0){
-            curHealth--;
-        } else if ((curHealth - damageInflicted) >= 0){
-            curHealth -= damageInflicted;
-        } else {
-            curHealth = 0;
+    int counter= 0;
+    public void getHit(int damageReceived, boolean attackDone){
+        if(!attackDone) {
+            getWorld().addObject(new Explosion(), this.getX(), this.getY()); //add explosion 
+            int damageInflicted = damageReceived - defense;
+            if(damageInflicted <= 0 && curHealth - 2 >= 0){
+                curHealth -= 2;
+            } else if (damageInflicted <= 0){
+                curHealth--;
+            } else if ((curHealth - damageInflicted) >= 0){
+                curHealth -= damageInflicted;
+            } else {
+                curHealth = 0;
+            }
+        }
+        else { // this plays out for every act during the cooldown called in Attack clas.
+
         }
     }
 
@@ -307,16 +313,14 @@ public class Pokemon extends Actor
         }
     }
 
-    public void enemyMove(){
-        if(enemy && getWorld() instanceof Battle){
-            if(((Battle)getWorld()).getTurn() == 1){
-                int min = 0;
-                int max = 3; //inclusive
-                int n = (int)(min + (Math.random() *( max + 0 + 1))); //generates a random number from 0 to 3 inclusive
+    public void enemyMove() {
+        if(enemy && getWorld() instanceof Battle && ((Battle)getWorld()).getTurn() == 1){
+            int min = 0;
+            int max = 3; //inclusive
+            int n = (int)(min + (Math.random() *( max + 0 + 1))); //generates a random number from 0 to 3 inclusive
 
-                move(moveSet[n]);
-                ((Battle)getWorld()).setTurn(0);
-            }
+            move(moveSet[n]);
+            ((Battle)getWorld()).setTurn(0);
         }
     }
 
@@ -374,7 +378,6 @@ public class Pokemon extends Actor
         getWorld().addObject(move1, this.getX(), this.getY());
 
         move1 = null; // fixes infrequent error from happening
-
     }
 
     //Change the pokemon's orientation. If it is facing you, then it will face the other way and vice versa.
@@ -398,7 +401,6 @@ public class Pokemon extends Actor
      */
 
     public void useItem(String itemName, boolean enemy) {
-        System.out.println(itemName + " used.");
         if(itemName.equals("Pokeball"))
             ((Battle)getWorld()).player.move(itemName);
         // this is where the item is used to boost whatever stats
@@ -407,14 +409,14 @@ public class Pokemon extends Actor
     // this method sets the image to a small, front-facing view of the pokemon, and sets it location to be on the PartyTag that calls this method
     public void tagView(int width, int x, int y) {
         image = new GifImage(name + ".gif");
-        image.resizeImages(width, (int)((1.0*width)/getImage().getWidth()*getImage().getHeight()));
+        image.resizeImages(width, (int)(((double)width)/(double)(this.width)*height));
         setLocation(x, y);
     }
 
     public void battleView() {
         if(enemy) {
             image = new GifImage(name + ".gif");
-            image.resizeImages(width, height);
+            image.resizeImages((int)(width*0.7), (int)(height*0.7));
             setLocation(600, 230);
         }
         else {

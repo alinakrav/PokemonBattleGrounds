@@ -42,7 +42,8 @@ public class FightSubButton extends Button
         world.removeObjects(world.getObjects(Selection.class)); 
         world.removeObjects(world.getObjects(Button.class)); // remove button from world
 
-        goToMenu();
+        
+        //goToMenu();
     }
 
     private void goToMenu() {

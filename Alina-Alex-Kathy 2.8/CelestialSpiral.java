@@ -17,6 +17,5 @@ public class CelestialSpiral extends Attack
     private int targetY;
     public CelestialSpiral(Pokemon attacker, boolean enemy, int targetX, int targetY){
         super(name, damage, speed, attacker, enemy, targetX, targetY);
-        
     }     
 }

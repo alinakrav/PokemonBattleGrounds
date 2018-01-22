@@ -48,7 +48,7 @@ public class Battle extends World
         goToMenu();
     }
 
-    private void goToMenu() {
+    public void goToMenu() {
         ArrayList<Button> buttons = new ArrayList<Button>();
         buttons.add(new FightButton());
         buttons.add(new PokemonButton());

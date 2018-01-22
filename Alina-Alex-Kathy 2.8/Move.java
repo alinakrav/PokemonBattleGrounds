@@ -1,4 +1,6 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.awt.Color;
+import java.awt.Font;
 
 /**
  * Write a description of class Move here.
@@ -8,12 +10,15 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Move extends Actor
 {
+    boolean init = true;
     private String name;
+    ItemDescription mvDescObj;
     GifImage image;
 
     private int width = 150;
     private int height = 150;
     boolean enemy;
+    String attacker;
 
     public Move(String name, boolean enemy){
         this.name = name;
@@ -30,8 +35,24 @@ public class Move extends Actor
      */
     public void act() 
     {
+        init();
         setImage(image.getCurrentImage());
     }    
+
+    private void init() {
+        if(init) {
+            init = false;
+            ///////
+            if(enemy)
+                attacker = "The foe";
+            else
+                attacker = ((Battle)getWorld()).player.getName();
+            // when any kind of move is used by a pokemon, the button menu disappears at first
+            getWorld().removeObjects(getWorld().getObjects(Button.class));
+            if(!name.equals("Pokeball"))
+                addMoveDescription();
+        }
+    }
 
     public void changeTurn(){
         if(!enemy){
@@ -41,4 +62,15 @@ public class Move extends Actor
         }
     }
 
+    public void addMoveDescription() {
+        // 'move description image' image
+        GreenfootImage mvDescImg = new GreenfootImage("MoveDescriptionBlank.png");
+        mvDescImg.setColor(Color.BLACK);
+        mvDescImg.setFont(new java.awt.Font("Dialog", Font.PLAIN, 20));
+        mvDescImg.drawString(attacker + " used " + name + ".", 100, 100);
+        mvDescObj = new ItemDescription();
+        mvDescObj.setImage(mvDescImg);
+
+        getWorld().addObject(mvDescObj, 400, 600 - mvDescObj.getImage().getHeight()/2);
+    }
 }

@@ -9,7 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Explosion extends Actor
 {
     GifImage image = new GifImage("explosion.gif");;
-    private int countdown = 60 * 2;
+    private int countdown = 60;
     /**
      * Act - do whatever the Explosion wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
