@@ -85,6 +85,7 @@ public class PartyTag extends Actor
         ((Battle)getWorld()).removeObjects(((Battle)getWorld()).getObjects(PartyTag.class)); // to avoid immutable list error, don't remove objects while iterating through them
     }
 
+    /*
     public void drawComponents() {
         if(pokemon != null) {
             drawHP();
@@ -97,6 +98,7 @@ public class PartyTag extends Actor
             drawCloseHover();
         }
     }
+    */
 
     // this method redraws the image of the health bar as health decreases
     public GreenfootImage drawHP(){
@@ -104,7 +106,7 @@ public class PartyTag extends Actor
         // black background rectangle drawn first, which is visible behind a non-full HP bar
         hp.setColor(Color.BLACK);
         // THIS IS WHERE THE LOCATION SHOULD BE SET, THE IMAGE SIZE SHOULDN'T DETERMINE THE RECTANGLE SIZE
-        hp.fillRect(193, 79, healthBarWidth/2, healthBarHeight);
+        hp.fillRect(193, 79, healthBarWidth, healthBarHeight);
         hp.setColor(Color.GREEN);
         hp.fillRect(193, 79, (int)(health * pixelsPerHealthPoint), healthBarHeight);
         return hp;

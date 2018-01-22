@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Pokemon extends Actor
 {
-    boolean init; // for doing things on initialisation
+    boolean init = true; // for doing things on initialisation
 
     //Stats for Pokemon
     private String name;
@@ -49,7 +49,8 @@ public class Pokemon extends Actor
     private int targetY;
     //NameTag tag; //name tag of Pokemon
     GifImage image;
-    PartyTag tag; //name tag of Pokemon
+    PartyTag partyTag; //name tag of Pokemon
+    BattleTag battleTag;
 
     /**
      * The Pokemon constructor gives the child object: name, stats, width, height, x and y coordinates 
@@ -89,11 +90,21 @@ public class Pokemon extends Actor
      */
     public void act() 
     {
+        init();
         enemyMove();
         setImage(image.getCurrentImage());
         levelUp();
         die(); //die if it has no health
     }  
+
+    public void init() {
+        if(init) {
+            init = false;
+            battleTag = new BattleTag(this);
+            getWorld().addObject(battleTag, 0, 0);
+        }
+
+    }
 
     // this method removes the character from the world and goes to the end screen when the health is
     // depleted and a short break time is passed
@@ -119,6 +130,10 @@ public class Pokemon extends Actor
 
     public void calculateExpToLevelUp(int level){
         expToLevelUp = (int)Math.pow(level, 1.5);
+    }
+
+    public int getMaxExpToLevelUp() {
+        return (int)Math.pow(level, 1.5);
     }
 
     public void statCalculation(){ //calculate stats for each Pokemon using an equation. There will be presets for how the stats will be determined (attack preset, defense preset, speed preset, health preset, etc)
@@ -267,6 +282,10 @@ public class Pokemon extends Actor
 
     public String[] getMoveSet(){
         return moveSet;
+    }
+
+    public boolean getEnemy() {
+        return enemy;
     }
 
     public int getEvolutionForm(){
@@ -432,8 +451,8 @@ public class Pokemon extends Actor
         return image;
     }
 
-    public void setTag(PartyTag tag) {
-        this.tag = tag;
+    public void setTag(PartyTag partyTag) {
+        this.partyTag = partyTag;
     }
 
     //change view of pokemon
