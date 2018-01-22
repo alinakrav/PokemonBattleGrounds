@@ -39,7 +39,7 @@ public class Battle extends World
 
         // create and add player and enemy to battle
         player = party.get(0);
-        enemy = makeRandomEnemy(); // enemy should be chosen at random
+        enemy = makeRandomPokemon(); // enemy should be chosen at random
         addObject(enemy, 0, 0);
         addObject(player, 0, 0); // add player to world
         player.battleView(); // you cannot setlocation in the constructor itself, so put pokemon into battleview when they're made here
@@ -75,9 +75,8 @@ public class Battle extends World
         this.party = party;
     }
 
-    public Pokemon makeRandomEnemy() { // give them variable stats?
+    public Pokemon makeRandomPokemon() { // give them variable stats?
         String[] enemies = {"Charmander", "Pikachu", "Articuno", "Mudkip", "Gyarados", "Gengar", "Dragonite", "Jigglypuff", "Snorlax", "Oddish", "Arcanine", "Kyogre", "Golbat", "Arceus", "Tropius", "Mewtwo"}; // define all possible enemies
-        //int randInd = (int)(Math.random() * (15 + 1)); // generate random index out of the above array (min = 0, max = 5)
         int max = 15;
         int min = 0;
         int randInd = (int)(Math.random()*(max - min + 1) + min); // generate random index out of the above array (min = 0, max = 5)
