@@ -14,13 +14,12 @@ public class Arceus extends Pokemon
     private static int evolutionForm = 1;
     private static int statPreset= 5;
     private static String[] moveSet = {"Celestial Spiral","Geometry","Magic Laser","Fire Ball"};
-    
-    
+
     //Misc
     private boolean enemy;
-    private static int width = 150;
-    private static int height = 150;
-    
+    private static int width = 200;
+    private static int height = 200;
+
     public Arceus(int level, boolean enemy){
         super(name, level, statPreset, moveSet, evolutionForm, width, height, enemy);
     }  

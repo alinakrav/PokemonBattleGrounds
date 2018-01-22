@@ -10,8 +10,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class FireBall extends Attack
 {
     private static String name = "Fire Ball";
-    private static int damage = 5;
-    private static int speed = 5;
+    private static int damage = 4;
+    private static int speed = 6;
     private Pokemon attacker;
     private boolean enemy;
     private int targetX;

@@ -14,13 +14,12 @@ public class Tropius extends Pokemon
     private static int evolutionForm = 1;
     private static int statPreset= 4;
     private static String[] moveSet = {"Defend","Rock","Celestial Spiral","Purp Blast"};
-    
-    
+
     //Misc
     private boolean enemy;
-    private static int width = 150;
-    private static int height = 150;
-    
+    private static int width = 300;
+    private static int height = 300;
+
     public Tropius(int level, boolean enemy){
         super(name, level, statPreset, moveSet, evolutionForm, width, height, enemy);
     }   

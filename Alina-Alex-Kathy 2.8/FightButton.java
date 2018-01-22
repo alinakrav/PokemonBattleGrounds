@@ -9,8 +9,6 @@ public class FightButton extends Button
     // constructor makes a button for a specific mode and assigns the main game speed
     public FightButton() {
         super(); // get functionality of superclass
-        //setImage(new GreenfootImage("AttackButton.png")); // set image to the button appropriate to the mode
-        //getImage().scale(400, 250);
         x = q1X;
         y = q1Y;
         name = "Fight";
@@ -41,15 +39,18 @@ public class FightButton extends Button
         world.addObject(selection, moveButtons.get(0).x, moveButtons.get(0).y);
     }
 
-    // this makes the top 2 buttons unpressable if the player is dead, and makes them available again after 
+    // this limits the top 2 buttons unpressable if the player is dead, and makes them available again after 
     public void greyOutIfDead() {
-        if(world.player.getWorld() != null) {
-            if(this.getImage().toString().equals("Button" + name + "Grey.png")) {
-                greyOut = false;
+        if(world.player.getWorld() != null) { // if player exists
+            if(this.getImage().toString().equals("Button" + name + "Grey.png")) { // if this was greyed out before
+                greyOut = false; // now it shouldn't be greyed out
 
-                this.setImage("Button" + name + ".png");
-                getWorld().getObjects(BagButton.class).get(0).setImage("ButtonBag.png");
+                this.setImage("Button" + name + ".png"); // set to normal mode
+                getWorld().getObjects(BagButton.class).get(0).setImage("ButtonBag.png"); // also set the bag button to normal 
             }
+        }
+        else if (world.getParty().isEmpty()) { // if no one left in party, then you lose the game
+            Greenfoot.setWorld(new ScrollingWorld(((Battle)getWorld()).x, ((Battle)getWorld()).y, false, ((Battle)getWorld()).bag, ((Battle)getWorld()).party));
         }
         else if(world.player.getWorld() == null && !greyOut) { // if they player is not currently in world (dead)
             // grey the top buttons out 

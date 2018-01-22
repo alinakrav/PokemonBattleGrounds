@@ -51,7 +51,7 @@ public class Intro extends World
         //do in the first act
         if(!init) {
             song = new GreenfootSound("theme.mp3");
-            song.setVolume(0);//30);
+            song.setVolume(30);
             song.playLoop();
             //do not repeat this action for other acts
             init = true;
@@ -115,11 +115,11 @@ public class Intro extends World
 
     public ArrayList<Pokemon> makeParty() {
         //// defining pokemon party
-        party.add(new Charmander(9, false));
-        party.add(new Snorlax(9, false));
-        party.add(new Mudkip(9, false));
-        party.add(new Gyarados(9, false));
-        party.add(new Dragonite(9, false));
+        party.add(new Charmander(3, false));
+        party.add(new Snorlax(3, false));
+        party.add(new Mudkip(3, false));
+        party.add(new Gyarados(3, false));
+        party.add(new Dragonite(3, false));
 
         return party;
     }

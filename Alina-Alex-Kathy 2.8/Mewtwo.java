@@ -18,8 +18,8 @@ public class Mewtwo extends Pokemon
     
     //Misc
     private boolean enemy;
-    private static int width = 150;
-    private static int height = 150;
+    private static int width = 300;
+    private static int height = 300;
     
     public Mewtwo(int level, boolean enemy){
         super(name, level, statPreset, moveSet, evolutionForm, width, height, enemy);

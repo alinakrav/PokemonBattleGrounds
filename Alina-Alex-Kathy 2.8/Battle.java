@@ -80,9 +80,8 @@ public class Battle extends World
         //int randInd = (int)(Math.random() * (15 + 1)); // generate random index out of the above array (min = 0, max = 5)
         int max = 15;
         int min = 0;
-        int randInd = (int)Math.random()*(max - min + 1) + min; // generate random index out of the above array (min = 0, max = 5)
+        int randInd = (int)(Math.random()*(max - min + 1) + min); // generate random index out of the above array (min = 0, max = 5)
         int level = 0;
-
         if(wildMode){
             max = 15;
             min = 1;

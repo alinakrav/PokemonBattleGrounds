@@ -238,9 +238,6 @@ public class Pokemon extends Actor
                 curHealth = 0;
             }
         }
-        else { // this plays out for every act during the cooldown called in Attack clas.
-
-        }
     }
 
     public void expToLevelUpChange(int change){
@@ -444,12 +441,12 @@ public class Pokemon extends Actor
         if(enemy) {
             image = new GifImage(name + ".gif");
             image.resizeImages((int)(width*0.7), (int)(height*0.7));
-            setLocation(600, 230);
+            setLocation(590, 240);
         }
         else {
             image = new GifImage("Back" + name + ".gif");
             image.resizeImages(width, height);
-            setLocation(240, 420);
+            setLocation(220, 420);
         }
     }
 
