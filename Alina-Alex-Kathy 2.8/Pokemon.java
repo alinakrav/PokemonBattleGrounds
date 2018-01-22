@@ -470,6 +470,8 @@ public class Pokemon extends Actor
 
     public void capture(){
         enemy = false;
+        targetX = 600;
+        targetY = 230;
         flip();
     }
 

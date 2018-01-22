@@ -9,4 +9,6 @@ comment3.params=
 comment3.target=java.util.ArrayList\ makeBag()
 comment4.params=
 comment4.target=java.util.ArrayList\ makeParty()
-numComments=5
+comment5.params=
+comment5.target=Pokemon\ makeRandomPokemon()
+numComments=6

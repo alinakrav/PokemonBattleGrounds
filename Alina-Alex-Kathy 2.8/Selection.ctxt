@@ -1,5 +1,6 @@
 #BlueJ class context
 comment0.target=Selection
+comment0.text=\n\ This\ class\ gets\ fed\ an\ arraylist\ of\ some\ type\ of\ objects\ ,\ which\ it\ goes\ through\ them\ and\ uses\ keyboard\ input\ to\ "hover"\ and\ select\ the\ objects\ (so\ user\ can\ see\ their\ selection)\n
 comment1.params=objectList\ twoColumns\ dummyParameter
 comment1.target=Selection(java.util.ArrayList,\ boolean,\ Button)
 comment10.params=grid

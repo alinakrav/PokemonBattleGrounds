@@ -84,11 +84,11 @@ public class Battle extends World
         if(wildMode){
             max = 15;
             min = 1;
-            level = (int)Math.random()*(max - min + 1) + min;
+            level = (int)(Math.random()*(max - min + 1) + min);
         } else {
             max = 30;
             min = 10;
-            level = (int)Math.random()*(max - min + 1) + min;
+            level = (int)(Math.random()*(max - min + 1) + min);
         }
         // make instance of the enemy classes described in the array, based on the random index
         if(enemies[randInd].equals("Charmander"))

@@ -3,6 +3,9 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.ArrayList;
 
+/**
+ * This class gets fed an arraylist of some type of objects , which it goes through them and uses keyboard input to "hover" and select the objects (so user can see their selection)
+ */
 public class Selection extends Actor
 {
     boolean init = true;

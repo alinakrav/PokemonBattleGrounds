@@ -115,12 +115,52 @@ public class Intro extends World
 
     public ArrayList<Pokemon> makeParty() {
         //// defining pokemon party
-        party.add(new Charmander(3, false));
-        party.add(new Snorlax(3, false));
-        party.add(new Mudkip(3, false));
-        party.add(new Gyarados(3, false));
-        party.add(new Dragonite(3, false));
+        party.add(makeRandomPokemon());
+        party.add(makeRandomPokemon());
+        party.add(makeRandomPokemon());
 
         return party;
+    }
+
+    public Pokemon makeRandomPokemon() { // give them variable stats?
+        String[] players = {"Charmander", "Pikachu", "Articuno", "Gengar", "Dragonite", "Jigglypuff", "Oddish", "Arcanine", "Kyogre", "Golbat", "Arceus", "Tropius", "Mewtwo"}; // define all possible players
+        int max = 12;
+        int min = 0;
+        int randInd = (int)(Math.random()*(max - min + 1) + min); // generate random index out of the above array (min = 0, max = 5)
+        int level = 0;
+        level = (int)(Math.random()*(max - min + 1) + min);
+        // make instance of the enemy classes described in the array, based on the random index
+        if(players[randInd].equals("Charmander"))
+            return new Charmander(level, false);
+        else if(players[randInd].equals("Pikachu"))
+            return new Pikachu(level, false); 
+        else if(players[randInd].equals("Articuno"))
+            return new Articuno(level, false); 
+        else if(players[randInd].equals("Mudkip"))
+            return new Mudkip(level, false); 
+        else if(players[randInd].equals("Dragonite"))
+            return new Dragonite(level, false);
+        else if(players[randInd].equals("Jigglypuff"))
+            return new Jigglypuff(level, false);
+        else if(players[randInd].equals("Gyarados"))
+            return new Gyarados(level, false); 
+        else if(players[randInd].equals("Gengar"))
+            return new Gengar(level, false); 
+        else if(players[randInd].equals("Snorlax"))
+            return new Snorlax(level, false); 
+        else if(players[randInd].equals("Oddish"))
+            return new Oddish(level, false); 
+        else if(players[randInd].equals("Arcanine"))
+            return new Arcanine(level, false); 
+        else if(players[randInd].equals("Kyogre"))
+            return new Kyogre(level, false); 
+        else if(players[randInd].equals("Golbat"))
+            return new Golbat(level, false); 
+        else if(players[randInd].equals("Arceus"))
+            return new Arceus(level, false); 
+        else if(players[randInd].equals("Tropius"))
+            return new Tropius(level, false); 
+        else //if(enemies[randInd].equals("Mewtwo"))
+            return new Mewtwo(level, false); 
     }
 }

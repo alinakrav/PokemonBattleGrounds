@@ -35,6 +35,7 @@ public class Button extends Actor
         prepare();      
     }
 
+    // executes the hover 	
     public void hover() {
         for(Button button : world.getObjects(Button.class)) {
             if(button.name != null) 
