@@ -75,7 +75,7 @@ public class Attack extends Move
                 int damageInflicted = 0; // default (before calculated, initialised for scope visibility outside if statement
                 if(!attackDone) {// only do the following if attack hasn't applied its stat changes yet
                     // the attack of the attacker (charmander) is way too high, by itself it reads as 37 at the moment
-                    damageInflicted = (int)(attacker.getAttack() * (damage * 0.12)); // calculate stat effect of attack
+                    damageInflicted = (int)(attacker.getAttack() * (damage * 0.2)); // calculate stat effect of attack
                     if(pokemon.getCurHealth() <= 0) 
                         attacker.expToLevelUpChange(-pokemon.getExp()); // give attacker exp of opponent if it killed the opponent
                 }

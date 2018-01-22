@@ -39,6 +39,7 @@ public class BattleTag extends Actor
     public void act() 
     {
         init();
+        level = pokemon.getLevel();
         health = pokemon.getCurHealth();
         exp = maxExp - pokemon.getExpToLevelUp();
         update();
@@ -76,7 +77,7 @@ public class BattleTag extends Actor
                 stats.drawString(pokemon.getName(), 10, 40);
             }
             stats.setFont(new java.awt.Font("Dialog", Font.PLAIN, 25));
-            stats.drawString(("Lv." + pokemon.getLevel()), 210, 40);
+            stats.drawString(("Lv." + level), 210, 40);
             stats.drawString((health + "  " + maxHealth), 155, 85);
         }
         else {
