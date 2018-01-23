@@ -1,6 +1,0 @@
-#BlueJ class context
-comment0.target=Mewtwo
-comment0.text=\n\ Write\ a\ description\ of\ class\ Mewtwo\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
-comment1.params=level\ enemy
-comment1.target=Mewtwo(int,\ boolean)
-numComments=2

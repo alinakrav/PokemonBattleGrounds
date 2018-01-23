@@ -1,8 +1,0 @@
-#BlueJ class context
-comment0.target=End
-comment0.text=\n\ This\ class\ displays\ end\ screens\ based\ on\ the\ game's\ outcome.\n\ \n\ @author\ Alex\ Do,\ Alina\ Kravchenko\n
-comment1.params=win
-comment1.target=End(boolean)
-comment2.params=
-comment2.target=void\ act()
-numComments=3

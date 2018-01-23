@@ -1,4 +1,0 @@
-#BlueJ class context
-comment0.target=ItemDescription
-comment0.text=\n\ This\ class\ is\ simply\ an\ object\ that\ can\ be\ given\ any\ image\n\ right\ now,\ and\ just\ display\ it\ in\ a\ certain\ area.\ However,\ this\n\ is\ due\ to\ limited\ functionality,\ and\ not\ limited\ potential,\ since\ \n\ this\ class\ represents\ the\ description\ of\ an\ item\ that\ is\ hovered\n\ over\ in\ the\ bag\ interface.\ It\ could\ be\ animated\ if\ it\ worked\ with\ a\ \n\ string\ and\ animation\ instead\ of\ a\ static\ image\ of\ the\ text,\ \n\ but\ for\ now,\ that's\ all\ it\ does.\ \n\ \n\ @author\ Alina\ Kravchenko\n
-numComments=1
