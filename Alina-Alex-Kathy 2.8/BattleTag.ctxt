@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=BattleTag
-comment0.text=\n\ Write\ a\ description\ of\ class\ BattleTag\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment0.text=\n\ This\ class\ is\ for\ making\ the\ HP/stats\ bar\ during\ a\ Battle\ (not\ party\ view).\n\ It\ has\ exp,\ hp,\ and\ level\ on\ the\ tag,\ as\ well\ as\ name\ of\ the\ pokemon\ currently\ \n\ battling.\ It\ is\ a\ simple\ class\ because\ it\ only\ has\ the\ function\ of\ \n\ getting\ a\ pokemon's\ info\ every\ act,\ and\ then\ redrawing\ itself\ based\ on\ that.\n\ \n\ @author\ Alina\ Kravchenko\n
 comment1.params=pokemon
 comment1.target=BattleTag(Pokemon)
 comment2.params=

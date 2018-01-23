@@ -1,21 +1,20 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.List; // use a list to keep track of the trainers
 /**
- * Trainer supper class
- * 1. tells the world to scroll or not
- * 2. super class for the player
+ * Trainer superclass.
+ * This class allows the player to walk in the right direction
+ * within the map.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Kathy Zhuang
  */
-    public class MainTrainer extends Actor
+public class PlayerDirection extends Actor
 {    
     //define direction
     final int RIGHT = 0;
     final int LEFT = 1;
     final int UP = 2;
     final int DOWN = 3;
-        
+
     /**
      * setLocation() method keeps the main trainer at the middle,moves the 
      * background and other objects instead
@@ -35,8 +34,8 @@ import java.util.List; // use a list to keep track of the trainers
         // of the player's moving distance
         ((ScrollingWorld)getWorld()).setMap(trainerMoveX, trainerMoveY);
     }
-        
-     /**
+
+    /**
      * indicate whether the player can continue scrolling the world on that direction
      */
     public boolean scrollOnDirection(int direction){
@@ -67,6 +66,6 @@ import java.util.List; // use a list to keep track of the trainers
                 return false;
         }
         else 
-             return false;
+            return false;
     } 
 }

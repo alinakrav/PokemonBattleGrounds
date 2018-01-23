@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Party
-comment0.text=\n\ \n
+comment0.text=\n\ This\ class\ creates\ the\ party\ interface,\ meaning\ all\ \n\ the\ component\ the\ user\ needs\ to\ see\ the\ party.\ locations\n\ of\ PartyTag\ objects\ are\ defined\ here.\ The\ ItemsList\ is\ \n\ created\ here\ because\ there\ is\ only\ one\ that\ is\ needed,\n\ as\ there's\ only\ one\ page.\n\ \n\ @author\ Alina\ Kravchenko\n
 comment1.params=
 comment1.target=Party()
 comment2.params=

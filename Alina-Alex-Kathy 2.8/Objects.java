@@ -3,17 +3,18 @@ import greenfoot.GreenfootImage;
 import java.util.*;
 
 /**
- * Write a description of class Objects here.
+ * This class encompasses all objects on the map, which can be interacted with.
+ * This means they either perform some fucntion, or the player can collide with them 
+ * on contact. They allow the player to enter battle on specific triggers, as well as 
+ * not walk over the objects. 
  * 
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Kathy Zhuang
  */
 public class Objects extends Actor
 {
     public void grassCollide(){
         if (Greenfoot.getRandomNumber(300) <= 2){
-            Battle battle = new Battle(((ScrollingWorld)getWorld()).locationX, ((ScrollingWorld)getWorld()).locationY, true, ((ScrollingWorld)getWorld()).bag, ((ScrollingWorld)getWorld()).party);
+            Battle battle = new Battle(((ScrollingWorld)getWorld()).beatenTrainers, 0, ((ScrollingWorld)getWorld()).locationX, ((ScrollingWorld)getWorld()).locationY, true, ((ScrollingWorld)getWorld()).bag, ((ScrollingWorld)getWorld()).party);
             Greenfoot.setWorld(battle);
         }
     }
@@ -24,29 +25,28 @@ public class Objects extends Actor
          * also passes the bag and party information to the battle.
          */
         int offset = 50;
-        Battle battle = new Battle(((ScrollingWorld)getWorld()).locationX + offset, ((ScrollingWorld)getWorld()).locationY, true, ((ScrollingWorld)getWorld()).bag, ((ScrollingWorld)getWorld()).party);
+        Battle battle = new Battle(((ScrollingWorld)getWorld()).beatenTrainers, ((Trainer)this).number, ((ScrollingWorld)getWorld()).locationX + offset, ((ScrollingWorld)getWorld()).locationY, true, ((ScrollingWorld)getWorld()).bag, ((ScrollingWorld)getWorld()).party);
         Greenfoot.setWorld(battle);
-
     }
 
     /**
      * set the player d location backword if it thouches the obstacle
      */  
-    public void obstacleCollide(Actor p1, int d) {
+    public void obstacleCollide(Actor p1, int distance) {
         if(p1.getX() <= this.getX()){
-            p1.setLocation(p1.getX() - d, p1.getY());
+            p1.setLocation(p1.getX() - distance, p1.getY());
         }   
 
         else if(p1.getY() >= this.getY()){
-            p1.setLocation(p1.getX(), p1.getY() + d);
+            p1.setLocation(p1.getX(), p1.getY() + distance);
         }
 
         else if(p1.getX() > this.getX()){
-            p1.setLocation(p1.getX() + d, p1.getY());
+            p1.setLocation(p1.getX() + distance, p1.getY());
         }
 
         else if(p1.getY() < this.getY()){
-            p1.setLocation(p1.getX(), p1.getY() - d);
+            p1.setLocation(p1.getX(), p1.getY() - distance);
         }
     }
 

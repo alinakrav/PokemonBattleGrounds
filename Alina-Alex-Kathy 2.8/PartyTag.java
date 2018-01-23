@@ -6,10 +6,16 @@ import java.awt.Color;
 import java.awt.Font;
 
 /**
- * Write a description of class PartyTag here.
+ * This class is for making the tags you see representing all the current 
+ * party members in the party menu. This displays their stats, health, name, 
+ * and the actual pokemon icon (animated one). The pokemon are removed from the 
+ * world whenever they're not visible, but they still stay in the arraylist 
+ * that represents the party, so all their instance variables are saved. 
+ * When a party tag is made, they are called back into the world and displayed in 
+ * the appropriate size and location so they become part of the tag. 
+ * When selected, a tag switches the current player on stage during the battle.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Alina Kravchenko
  */
 public class PartyTag extends Actor
 {

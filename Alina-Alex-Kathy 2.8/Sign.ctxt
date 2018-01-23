@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Sign
-comment0.text=\n\ Write\ a\ description\ of\ class\ Sign\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment0.text=\n\ Sign\ is\ an\ object\ that\ you\ can't\ walk\ on\ in\ the\ map.\n
 comment1.params=
 comment1.target=Sign()
 numComments=2

@@ -1,14 +1,17 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class KeyReader here.
+ * This class reads the key pressed, and returns it through a method
+ * that should be called by the class that instantiated its own KeyReader.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Alina Kravchenko
  */
 public class KeyReader extends Actor
 {
     private String key;
+    public KeyReader() {
+        setImage("null.png");
+    }
 
     public void act() {
         key = null;

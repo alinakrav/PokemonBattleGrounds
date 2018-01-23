@@ -1,12 +1,8 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class FireBall here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Alex Do
  */
-
 public class FireBall extends Attack
 {
     private static String name = "Fire Ball";

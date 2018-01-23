@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Explosion here.
+ * This class just animates a GIF file of an explosion whenever it is made. It's called after an attack
+ * hits a pokemon and needs to be shown to have touched it before the animation disappears.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Alex Do
  */
 public class Explosion extends Actor
 {

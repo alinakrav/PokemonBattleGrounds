@@ -1,8 +1,8 @@
 #BlueJ class context
 comment0.target=Battle
-comment0.text=\n\ Write\ a\ description\ of\ class\ Battle\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
-comment1.params=x\ y\ wildMode\ bag\ party
-comment1.target=Battle(int,\ int,\ boolean,\ java.util.ArrayList,\ java.util.ArrayList)
+comment0.text=\n\ This\ is\ the\ second\ major\ World\ class,\ where\ \n\ all\ battles\ happen\ when\ the\ player\ enters\ one\ from\n\ the\ Scrolling\ World\ (map).\ It\ keeps\ track\ of\ the\ bag,\ \n\ the\ party,\ and\ the\ trainers\ that\ need\ to\ inform\ the\ ScrollingWorld\ \n\ class\ that\ they're\ unplayable\ (they've\ been\ beaten).\ \n\ This\ game\ is\ played\ in\ two\ different\ modes,\ Wild\ and\ Trainer.\n\ These\ vary\ by\ the\ range\ of\ levels\ that\ enemy\ pokemon\ possess\ \n\ (wild\ mode\ levels\ are\ much,\ much\ higher,\ so\ the\ user\n\ would\ need\ to\ train\ their\ party\ in\ other\ battles\ to\ \n\ level-up\ and\ be\ able\ to\ beat\ more\ and\ more\ Wild\ pokemon).\n\ \n\ The\ enemy\ is\ defined\ here,\ since\ every\ battle\ generates\ a\ random\ one\ \n\ and\ it's\ removed\ on\ exit.\n\ \n\ \ @author\ Alina\ Kravchenko\n
+comment1.params=beatenTrainers\ trainer\ x\ y\ wildMode\ bag\ party
+comment1.target=Battle(java.util.ArrayList,\ int,\ int,\ int,\ boolean,\ java.util.ArrayList,\ java.util.ArrayList)
 comment10.params=turn
 comment10.target=void\ setTurn(int)
 comment11.params=

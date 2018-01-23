@@ -1,10 +1,11 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Pokemon here.
+ * This class holds all information and functionality of a pokemon, 
+ * and each intance's variables define it completely. Pokemon-specific info
+ * is defined in the subclasses. 
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Alex Do
  */
 public class Pokemon extends Actor
 {
@@ -27,13 +28,6 @@ public class Pokemon extends Actor
     //attacks moves for Pokemon
     private String[] moveSet; 
 
-    /*
-    //Bouncing Movement
-    int bounceTimer = 0; // counts the time until the next bounce movement
-    private final int bounceInterval = 20; // how much time there is between bounce movements
-    int bounceX; // how many pixels character moves horizontally
-    int bounceY; // how many pixels character moves vertically
-     */ 
     //Misc
     boolean enemy;
     boolean started; // whether the character has acted yet
@@ -71,17 +65,9 @@ public class Pokemon extends Actor
         statCalculation(); //sets pokemon's stats based on their statPreset and their level
         curHealth = health;
         if(enemy){
-            /*
-            bounceX = 0;
-            bounceY = 10;
-             */
             targetX = 220;
             targetY = 420;
         } else { //Player pokemon
-            /*
-            bounceX = 15;
-            bounceY = 15;
-             */
             targetX = 600;
             targetY = 240;
         }
@@ -120,8 +106,20 @@ public class Pokemon extends Actor
         if(curHealth <= 0) { // when no more health
             deathCounter++; // count frames until death           
             if(deathCounter == 80) { // after 80 frames  
-                if(enemy) 
-                    Greenfoot.setWorld(new ScrollingWorld(((Battle)getWorld()).x, ((Battle)getWorld()).y, false, ((Battle)getWorld()).bag, ((Battle)getWorld()).party));
+                if(enemy) {
+                    if(((Battle)getWorld()).trainer != 0)
+                        ((Battle)getWorld()).beatenTrainers.add(((Battle)getWorld()).trainer);
+                    Greenfoot.setWorld(new ScrollingWorld(((Battle)getWorld()).beatenTrainers, ((Battle)getWorld()).x, ((Battle)getWorld()).y, ((Battle)getWorld()).bag, ((Battle)getWorld()).party));
+                }
+                else {
+                    ((Battle)getWorld()).getParty().remove(this);
+                    if(((Battle)getWorld()).player == this) {// if the current player dies, then it gets removed from party and the next one becomes player
+                        if(((Battle)getWorld()).getParty().size() != 0) // if party still has pokemon left in it
+                            ((Battle)getWorld()).player = ((Battle)getWorld()).getParty().get(0);
+                        else // if nobody left in party, leave to map world
+                            Greenfoot.setWorld(new ScrollingWorld(((Battle)getWorld()).beatenTrainers, ((Battle)getWorld()).x, ((Battle)getWorld()).y, ((Battle)getWorld()).bag, ((Battle)getWorld()).party));
+                    }
+                }
                 removeBattleTag();
                 getWorld().removeObject(this); // delete character from the world
             }
@@ -245,6 +243,21 @@ public class Pokemon extends Actor
         }
     }
 
+    public int getFutureHealth(int dmg) {
+        int tempHealth = curHealth;
+        int damageInflicted = dmg - defense; // defense is the only non-temporary variable here, but it's not being changed
+        if(damageInflicted <= 0 && tempHealth - 2 >= 0){
+            tempHealth -= 2;
+        } else if (damageInflicted <= 0){
+            tempHealth--;
+        } else if ((tempHealth - damageInflicted) >= 0){
+            tempHealth -= damageInflicted;
+        } else {
+            tempHealth = 0;
+        }
+        return tempHealth;
+    }
+
     public void expToLevelUpChange(int change){
         expToLevelUp += change;
     }
@@ -271,7 +284,7 @@ public class Pokemon extends Actor
     }
 
     public int getExp(){
-        return exp;
+        return (int)(level * 1.7); // this is a calculation based on level, since the enemies are generated for each battle and therefore cannot gain exp (so it'll always be 0)
     }
 
     public int getExpToLevelUp(){

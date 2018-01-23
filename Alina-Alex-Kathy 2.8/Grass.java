@@ -1,17 +1,9 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import greenfoot.GreenfootImage;
 /**
- * If the player object intersects with this object, the game will switch to the battle
- * setting
+ * This class displays an object with the grass image, which can be walked on.
  * 
- * get pokemon: 
- * pokemons are going to have number orders:
- * 1 for pikachu
- * 2 for rockdude etc
- * in the getPokemon(int x) method, each x will provide a corresponding wild pokemon
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Kathy Zhuang
  */
 public class Grass extends Objects
 {

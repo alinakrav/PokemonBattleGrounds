@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Attack
-comment0.text=\n\ Write\ a\ description\ of\ class\ Attack\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment0.text=\n\ This\ class\ gives\ functionality\ to\ damage-inducing\ moves,\ plus\ the\ pokeball.\n\ They\ follow\ the\ opponent\ and\ wait\ until\ they\ hit\ it,\ then\ apply\ a\ change\ \n\ based\ on\ stats.\ \n\ \n\ @author\ Alex\ Do\n
 comment1.params=name\ damage\ speed\ attacker\ enemy\ targetX\ targetY
 comment1.target=Attack(java.lang.String,\ int,\ int,\ Pokemon,\ boolean,\ int,\ int)
 comment2.params=name\ speed\ attacker\ targetX\ targetY

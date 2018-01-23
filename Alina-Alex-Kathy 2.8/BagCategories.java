@@ -4,6 +4,22 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/**
+ * This class is exclusively used for the Bag interface, where there 
+ * are multiple pages which you can jump through horizontally.
+ * It simply sets the image for the currently iterated category (which 
+ * looks different) and uses an ArrayList of HashMaps to create an 
+ * ItemsList object containing all the elements of the given HashMap 
+ * (each HashMap represents a category of objects, and there are 
+ * multiples of them contained within the ArrayList as part of a 
+ * single bag. 
+ * 
+ * This class has the potential to be used for multiple pages of the party interface,
+ * if the game started allowing for more than 6 pokemon in the party at a time. This is 
+ * because the Bag and the Party are mostly identical in their funcitonality.
+ * 
+ *  @author Alina Kravchenko
+ */
 public class BagCategories extends Actor
 {
     boolean init = true;

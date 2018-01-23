@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Trainer
-comment0.text=\n\ Write\ a\ description\ of\ class\ Trainer\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
-comment1.params=type
+comment0.text=\n\ This\ class\ creates\ an\ object\ with\ the\ image\ of\ a\ trainer\ in\ the\ map.\n\ All\ trainers\ are\ numbered\ and\ have\ different\ images.\n\ \n\ @author\ Kathy\ Zhuang\n
+comment1.params=number
 comment1.target=Trainer(int)
 numComments=2

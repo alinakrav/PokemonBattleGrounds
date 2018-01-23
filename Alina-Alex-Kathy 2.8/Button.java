@@ -3,12 +3,17 @@ import java.util.ArrayList;
 import java.awt.Color;
 
 /**
- * This class is used to make buttons that can be pressed, and 
- * that execute some command when pressed. Such a command is 
- * defined in child classes of the Button class.
+ * This class defines the 4 'quadrants' that buttons should be placed on 
+ * during the game, so they will always be in a set position (quadrants are 
+ * numbered in horizontal Z pattern, by the way). Each button does appears to be 
+ * hovered (highlighted) when it is the current button the user hovers over 
+ * (using arrow keys). All buttons have a certain action when selected, so 
+ * the select() method is declared in the superclass for all buttons. 
  * 
- * @author Alex, Kathy, Alina 
- * @version November 9th, 2017
+ * All buttons are named in such a name that links them to a PNG file 
+ * of what they look like, as well as their hovered-over version.
+ * 
+ *  @author Alina Kravchenko
  */
 public class Button extends Actor
 {       

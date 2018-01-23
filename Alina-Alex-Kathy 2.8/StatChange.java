@@ -1,10 +1,11 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class StatChange here.
+ * This class is for making moves that affect the one that 
+ * does them, so self-changing moves. They just need to play 
+ * out an animation for the user to see they are being done 
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Alex Do
  */
 public class StatChange extends Move
 {
@@ -14,7 +15,7 @@ public class StatChange extends Move
     private String statType; //which stat is being affected? it can be attack, defense, speed, etc
     private int value; //value of stat change
     private Pokemon caster; //pokemon casting the stat change
-    private static final int animationTime = 50 * 3; //approximately 3 seconds
+    private static final int animationTime = 50 * 2; //approximately 3 seconds
     private int timer = 0; //the timer that coutns for how long the animation should go on
     public StatChange(String name, String statType, int value, Pokemon caster, boolean enemy){
         super(name, enemy);

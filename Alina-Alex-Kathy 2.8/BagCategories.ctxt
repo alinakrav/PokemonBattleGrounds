@@ -1,5 +1,6 @@
 #BlueJ class context
 comment0.target=BagCategories
+comment0.text=\n\ This\ class\ is\ exclusively\ used\ for\ the\ Bag\ interface,\ where\ there\ \n\ are\ multiple\ pages\ which\ you\ can\ jump\ through\ horizontally.\n\ It\ simply\ sets\ the\ image\ for\ the\ currently\ iterated\ category\ (which\ \n\ looks\ different)\ and\ uses\ an\ ArrayList\ of\ HashMaps\ to\ create\ an\ \n\ ItemsList\ object\ containing\ all\ the\ elements\ of\ the\ given\ HashMap\ \n\ (each\ HashMap\ represents\ a\ category\ of\ objects,\ and\ there\ are\ \n\ multiples\ of\ them\ contained\ within\ the\ ArrayList\ as\ part\ of\ a\ \n\ single\ bag.\ \n\ \n\ This\ class\ has\ the\ potential\ to\ be\ used\ for\ multiple\ pages\ of\ the\ party\ interface,\n\ if\ the\ game\ started\ allowing\ for\ more\ than\ 6\ pokemon\ in\ the\ party\ at\ a\ time.\ This\ is\ \n\ because\ the\ Bag\ and\ the\ Party\ are\ mostly\ identical\ in\ their\ funcitonality.\n\ \n\ \ @author\ Alina\ Kravchenko\n
 comment1.params=itemsArray\ itemLocations
 comment1.target=BagCategories(java.util.ArrayList,\ int[][])
 comment2.params=

@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=PartyTag
-comment0.text=\n\ Write\ a\ description\ of\ class\ PartyTag\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment0.text=\n\ This\ class\ is\ for\ making\ the\ tags\ you\ see\ representing\ all\ the\ current\ \n\ party\ members\ in\ the\ party\ menu.\ This\ displays\ their\ stats,\ health,\ name,\ \n\ and\ the\ actual\ pokemon\ icon\ (animated\ one).\ The\ pokemon\ are\ removed\ from\ the\ \n\ world\ whenever\ they're\ not\ visible,\ but\ they\ still\ stay\ in\ the\ arraylist\ \n\ that\ represents\ the\ party,\ so\ all\ their\ instance\ variables\ are\ saved.\ \n\ When\ a\ party\ tag\ is\ made,\ they\ are\ called\ back\ into\ the\ world\ and\ displayed\ in\ \n\ the\ appropriate\ size\ and\ location\ so\ they\ become\ part\ of\ the\ tag.\ \n\ When\ selected,\ a\ tag\ switches\ the\ current\ player\ on\ stage\ during\ the\ battle.\n\ \n\ @author\ Alina\ Kravchenko\n
 comment1.params=pokemon\ x\ y
 comment1.target=PartyTag(Pokemon,\ int,\ int)
 comment10.params=

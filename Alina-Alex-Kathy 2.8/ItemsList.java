@@ -4,6 +4,17 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/**
+ * This class adds objects from a given ArrayList, to the current world 
+ * based on a given list of allowed coordinates. It is needed to keep track 
+ * of all the objects in one designated place, and from here it generates
+ * an instance of the Selection class.
+ * 
+ * This class is used for PartyTag objects (for view of the party), as well as 
+ * Item objects (which are objects shown in the bag).
+ * 
+ *  @author Alina Kravchenko
+ */
 public class ItemsList extends Actor
 {
     boolean init = true;
@@ -14,10 +25,6 @@ public class ItemsList extends Actor
     int x;
     int y;
 
-    int y1;
-    int y2;
-    int y3;
-    int y4;
     int[][] locations;
 
     Selection selection;
@@ -28,6 +35,7 @@ public class ItemsList extends Actor
     ArrayList<PartyTag> tags = new ArrayList<PartyTag>();
 
     public ItemsList(ArrayList<HashMap<String, Integer>> itemList, int[][] locations, int category) {
+        setImage("null.png");
         this.locations = locations;
         this.category = category;
         this.itemList = itemList;
@@ -42,6 +50,7 @@ public class ItemsList extends Actor
     }
 
     public ItemsList(ArrayList<PartyTag> tags, int[][] locations) {
+        setImage("null.png");
         this.locations = locations;
         this.tags = tags;
     }

@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Selection
-comment0.text=\n\ This\ class\ gets\ fed\ an\ arraylist\ of\ some\ type\ of\ objects\ ,\ which\ it\ goes\ through\ them\ and\ uses\ keyboard\ input\ to\ "hover"\ and\ select\ the\ objects\ (so\ user\ can\ see\ their\ selection)\n
+comment0.text=\n\ This\ class\ gets\ fed\ an\ arraylist\ of\ some\ type\ of\ objects,\ \n\ which\ it\ goes\ through\ them\ and\ uses\ keyboard\ input\ to\ "hover"\ \n\ and\ select\ the\ objects\ (so\ user\ can\ see\ their\ selection).\ The\n\ class\ has\ contructors\ for\ selection\ of\ Items\ (from\ the\ bag),\ \n\ PartyTags\ (from\ the\ party),\ and\ Buttons\ (from\ the\ main\ menu).\n\ Essentially,\ this\ class\ keeps\ track\ of\ the\ 'current'\ iterated\ item\n\ from\ the\ user,\ and\ does\ the\ appropriate\ actions\ like\ hovering\ and\ selection\n\ based\ on\ how\ the\ items\ are\ positioned\ on\ a\ grid\ next\ to\ each\ other.\ \n\ \n\ @author\ Alina\ Kravchenko\n
 comment1.params=objectList\ twoColumns\ dummyParameter
 comment1.target=Selection(java.util.ArrayList,\ boolean,\ Button)
 comment10.params=grid

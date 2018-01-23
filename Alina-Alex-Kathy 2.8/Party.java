@@ -5,7 +5,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
+ * This class creates the party interface, meaning all 
+ * the component the user needs to see the party. locations
+ * of PartyTag objects are defined here. The ItemsList is 
+ * created here because there is only one that is needed,
+ * as there's only one page.
  * 
+ * @author Alina Kravchenko
  */
 public class Party extends Actor
 {

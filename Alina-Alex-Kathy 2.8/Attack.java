@@ -1,10 +1,11 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Attack here.
+ * This class gives functionality to damage-inducing moves, plus the pokeball.
+ * They follow the opponent and wait until they hit it, then apply a change 
+ * based on stats. 
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Alex Do
  */
 public class Attack extends Move
 {
@@ -84,7 +85,7 @@ public class Attack extends Move
                 if(!attackDone) {// only do the following if attack hasn't applied its stat changes yet
                     // the attack of the attacker (charmander) is way too high, by itself it reads as 37 at the moment
                     damageInflicted = (int)(attacker.getAttack() * (damage * 0.2)); // calculate stat effect of attack
-                    if(pokemon.getCurHealth() <= 0) 
+                    if(pokemon.getFutureHealth(damageInflicted) <= 0)
                         attacker.expToLevelUpChange(-pokemon.getExp()); // give attacker exp of opponent if it killed the opponent
                 }
                 pokemon.getHit(damageInflicted, attackDone); // apply stat effect of attack
@@ -108,11 +109,13 @@ public class Attack extends Move
 
     public void capture() {
         pokemon.addToParty();
+        if(((Battle)getWorld()).trainer != 0)
+            ((Battle)getWorld()).beatenTrainers.add(((Battle)getWorld()).trainer);
         pokemon.removeBattleTag(); // remove the tag displaying its stats in battle
         getWorld().removeObject(pokemon);
         // generate new enemy here or reset game
         // if capturing gives you the turn again
-        ((Battle)getWorld()).goToMenu();
+        Greenfoot.setWorld(new ScrollingWorld(((Battle)getWorld()).beatenTrainers, ((Battle)getWorld()).x, ((Battle)getWorld()).y, ((Battle)getWorld()).bag, ((Battle)getWorld()).party));
         changeTurn(); // prepare turn for next actions
         getWorld().removeObject(this);
         // trace here to see if statement reachable

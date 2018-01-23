@@ -2,15 +2,28 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.*;
 
 /**
- * Write a description of class Battle here.
+ * This is the second major World class, where 
+ * all battles happen when the player enters one from
+ * the Scrolling World (map). It keeps track of the bag, 
+ * the party, and the trainers that need to inform the ScrollingWorld 
+ * class that they're unplayable (they've been beaten). 
+ * This game is played in two different modes, Wild and Trainer.
+ * These vary by the range of levels that enemy pokemon possess 
+ * (wild mode levels are much, much higher, so the user
+ * would need to train their party in other battles to 
+ * level-up and be able to beat more and more Wild pokemon).
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * The enemy is defined here, since every battle generates a random one 
+ * and it's removed on exit.
+ * 
+ *  @author Alina Kravchenko
  */
 public class Battle extends World
 {
     KeyReader keys = new KeyReader();
 
+    public int trainer; // trainer number of the one that you're battling right now
+    public ArrayList<Integer> beatenTrainers = new ArrayList<Integer>(); // the trainers that should not trigger battle anymore
     public Pokemon player, enemy;
     public int x, y;
     public boolean wildMode;
@@ -22,7 +35,7 @@ public class Battle extends World
     //Basically, turn 0 is when the player can attack. Turn 1 is when the enemy is attacking. Once the person clicks the button for the attack, turn 0 is updated to 1. Then the opponent will attack and turn set it back to turn 0;
     private int turn = 0; 
 
-    public Battle(int x, int y, boolean wildMode, ArrayList<HashMap<String, Integer>> bag, ArrayList<Pokemon> party)
+    public Battle(ArrayList<Integer> beatenTrainers, int trainer, int x, int y, boolean wildMode, ArrayList<HashMap<String, Integer>> bag, ArrayList<Pokemon> party)
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(800, 600, 1);
@@ -31,6 +44,8 @@ public class Battle extends World
         this.x = x;
         this.y = y;
         this.wildMode = wildMode;
+        this.trainer = trainer;
+        this.beatenTrainers = beatenTrainers;
         this.bag = bag;
         this.party = party;
 

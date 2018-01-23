@@ -1,24 +1,17 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Trainer here.
+ * This class creates an object with the image of a trainer in the map.
+ * All trainers are numbered and have different images.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Kathy Zhuang
  */
 public class Trainer extends Objects
 {
-    Trainer(int type){
-        if(type == 1){
-            setImage(new GreenfootImage("Webp.net-resizeimage (10).png"));
-        }else if(type == 2){
-            setImage(new GreenfootImage("trainer 1.png"));
-        }else if(type == 3){
-            setImage(new GreenfootImage("Webp.net-resizeimage (12).png"));
-        }else if(type == 4){
-            setImage(new GreenfootImage("Webp.net-resizeimage (11).png"));
-        }else if(type == 5){
-            setImage(new GreenfootImage("Webp.net-resizeimage (9).png"));
-        }
+    int number;
+    public Trainer(int number) {
+        super();
+        this.number = number;
+        setImage(new GreenfootImage("Trainer" + number + ".png"));
     }
 }

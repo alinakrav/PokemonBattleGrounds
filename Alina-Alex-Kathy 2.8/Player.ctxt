@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Player
-comment0.text=\nplayer\ needs\ to\ \n\ 1.\ walk\ around(in\ a\ fixed\ point,\ only\ the\ background\ scrolls)\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment0.text=\n\ This\ class\ moves\ the\ map\ according\ to\ the\ player's\ location,\ \n\ which\ is\ defined\ here\ based\ on\ the\ direction\ in\ which\ he\ is\ walking.\n\ The\ directional\ funcitonality\ is\ also\ used\ to\ avoid\ (not\ step\ on)\ \n\ objects\ that\ are\ considered\ 'obstacles'\ (such\ as\ Trainers\ and\ vegetation).\n\ \n\ @author\ Kathy\ Zhuang\n
 comment1.params=
 comment1.target=Player()
 comment2.params=

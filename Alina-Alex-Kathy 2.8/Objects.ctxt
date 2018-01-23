@@ -1,11 +1,11 @@
 #BlueJ class context
 comment0.target=Objects
-comment0.text=\n\ Write\ a\ description\ of\ class\ Objects\ here.\n\ \n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment0.text=\n\ This\ class\ encompasses\ all\ objects\ on\ the\ map,\ which\ can\ be\ interacted\ with.\n\ This\ means\ they\ either\ perform\ some\ fucntion,\ or\ the\ player\ can\ collide\ with\ them\ \n\ on\ contact.\ They\ allow\ the\ player\ to\ enter\ battle\ on\ specific\ triggers,\ as\ well\ as\ \n\ not\ walk\ over\ the\ objects.\ \n\ \n\ @author\ Kathy\ Zhuang\n
 comment1.params=
 comment1.target=void\ grassCollide()
 comment2.params=p1
 comment2.target=void\ battle(Player)
-comment3.params=p1\ d
+comment3.params=p1\ distance
 comment3.target=void\ obstacleCollide(greenfoot.Actor,\ int)
 comment3.text=\n\ set\ the\ player\ d\ location\ backword\ if\ it\ thouches\ the\ obstacle\n
 comment4.params=p1\ move

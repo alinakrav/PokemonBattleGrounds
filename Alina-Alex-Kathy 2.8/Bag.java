@@ -5,7 +5,14 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
+ * This class is for making all components of the bag interface. 
+ * It creates a Categories object, because there are multiple pages 
+ * for it. It has the ability to reach the bag item list, so the method 
+ * to change an item's amount is declared here, for decreasing the number 
+ * of a specific item. It also removes everything itself, as the last class
+ * to leave the world once the user is done with the bag.
  * 
+ * @author Alina Kravchenko
  */
 public class Bag extends Actor
 {
@@ -17,8 +24,6 @@ public class Bag extends Actor
     // the list of all items in bag (get this from world)
     ArrayList<HashMap<String, Integer>> itemList = new ArrayList<HashMap<String, Integer>>();
 
-    // 2d array of coordinates of all the item locations (taken from ItemsList constructor declaration)
-    String itemChosen;
     public Bag(World curWorld) {//ArrayList<HashMap<String, Integer>> itemList) {
         setImage("Bag.png");
         getImage().scale(800, 600);
@@ -49,6 +54,7 @@ public class Bag extends Actor
         }
     }
 
+    // define and return 2d array of coordinates of all the item locations (taken from ItemsList constructor declaration)
     private int[][] listLocations() {
         //boolean if statement here for whether it's bag or party
 

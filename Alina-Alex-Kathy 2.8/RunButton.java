@@ -1,12 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * This subclass is used to make buttons that, when pressed, instantiate a game with
- * the speed that is assigned to each given mode. Passing it a different mode changes 
- * the speed of the game that starts when the specific play button is pressed.
+ * This class exits the battle world when pressed, allowing the user to escape the current battle, 
+ * and in this case, the current enemy (since they're randomly made on instantiation of the Battle world).
  * 
- * @author Alex, Kathy, Alina 
- * @version November 9th, 2017
+ * @author Alina Kravchenko
  */
 public class RunButton extends Button
 {
@@ -27,6 +25,6 @@ public class RunButton extends Button
 
     // this method is executed in the parent's act method
     public void select() {        
-        Greenfoot.setWorld(new ScrollingWorld(((Battle)getWorld()).x, ((Battle)getWorld()).y, false, ((Battle)getWorld()).bag, ((Battle)getWorld()).party));
+        Greenfoot.setWorld(new ScrollingWorld(((Battle)getWorld()).beatenTrainers, ((Battle)getWorld()).x, ((Battle)getWorld()).y, ((Battle)getWorld()).bag, ((Battle)getWorld()).party));
     }
 }

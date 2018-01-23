@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Bag
-comment0.text=\n\ \n
+comment0.text=\n\ This\ class\ is\ for\ making\ all\ components\ of\ the\ bag\ interface.\ \n\ It\ creates\ a\ Categories\ object,\ because\ there\ are\ multiple\ pages\ \n\ for\ it.\ It\ has\ the\ ability\ to\ reach\ the\ bag\ item\ list,\ so\ the\ method\ \n\ to\ change\ an\ item's\ amount\ is\ declared\ here,\ for\ decreasing\ the\ number\ \n\ of\ a\ specific\ item.\ It\ also\ removes\ everything\ itself,\ as\ the\ last\ class\n\ to\ leave\ the\ world\ once\ the\ user\ is\ done\ with\ the\ bag.\n\ \n\ @author\ Alina\ Kravchenko\n
 comment1.params=curWorld
 comment1.target=Bag(greenfoot.World)
 comment2.params=

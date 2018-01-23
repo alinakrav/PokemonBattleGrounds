@@ -1,12 +1,9 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * This subclass is used to make buttons that, when pressed, instantiate a game with
- * the speed that is assigned to each given mode. Passing it a different mode changes 
- * the speed of the game that starts when the specific play button is pressed.
+ * This class leads the user to the Party interface when pressed.
  * 
- * @author Alex, Kathy, Alina 
- * @version November 9th, 2017
+ * @author Alina Kravchenko
  */
 public class PokemonButton extends Button
 {

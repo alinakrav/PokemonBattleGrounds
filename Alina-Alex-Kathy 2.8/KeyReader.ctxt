@@ -1,8 +1,10 @@
 #BlueJ class context
 comment0.target=KeyReader
-comment0.text=\n\ Write\ a\ description\ of\ class\ KeyReader\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment0.text=\n\ This\ class\ reads\ the\ key\ pressed,\ and\ returns\ it\ through\ a\ method\n\ that\ should\ be\ called\ by\ the\ class\ that\ instantiated\ its\ own\ KeyReader.\n\ \n\ @author\ Alina\ Kravchenko\n
 comment1.params=
-comment1.target=void\ act()
-comment2.params=s
-comment2.target=boolean\ keyIs(java.lang.String)
-numComments=3
+comment1.target=KeyReader()
+comment2.params=
+comment2.target=void\ act()
+comment3.params=s
+comment3.target=boolean\ keyIs(java.lang.String)
+numComments=4

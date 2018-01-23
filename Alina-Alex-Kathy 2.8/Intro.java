@@ -5,9 +5,14 @@ import java.util.*;
  * This class starts playing the background music,
  * and sets images to introduction screens that 
  * decsribe how the game works.
- * It presents the user with an option to play in easy or hard mode,
- * which are presented with buttons on the last screen.
  * 
+ * The pokemon party is made here, where 
+ * a random pokemon-generating method is used 
+ * to decide on 3 random pokemon names with 3 
+ * random levels (and thus, stat presets as later
+ * defined in the Pokemon class)
+ * 
+ *  @author Alex Do
  */
 public class Intro extends World
 {
@@ -51,7 +56,7 @@ public class Intro extends World
         //do in the first act
         if(!init) {
             song = new GreenfootSound("theme.mp3");
-            song.setVolume(30);
+            song.setVolume(0);
             song.playLoop();
             //do not repeat this action for other acts
             init = true;
@@ -64,9 +69,11 @@ public class Intro extends World
                 setBackground(new GreenfootImage("IntroScreen" + ++screenCounter + ".png"));
                 getBackground().scale(800, 600);   
             }
-            else            //if last screen image was shown, then move onto the main menu
-            //set up the difficulty buttons
-                Greenfoot.setWorld(new ScrollingWorld(-800, -600, false, bag, party));
+            else {           //if last screen image was shown, then move onto the main menu
+                // make empty array of beaten trainers ( no one beaten yet)
+                ArrayList<Integer> beatenTrainers = new ArrayList<Integer>();
+                Greenfoot.setWorld(new ScrollingWorld(beatenTrainers, -800, -600, bag, party));
+            }
             // reset cooldown 
             cooldownCount = cooldown;
         }
@@ -114,18 +121,16 @@ public class Intro extends World
     }
 
     public ArrayList<Pokemon> makeParty() {
-        //// defining pokemon party
-        party.add(new Gyarados(9, false));
-        party.add(new Mudkip(9, false));
-        party.add(new Snorlax(9, false));
-        party.add(new Oddish(9, false));
+        //// add 3 random pokemon to the player's party
+        for(int i = 0; i < 3; i++)
+            party.add(makeRandomPokemon());
 
         return party;
     }
 
     public Pokemon makeRandomPokemon() { // give them variable stats?
         String[] players = {"Charmander", "Pikachu", "Articuno", "Mudkip", "Gyarados", "Gengar", "Dragonite", "Jigglypuff", "Snorlax", "Oddish", "Arcanine", "Kyogre", "Golbat", "Arceus", "Tropius", "Mewtwo"}; // define all possible players
-        int max = 12;
+        int max = 15;
         int min = 0;
         int randInd = (int)(Math.random()*(max - min + 1) + min); // generate random index out of the above array (min = 0, max = 5)
         int level = 0;

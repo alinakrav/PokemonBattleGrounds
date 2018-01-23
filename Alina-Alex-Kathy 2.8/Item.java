@@ -5,10 +5,15 @@ import java.awt.Color;
 import java.util.ArrayList;
 
 /**
- * Write a description of class Item here.
+ * This class is a blueprint for items in the player's bag. 
+ * All they contain is a name, and an amount of such item, which 
+ * can be changed when an item is used (decrease in number).
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * One special case is that this also contains the 'close' button 
+ * "item", which is not a limited thing to use, so it's amount is set as -1
+ * to distinguish it from a useable game item.
+ * 
+ *  @author Alina Kravchenko
  */
 public class Item extends Actor
 {
@@ -59,7 +64,7 @@ public class Item extends Actor
             world.removeObjects(world.getObjects(ItemDescription.class)); // remove description
         else if(getWorld().getObjects(ItemDescription.class).size() == 0) { // if no description made yet
             itemDescription = new ItemDescription(); // make one new dscription object
-            getWorld().addObject(itemDescription, 405, 520);
+            getWorld().addObject(itemDescription, 400, 518);
             hover(); // call back to this method, since next time there will be a description present
         }
         else {// if description exists and item is not 'cancel', then description's image changes 

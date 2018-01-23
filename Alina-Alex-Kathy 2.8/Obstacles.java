@@ -1,14 +1,12 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Obstacles here.
+ * This class is for multiple obstacles, meaning you can't walk on them.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Kathy Zhuang
  */
 public class Obstacles extends Objects
 {
     public void collide() {
-
     }
 }

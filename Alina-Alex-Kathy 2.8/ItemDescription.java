@@ -3,15 +3,16 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class ItemDescription here.
+ * This class is simply an object that can be given any image
+ * right now, and just display it in a certain area. However, this
+ * is due to limited functionality, and not limited potential, since 
+ * this class represents the description of an item that is hovered
+ * over in the bag interface. It could be animated if it worked with a 
+ * string and animation instead of a static image of the text, 
+ * but for now, that's all it does. 
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Alina Kravchenko
  */
 public class ItemDescription extends Actor
 {
-    /**
-     * Act - do whatever the ItemDescription wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */ 
 }

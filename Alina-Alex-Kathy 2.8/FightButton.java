@@ -1,6 +1,16 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.ArrayList;
 
+/**
+ * This class is the 'fight' button, which simply leads the 
+ * user to an extended menu of all the moves he is able to use with 
+ * the current pokemon. 
+ * 
+ * When the current player pokemon faints, this button, along with the 
+ * bag button, is unavailable and cannot be pressed.
+ * 
+ *  @author Alina Kravchenko
+ */
 public class FightButton extends Button
 {
     Selection selection;
@@ -31,7 +41,7 @@ public class FightButton extends Button
         ///// this needs to be added to world before this button is deleted     
         ArrayList<Button> moveButtons = new ArrayList<Button>();
         for(int i = 0; i < 4; i++) {        
-            moveButtons.add(new FightSubButton(player.getMoveSet()[i]));
+            moveButtons.add(new MoveButton(player.getMoveSet()[i]));
             world.addObject(moveButtons.get(i), quadrants[i][0], quadrants[i][1]);
         }
 
@@ -50,7 +60,7 @@ public class FightButton extends Button
             }
         }
         else if (world.getParty().isEmpty()) { // if no one left in party, then you lose the game
-            Greenfoot.setWorld(new ScrollingWorld(((Battle)getWorld()).x, ((Battle)getWorld()).y, false, ((Battle)getWorld()).bag, ((Battle)getWorld()).party));
+            Greenfoot.setWorld(new ScrollingWorld(((Battle)getWorld()).beatenTrainers, ((Battle)getWorld()).x, ((Battle)getWorld()).y, ((Battle)getWorld()).bag, ((Battle)getWorld()).party));
         }
         else if(world.player.getWorld() == null && !greyOut) { // if they player is not currently in world (dead)
             // grey the top buttons out 

@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=DarkBoom
-comment0.text=\n\ Write\ a\ description\ of\ class\ DarkBoom\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment0.text=\n\ @author\ Alex\ Do\n
 comment1.params=attacker\ enemy\ targetX\ targetY
 comment1.target=DarkBoom(Pokemon,\ boolean,\ int,\ int)
 numComments=2

@@ -1,6 +1,6 @@
 #BlueJ class context
-comment0.target=MainTrainer
-comment0.text=\n\ Trainer\ supper\ class\n\ 1.\ tells\ the\ world\ to\ scroll\ or\ not\n\ 2.\ super\ class\ for\ the\ player\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment0.target=PlayerDirection
+comment0.text=\n\ Trainer\ superclass.\n\ This\ class\ allows\ the\ player\ to\ walk\ in\ the\ right\ direction\n\ within\ the\ map.\n\ \n\ @author\ Kathy\ Zhuang\n
 comment1.params=x\ y
 comment1.target=void\ setLocation(int,\ int)
 comment1.text=\n\ setLocation()\ method\ keeps\ the\ main\ trainer\ at\ the\ middle,moves\ the\ \n\ background\ and\ other\ objects\ instead\n

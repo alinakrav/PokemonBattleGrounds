@@ -2,13 +2,14 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.List;
 
 /**
- *player needs to 
- * 1. walk around(in a fixed point, only the background scrolls)
+ * This class moves the map according to the player's location, 
+ * which is defined here based on the direction in which he is walking.
+ * The directional funcitonality is also used to avoid (not step on) 
+ * objects that are considered 'obstacles' (such as Trainers and vegetation).
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Kathy Zhuang
  */
-public class Player extends MainTrainer
+public class Player extends PlayerDirection
 {
     boolean init = true;
     private int lastMove;
@@ -130,12 +131,14 @@ public class Player extends MainTrainer
         if(obj != null){ //if we're touching an object
             //We determine what type of object we're colliding with.
             //Depending on the object, we go into a different type of battle
-            if(obj instanceof Obstacles || obj instanceof Trees) {
+            if(obj instanceof Obstacles || obj instanceof Tree) {
                 obj.obstacleCollide(this, 6);
             }
-            else if(obj instanceof Trainers) {
-                obj.battle(this);
-                //obj.grassCollide();
+            else if(obj instanceof Trainer) {
+                if(!((ScrollingWorld)getWorld()).beatenTrainers.contains(((Trainer)obj).number)) 
+                    obj.battle(this);
+                else
+                    obj.obstacleCollide(this, 6);
             }
             // to trigger the wild battle, the player has to touch the grass object and walking at the same time  
             else if(obj instanceof Grass && ( Greenfoot.isKeyDown("left") || Greenfoot.isKeyDown("right") || Greenfoot.isKeyDown("up") || Greenfoot.isKeyDown("down"))) {

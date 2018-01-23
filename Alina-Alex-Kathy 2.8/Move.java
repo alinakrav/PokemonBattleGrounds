@@ -3,10 +3,11 @@ import java.awt.Color;
 import java.awt.Font;
 
 /**
- * Write a description of class Move here.
+ * This class gives functionality to all moves, such as changing
+ * the turn once it is over, and creating a description based on the move
+ * for a few seconds. 
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Alex Do
  */
 public class Move extends Actor
 {
@@ -24,7 +25,7 @@ public class Move extends Actor
         this.name = name;
         this.enemy = enemy;
         image = new GifImage(name + ".gif"); 
-        image.resizeImages(width, height);
+        image.resizeImages(image.getCurrentImage().getWidth()/2, image.getCurrentImage().getHeight()/2); // set the size for the entire gif to be a half of the original's size
         if(enemy) 
             image.flipImages(); //flip the image depending on whether it is an enemy or not enemy using it
     }

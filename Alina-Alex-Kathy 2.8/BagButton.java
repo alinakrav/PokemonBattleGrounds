@@ -1,12 +1,12 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * This subclass is used to make buttons that, when pressed, instantiate a game with
- * the speed that is assigned to each given mode. Passing it a different mode changes 
- * the speed of the game that starts when the specific play button is pressed.
+ * This class leads the user to the Bag interface when pressed. 
  * 
- * @author Alex, Kathy, Alina 
- * @version November 9th, 2017
+ * It is unavailable ('greyed out') and cannot be pressed when 
+ * the current player pokemon faints (runs out of HP).
+ * 
+ * @author Alina Kravchenko
  */
 public class BagButton extends Button
 {
@@ -28,7 +28,6 @@ public class BagButton extends Button
     public void select() {
         Bag bag = new Bag(getWorld());
         world.addObject(bag, world.getWidth()/2, world.getHeight()/2);
-        // specific bag stuff
 
         world.removeObjects(world.getObjects(Selection.class)); 
                 world.removeObjects(world.getObjects(Button.class));

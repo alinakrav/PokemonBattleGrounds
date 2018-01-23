@@ -1,10 +1,9 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import greenfoot.GreenfootImage;
 /**
- * Write a description of class Pool here.
+ * Pool is an object for a body of water that you can't walk on.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Kathy Zhuang
  */
 public class Pool extends Obstacles
 {

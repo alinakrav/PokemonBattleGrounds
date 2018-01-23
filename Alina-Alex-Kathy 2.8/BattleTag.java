@@ -3,10 +3,12 @@ import java.awt.Color;
 import java.awt.Font;
 
 /**
- * Write a description of class BattleTag here.
+ * This class is for making the HP/stats bar during a Battle (not party view).
+ * It has exp, hp, and level on the tag, as well as name of the pokemon currently 
+ * battling. It is a simple class because it only has the function of 
+ * getting a pokemon's info every act, and then redrawing itself based on that.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Alina Kravchenko
  */
 public class BattleTag extends Actor
 {
@@ -24,6 +26,7 @@ public class BattleTag extends Actor
 
     int expBarHeight = 7; 
     int expBarWidth = 239;
+    // get all the relevant info about this pokemon at first
     public BattleTag(Pokemon pokemon) {
         this.pokemon = pokemon;
         enemy = pokemon.getEnemy();
@@ -39,9 +42,11 @@ public class BattleTag extends Actor
     public void act() 
     {
         init();
+        // update relevant info here 
         level = pokemon.getLevel();
         health = pokemon.getCurHealth();
         exp = maxExp - pokemon.getExpToLevelUp();
+        // update the tag itself here
         update();
     }
 
@@ -68,30 +73,30 @@ public class BattleTag extends Actor
         stats.setColor(Color.BLACK);
         // draw the name (for charmander's long name, make font smaller)
         if(enemy) {
-            if(!pokemon.getName().equals("Charmander")) {
+            if(!name.equals("Charmander")) {
                 stats.setFont(new java.awt.Font("Dialog", Font.PLAIN, 35));
-                stats.drawString(pokemon.getName(), 10, 40);
+                stats.drawString(name, 10, 40);
             }
             else {
                 stats.setFont(new java.awt.Font("Dialog", Font.PLAIN, 30));
-                stats.drawString(pokemon.getName(), 10, 40);
+                stats.drawString(name, 10, 40);
             }
             stats.setFont(new java.awt.Font("Dialog", Font.PLAIN, 25));
-            stats.drawString(("Lv." + level), 210, 40);
+            stats.drawString(("Lv." + level), 194, 38);
             stats.drawString((health + "  " + maxHealth), 155, 85);
         }
         else {
-            if(!pokemon.getName().equals("Charmander")) {
+            if(!name.equals("Charmander")) {
                 stats.setFont(new java.awt.Font("Dialog", Font.PLAIN, 35));
-                stats.drawString(pokemon.getName(), 45, 40);
+                stats.drawString(name, 45, 40);
             }
             else {
                 stats.setFont(new java.awt.Font("Dialog", Font.PLAIN, 30));
-                stats.drawString(pokemon.getName(), 45, 40);
+                stats.drawString(name, 45, 40);
             }
             stats.setFont(new java.awt.Font("Dialog", Font.PLAIN, 25));
-            stats.drawString(("Lv." + pokemon.getLevel()), 250, 40);
-            stats.drawString((health + "  " + maxHealth), 195, 85);
+            stats.drawString(("Lv." + pokemon.getLevel()), 235, 38);
+            stats.drawString((health + "  " + maxHealth), 198, 85);
         }
 
         return stats;

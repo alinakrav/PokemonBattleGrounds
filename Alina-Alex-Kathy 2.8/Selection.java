@@ -4,7 +4,16 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.ArrayList;
 
 /**
- * This class gets fed an arraylist of some type of objects , which it goes through them and uses keyboard input to "hover" and select the objects (so user can see their selection)
+ * This class gets fed an arraylist of some type of objects, 
+ * which it goes through them and uses keyboard input to "hover" 
+ * and select the objects (so user can see their selection). The
+ * class has contructors for selection of Items (from the bag), 
+ * PartyTags (from the party), and Buttons (from the main menu).
+ * Essentially, this class keeps track of the 'current' iterated item
+ * from the user, and does the appropriate actions like hovering and selection
+ * based on how the items are positioned on a grid next to each other. 
+ * 
+ * @author Alina Kravchenko
  */
 public class Selection extends Actor
 {
@@ -69,7 +78,12 @@ public class Selection extends Actor
         setImage("null.png");
         if(twoColumns) { // if two columns, then the arraylist needs to be split into 2 arrays first
             PartyTag[] firstColumn, secondColumn;
-            secondColumn = new PartyTag[objectList.size() - 3];
+            int secondLength; // determine length of second array based on party length
+            if(objectList.size() > 3)
+                secondLength = objectList.size() - 3;
+            else
+                secondLength = 0;
+            secondColumn = new PartyTag[secondLength];
             firstColumn = new PartyTag[objectList.size() - secondColumn.length + 1]; // bigger half, plus one spot for the close button
             for(int i = 0; i < firstColumn.length - 1; i++) // populate first and second column lists with the buttons
                 firstColumn[i] = objectList.get(i);
@@ -80,7 +94,7 @@ public class Selection extends Actor
 
             for(int i = 0; i < secondColumn.length; i++)
                 secondColumn[i] = objectList.get(firstColumn.length - 1 + i);
-            PartyTag[][] temp = {firstColumn, secondColumn};
+            PartyTag[][] temp = {firstColumn, secondColumn}; // if the second column is empty, remake the grid with only the first column
             if(secondColumn.length == 0) {
                 temp = new PartyTag[1][firstColumn.length];
                 temp[0] = firstColumn;
