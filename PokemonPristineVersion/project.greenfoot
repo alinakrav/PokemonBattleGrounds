@@ -1,5 +1,5 @@
 #Greenfoot properties
-#Tue Jan 23 12:43:51 EST 2018
+#Tue Jan 23 13:26:39 EST 2018
 target15.width=80
 target5.height=50
 dependency147.from=Player
@@ -565,7 +565,7 @@ class.Trainer1.superclass=Trainers
 dependency229.type=UsesDependency
 dependency61.to=Pokemon
 mainWindow.y=23
-mainWindow.x=82
+mainWindow.x=50
 class.Tree4x2.superclass=Trees
 target5.typeParameters=
 target38.name=PlayerDirection
@@ -1148,7 +1148,7 @@ target4.typeParameters=
 target20.naviview.expanded=false
 target2.naviview.expanded=false
 target40.height=50
-editor.swing.0.width=701
+editor.swing.0.width=700
 target10.y=1690
 class.BagButton.superclass=Button
 dependency74.from=PartyTag
@@ -1221,8 +1221,8 @@ target2.typeParameters=
 dependency228.type=UsesDependency
 target35.naviview.expanded=false
 target9.width=80
-editor.fx.0.y=23
-editor.fx.0.x=50
+editor.fx.0.y=0
+editor.fx.0.x=0
 target60.height=50
 dependency240.to=Intro
 dependency194.to=ScrollingWorld

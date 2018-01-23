@@ -11,7 +11,6 @@ import java.awt.Font;
  */
 public class MoveButton extends Button
 {
-    String name;
     // constructor makes a button for a specific mode and assigns the main game speed
     public MoveButton(String name) {
         super(); // get functionality of superclass

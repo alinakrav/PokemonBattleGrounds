@@ -40,6 +40,7 @@ public class FightButton extends Button
 
         ///// this needs to be added to world before this button is deleted     
         ArrayList<Button> moveButtons = new ArrayList<Button>();
+
         for(int i = 0; i < 4; i++) {        
             moveButtons.add(new MoveButton(player.getMoveSet()[i]));
             world.addObject(moveButtons.get(i), quadrants[i][0], quadrants[i][1]);
