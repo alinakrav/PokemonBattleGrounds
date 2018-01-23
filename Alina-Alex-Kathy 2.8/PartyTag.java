@@ -70,7 +70,6 @@ public class PartyTag extends Actor
         //set the player to the chosen pokemon
         if(pokemon != null) { // if the tag isn't a 'close' button
             ((Battle)getWorld()).player = pokemon; // make the tag's pokemon the player
-            //((Battle)getWorld()).player.battleView();
         }
         // for all pokemon in party except the player
         for(PartyTag tag : ((Battle)getWorld()).getObjects(PartyTag.class)) { 

@@ -69,7 +69,7 @@ public class Selection extends Actor
         setImage("null.png");
         if(twoColumns) { // if two columns, then the arraylist needs to be split into 2 arrays first
             PartyTag[] firstColumn, secondColumn;
-            secondColumn = new PartyTag[objectList.size()/2];
+            secondColumn = new PartyTag[objectList.size() - 3];
             firstColumn = new PartyTag[objectList.size() - secondColumn.length + 1]; // bigger half, plus one spot for the close button
             for(int i = 0; i < firstColumn.length - 1; i++) // populate first and second column lists with the buttons
                 firstColumn[i] = objectList.get(i);
@@ -81,6 +81,10 @@ public class Selection extends Actor
             for(int i = 0; i < secondColumn.length; i++)
                 secondColumn[i] = objectList.get(firstColumn.length - 1 + i);
             PartyTag[][] temp = {firstColumn, secondColumn};
+            if(secondColumn.length == 0) {
+                temp = new PartyTag[1][firstColumn.length];
+                temp[0] = firstColumn;
+            }
             grid = temp;
             temp = null;
         }

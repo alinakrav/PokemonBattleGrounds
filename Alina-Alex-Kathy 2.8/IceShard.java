@@ -10,7 +10,7 @@ public class IceShard extends Attack
 {
     private static String name = "Ice Shard";
     private static int damage = 7;
-    private static int speed = 3;
+    private static int speed = 4;
     private Pokemon attacker;
     private boolean enemy;
     private int targetX;

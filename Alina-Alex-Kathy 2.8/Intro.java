@@ -115,15 +115,16 @@ public class Intro extends World
 
     public ArrayList<Pokemon> makeParty() {
         //// defining pokemon party
-        party.add(makeRandomPokemon());
-        party.add(makeRandomPokemon());
-        party.add(makeRandomPokemon());
+        party.add(new Gyarados(9, false));
+        party.add(new Mudkip(9, false));
+        party.add(new Snorlax(9, false));
+        party.add(new Oddish(9, false));
 
         return party;
     }
 
     public Pokemon makeRandomPokemon() { // give them variable stats?
-        String[] players = {"Charmander", "Pikachu", "Articuno", "Gengar", "Dragonite", "Jigglypuff", "Oddish", "Arcanine", "Kyogre", "Golbat", "Arceus", "Tropius", "Mewtwo"}; // define all possible players
+        String[] players = {"Charmander", "Pikachu", "Articuno", "Mudkip", "Gyarados", "Gengar", "Dragonite", "Jigglypuff", "Snorlax", "Oddish", "Arcanine", "Kyogre", "Golbat", "Arceus", "Tropius", "Mewtwo"}; // define all possible players
         int max = 12;
         int min = 0;
         int randInd = (int)(Math.random()*(max - min + 1) + min); // generate random index out of the above array (min = 0, max = 5)

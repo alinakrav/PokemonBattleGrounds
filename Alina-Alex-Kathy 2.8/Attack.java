@@ -8,6 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Attack extends Move
 {
+    boolean init = true;
     boolean attackDone = false; // makes sure attack is only applying its effects once, before the animation plays out
     int cooldownCount = 0;
     int cooldown = 50;
@@ -45,10 +46,10 @@ public class Attack extends Move
     public void act() 
     {
         super.act();
-        if(!attackDone) { // don't move if attack 
+        init();
+
+        if(!attackDone) // don't move if attack 
             move(speed);
-            turnTowards(targetX, targetY);
-        }
         //keep it in domain
 
         if(getX() > getWorld().getWidth()-5 || getX() < 5 || getY() > getWorld().getHeight() - 5) {
@@ -57,6 +58,13 @@ public class Attack extends Move
         else 
             hit();
     }  
+
+    public void init() {
+        if(init) {
+            init = false;
+            turnTowards(targetX, targetY);
+        }
+    }
 
     public void hit() {
         pokemon = (Pokemon)getOneObjectAtOffset(0,0, Pokemon.class);

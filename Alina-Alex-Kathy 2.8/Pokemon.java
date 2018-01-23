@@ -27,12 +27,13 @@ public class Pokemon extends Actor
     //attacks moves for Pokemon
     private String[] moveSet; 
 
+    /*
     //Bouncing Movement
     int bounceTimer = 0; // counts the time until the next bounce movement
     private final int bounceInterval = 20; // how much time there is between bounce movements
     int bounceX; // how many pixels character moves horizontally
     int bounceY; // how many pixels character moves vertically
-
+     */ 
     //Misc
     boolean enemy;
     boolean started; // whether the character has acted yet
@@ -70,15 +71,19 @@ public class Pokemon extends Actor
         statCalculation(); //sets pokemon's stats based on their statPreset and their level
         curHealth = health;
         if(enemy){
+            /*
             bounceX = 0;
             bounceY = 10;
-            targetX = 240;
+             */
+            targetX = 220;
             targetY = 420;
         } else { //Player pokemon
+            /*
             bounceX = 15;
             bounceY = 15;
+             */
             targetX = 600;
-            targetY = 230;
+            targetY = 240;
         }
     }
 
@@ -322,16 +327,18 @@ public class Pokemon extends Actor
         speed += change;
     }
 
+    /*
     // this method times intervals between a character's small movements around their original position
     public void bounce() {
-        bounceTimer++; // count frames
-        if(bounceTimer == bounceInterval) { // when frame count reaches required interval between movements
-            bounceX *= -1; // make the next movements in opposite directions of current ones
-            bounceY *= -1;
-            setLocation(getX() + bounceX, getY() + bounceY); // add those movements to current position (can be pos or neg)
-            bounceTimer = 0; //reset interval timer
-        }
+    bounceTimer++; // count frames
+    if(bounceTimer == bounceInterval) { // when frame count reaches required interval between movements
+    bounceX *= -1; // make the next movements in opposite directions of current ones
+    bounceY *= -1;
+    setLocation(getX() + bounceX, getY() + bounceY); // add those movements to current position (can be pos or neg)
+    bounceTimer = 0; //reset interval timer
     }
+    }
+     */
 
     public void enemyMove() {
         if(enemy && getWorld() instanceof Battle && ((Battle)getWorld()).getTurn() == 1){
@@ -441,7 +448,7 @@ public class Pokemon extends Actor
         if(enemy) {
             image = new GifImage(name + ".gif");
             image.resizeImages((int)(width*0.7), (int)(height*0.7));
-            setLocation(590, 240);
+            setLocation(600, 240);
         }
         else {
             image = new GifImage("Back" + name + ".gif");
@@ -468,15 +475,10 @@ public class Pokemon extends Actor
         }
     }
 
-    public void capture(){
-        enemy = false;
-        targetX = 600;
-        targetY = 230;
-        flip();
-    }
-
     public void addToParty() {
         enemy = false;
+        targetX = 600;
+        targetY = 240;
         ((Battle)getWorld()).party.add(this);
     }
 }
