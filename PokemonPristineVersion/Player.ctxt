@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.target=Player
+comment0.text=\n\ This\ class\ moves\ the\ map\ according\ to\ the\ player's\ location,\ \n\ which\ is\ defined\ here\ based\ on\ the\ direction\ in\ which\ he\ is\ walking.\n\ The\ directional\ funcitonality\ is\ also\ used\ to\ avoid\ (not\ step\ on)\ \n\ objects\ that\ are\ considered\ 'obstacles'\ (such\ as\ Trainers\ and\ vegetation).\n\ \n\ @author\ Kathy\ Zhuang\n
+comment1.params=
+comment1.target=Player()
+comment2.params=
+comment2.target=void\ act()
+comment3.params=
+comment3.target=void\ init()
+comment4.params=
+comment4.target=void\ walk()
+comment4.text=\n\ the\ method\ allows\ the\ player\ to\ walk\ around\n
+comment5.params=
+comment5.target=void\ collide()
+comment5.text=\n\ \ \ \ public\ void\ collide(){\n\ \ \ \ //We\ determine\ what\ type\ of\ object\ we're\ colliding\ with.\n\ \ \ \ //Depending\ on\ the\ object,\ we\ go\ into\ a\ different\ type\ of\ battle\n\ \ \ \ boolean\ canGoBack\ \=\ true;\n\ \ \ \ List\ foundObjs\ \=\ getIntersectingObjects(Objects.class);\n\ \ \ \ //\ I\ am\ getting\ all\ the\ different\ objects\ that\ I\ am\ colliding\ it\ because\ you\ can\ touch\ more\ than\ one\ object\n\ \ \ \ for(int\ i\ \=\ 0;\ i<\ foundObjs.size();i++){\n\ \ \ \ Objects\ obj\ \=\ (Objects)foundObjs.get(i);\n\ \ \ \ if(obj\ instanceof\ Obstacles\ ||\ obj\ instanceof\ Trees)\ {\n\ \ \ \ //you\ can\ only\ collide\ with\ solid\ object\ at\ a\ time\n\ \ \ \ if(canGoBack){\n\ \ \ \ canGoBack\ \=\ false;\n\ \ \ \ //\ this\ basically\ reverses\ the\ previous\ walking\ command\ to\ help\ you\ collide\n\ \ \ \ obj.goBack(this,lastMove);\n\ \ \ \ }\n\ \ \ \ //obj.obstacleCollide(this,\ 6);\n\ \ \ \ }\n\ \ \ \ else\ if(obj\ instanceof\ Trainer)\ {\n\ \ \ \ obj.battle(this);\n\ \ \ \ //obj.grassCollide();\n\ \ \ \ }\n\ \ \ \ else\ if(obj\ instanceof\ Grass\ &&\ (\ Greenfoot.isKeyDown("left")\ ||\ Greenfoot.isKeyDown("right")\ ||\ Greenfoot.isKeyDown("up")\ ||\ Greenfoot.isKeyDown("down")))\ {\n\ \ \ \ obj.grassCollide();\n\ \ \ \ }\n\ \ \ \ }\n\ \ \ \ }\n
+numComments=6

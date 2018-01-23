@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=Button
+comment0.text=\n\ This\ class\ defines\ the\ 4\ 'quadrants'\ that\ buttons\ should\ be\ placed\ on\ \n\ during\ the\ game,\ so\ they\ will\ always\ be\ in\ a\ set\ position\ (quadrants\ are\ \n\ numbered\ in\ horizontal\ Z\ pattern,\ by\ the\ way).\ Each\ button\ does\ appears\ to\ be\ \n\ hovered\ (highlighted)\ when\ it\ is\ the\ current\ button\ the\ user\ hovers\ over\ \n\ (using\ arrow\ keys).\ All\ buttons\ have\ a\ certain\ action\ when\ selected,\ so\ \n\ the\ select()\ method\ is\ declared\ in\ the\ superclass\ for\ all\ buttons.\ \n\ \n\ All\ buttons\ are\ named\ in\ such\ a\ name\ that\ links\ them\ to\ a\ PNG\ file\ \n\ of\ what\ they\ look\ like,\ as\ well\ as\ their\ hovered-over\ version.\n\ \n\ \ @author\ Alina\ Kravchenko\n
+comment1.params=
+comment1.target=void\ act()
+comment2.params=
+comment2.target=void\ hover()
+comment3.params=
+comment3.target=void\ select()
+comment4.params=
+comment4.target=void\ prepare()
+numComments=5

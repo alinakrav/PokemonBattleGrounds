@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=RunButton
+comment0.text=\n\ This\ class\ exits\ the\ battle\ world\ when\ pressed,\ allowing\ the\ user\ to\ escape\ the\ current\ battle,\ \n\ and\ in\ this\ case,\ the\ current\ enemy\ (since\ they're\ randomly\ made\ on\ instantiation\ of\ the\ Battle\ world).\n\ \n\ @author\ Alina\ Kravchenko\n
+comment1.params=
+comment1.target=RunButton()
+comment2.params=
+comment2.target=void\ act()
+comment3.params=
+comment3.target=void\ select()
+numComments=4

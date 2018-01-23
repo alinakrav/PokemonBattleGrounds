@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.target=Defend
+comment0.text=\ \n\ @author\ Alex\ Do\n
+comment1.params=caster\ enemy
+comment1.target=Defend(Pokemon,\ boolean)
+numComments=2

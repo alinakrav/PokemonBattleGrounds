@@ -1,0 +1,24 @@
+#BlueJ class context
+comment0.target=Selection
+comment0.text=\n\ This\ class\ gets\ fed\ an\ arraylist\ of\ some\ type\ of\ objects,\ \n\ which\ it\ goes\ through\ them\ and\ uses\ keyboard\ input\ to\ "hover"\ \n\ and\ select\ the\ objects\ (so\ user\ can\ see\ their\ selection).\ The\n\ class\ has\ contructors\ for\ selection\ of\ Items\ (from\ the\ bag),\ \n\ PartyTags\ (from\ the\ party),\ and\ Buttons\ (from\ the\ main\ menu).\n\ Essentially,\ this\ class\ keeps\ track\ of\ the\ 'current'\ iterated\ item\n\ from\ the\ user,\ and\ does\ the\ appropriate\ actions\ like\ hovering\ and\ selection\n\ based\ on\ how\ the\ items\ are\ positioned\ on\ a\ grid\ next\ to\ each\ other.\ \n\ \n\ @author\ Alina\ Kravchenko\n
+comment1.params=objectList\ twoColumns\ dummyParameter
+comment1.target=Selection(java.util.ArrayList,\ boolean,\ Button)
+comment10.params=grid
+comment10.target=void\ setGrid(greenfoot.Actor[][])
+comment2.params=objectList\ twoColumns\ dummyParameter\ canPress
+comment2.target=Selection(java.util.ArrayList,\ boolean,\ Item,\ boolean)
+comment3.params=objectList\ twoColumns\ dummyParameter
+comment3.target=Selection(java.util.ArrayList,\ boolean,\ PartyTag)
+comment4.params=
+comment4.target=void\ act()
+comment5.params=
+comment5.target=void\ hoverOverCurrent()
+comment6.params=
+comment6.target=void\ selectCurrent()
+comment7.params=
+comment7.target=greenfoot.Actor\ currentItem()
+comment8.params=
+comment8.target=void\ prepare()
+comment9.params=
+comment9.target=greenfoot.Actor[][]\ getGrid()
+numComments=11

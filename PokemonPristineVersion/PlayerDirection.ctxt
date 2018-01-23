@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=PlayerDirection
+comment0.text=\n\ Trainer\ superclass.\n\ This\ class\ allows\ the\ player\ to\ walk\ in\ the\ right\ direction\n\ within\ the\ map.\n\ \n\ @author\ Kathy\ Zhuang\n
+comment1.params=x\ y
+comment1.target=void\ setLocation(int,\ int)
+comment1.text=\n\ setLocation()\ method\ keeps\ the\ main\ trainer\ at\ the\ middle,moves\ the\ \n\ background\ and\ other\ objects\ instead\n
+comment2.params=direction
+comment2.target=boolean\ scrollOnDirection(int)
+comment2.text=\n\ indicate\ whether\ the\ player\ can\ continue\ scrolling\ the\ world\ on\ that\ direction\n
+numComments=3
