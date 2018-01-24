@@ -106,13 +106,17 @@ public class Player extends PlayerDirection
         for(int i = 0; i< foundObjs.size();i++){
             Objects obj = (Objects)foundObjs.get(i);
             if(obj instanceof Obstacles || obj instanceof Tree) {
-                obj.obstacleCollide(this, 6);
+                //you can only collide with solid object at a time
+                if(canGoBack){
+                    canGoBack = false;
+                    // this basically reverses the previous walking command to help you collide
+                    obj.goBack(this,lastMove);
+                }
+                //obj.obstacleCollide(this, 6);
             }
             else if(obj instanceof Trainer) {
-                if(!((ScrollingWorld)getWorld()).beatenTrainers.contains(((Trainer)obj).number)) 
-                    obj.battle(this);
-                else
-                    obj.obstacleCollide(this, 6);
+                obj.battle(this);
+                //obj.grassCollide();
             }
             else if(obj instanceof Grass && ( Greenfoot.isKeyDown("left") || Greenfoot.isKeyDown("right") || Greenfoot.isKeyDown("up") || Greenfoot.isKeyDown("down"))) {
                 obj.grassCollide();

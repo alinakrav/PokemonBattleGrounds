@@ -50,7 +50,7 @@ public class Objects extends Actor
         }
     }
 
-    /**
+ /**
      * reverses the previous input command the user made to implement object collision
      */
     public void goBack(Actor p1, int move){
