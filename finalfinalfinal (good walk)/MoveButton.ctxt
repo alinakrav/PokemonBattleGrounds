@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=MoveButton
+comment0.text=\n\ This\ class\ is\ the\ menu\ that\ appears\ after\ 'fight'\ button\ is\ pressed.\n\ It\ simply\ executes\ the\ Pokemon\ move\ that\ is\ defined\ in\ its\ image\ as\ its\ own\ name.\n\ \n\ @author\ Alina\ Kravchenko\n
+comment1.params=name
+comment1.target=MoveButton(java.lang.String)
+comment2.params=
+comment2.target=void\ act()
+comment3.params=
+comment3.target=void\ select()
+numComments=4

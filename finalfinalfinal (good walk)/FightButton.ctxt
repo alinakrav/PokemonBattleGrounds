@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=FightButton
+comment0.text=\n\ This\ class\ is\ the\ 'fight'\ button,\ which\ simply\ leads\ the\ \n\ user\ to\ an\ extended\ menu\ of\ all\ the\ moves\ he\ is\ able\ to\ use\ with\ \n\ the\ current\ pokemon.\ \n\ \n\ When\ the\ current\ player\ pokemon\ faints,\ this\ button,\ along\ with\ the\ \n\ bag\ button,\ is\ unavailable\ and\ cannot\ be\ pressed.\n\ \n\ \ @author\ Alina\ Kravchenko\n
+comment1.params=
+comment1.target=FightButton()
+comment2.params=
+comment2.target=void\ act()
+comment3.params=
+comment3.target=void\ select()
+comment4.params=
+comment4.target=void\ greyOutIfDead()
+numComments=5

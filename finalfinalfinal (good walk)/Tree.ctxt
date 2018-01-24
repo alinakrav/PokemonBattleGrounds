@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=Tree
+comment0.text=\n\ This\ class\ creates\ an\ object\ with\ the\ image\ of\ a\ tree\ (with\ numerous\ available\ dimensions),\n\ which\ can't\ be\ walked\ on\ and\ the\ player\ bumps\ into.\ \n\ \n\ @author\ Kathy\ Zhuang\n
+comment1.params=dimensions
+comment1.target=Tree(java.lang.String)
+comment1.text=\n\ Act\ -\ do\ whatever\ the\ Trees\ wants\ to\ do.\ This\ method\ is\ called\ whenever\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\n
+numComments=2

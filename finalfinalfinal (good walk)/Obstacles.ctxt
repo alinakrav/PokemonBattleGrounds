@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.target=Obstacles
+comment0.text=\n\ This\ class\ is\ for\ multiple\ obstacles,\ meaning\ you\ can't\ walk\ on\ them.\n\ \n\ @author\ Kathy\ Zhuang\n
+comment1.params=
+comment1.target=void\ collide()
+numComments=2

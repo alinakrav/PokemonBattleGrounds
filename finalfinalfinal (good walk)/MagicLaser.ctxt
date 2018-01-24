@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.target=MagicLaser
+comment0.text=\n\ @author\ Alex\ Do\n
+comment1.params=attacker\ enemy\ targetX\ targetY
+comment1.target=MagicLaser(Pokemon,\ boolean,\ int,\ int)
+numComments=2

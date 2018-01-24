@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.target=StatChange
+comment0.text=\n\ This\ class\ is\ for\ making\ moves\ that\ affect\ the\ one\ that\ \n\ does\ them,\ so\ self-changing\ moves.\ They\ just\ need\ to\ play\ \n\ out\ an\ animation\ for\ the\ user\ to\ see\ they\ are\ being\ done\ \n\ \n\ @author\ Alex\ Do\n
+comment1.params=name\ statType\ value\ caster\ enemy
+comment1.target=StatChange(java.lang.String,\ java.lang.String,\ int,\ Pokemon,\ boolean)
+comment2.params=
+comment2.target=void\ act()
+numComments=3
